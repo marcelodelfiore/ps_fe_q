@@ -1,0 +1,45 @@
+
+const routes = [
+  {
+    path: '/',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '',
+       component: () => import('pages/Index.vue')
+      },
+      { path: '/recipes',
+       component: () => import('pages/recipes/recipes.vue')
+      },
+      { path: '/recipes/:id',
+       component: () => import('pages/recipes/recipe.vue')
+      },
+      { path: '/raws',
+      component: () => import('pages/raws/raws.vue')
+      },
+      { path: '/raws/:id',
+      component: () => import('pages/raws/raw.vue')
+      },
+      { path: '/textures',
+        component: () => import('pages/textures/textures.vue')
+      },
+      { path: '/textures/:id',
+      component: () => import('pages/textures/texture.vue')
+      },
+      { path: '/categories',
+        component: () => import('pages/categories/categories.vue')
+      },
+      { path: '/categories/:id',
+      component: () => import('pages/categories/category.vue')
+      }
+    ]
+  },
+
+  // Always leave this as last one,
+  // but you can also remove it
+  {
+    path: '*',
+    component: () => import('pages/Error404.vue')
+  }
+]
+
+export default routes
