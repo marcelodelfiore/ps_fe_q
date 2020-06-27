@@ -25,8 +25,6 @@
       show-if-above
       bordered
       content-class="bg-grey-1"
-      width=200
-      breakpoint=767
     >
       <q-list>
         <q-item-label

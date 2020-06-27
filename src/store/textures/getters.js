@@ -1,7 +1,9 @@
 export function texturesList(state) {
     return state.list
-}
+};
 
-export function textureByID(state, getters, id){
-    return getters.texturesList.find(t => t.id === id);
-}
+export function textureByID(state, getters){
+    return id => getters.texturesList.find(t =>{
+        return t.id === id
+      })
+};
