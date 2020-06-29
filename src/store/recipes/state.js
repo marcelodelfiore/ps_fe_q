@@ -1,6 +1,6 @@
 export default function () {
   return {
-    list: [
+    list_of_recipes: [
       {
         title: "Linguiça Calabresa Defumada",
         id: "1",

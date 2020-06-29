@@ -1,5 +1,5 @@
 export function rawMaterialsList(state){
-    return state.list;
+    return state.list_of_raws;
 }
 
 export function rawMaterialByID(state, getters){

@@ -1,6 +1,6 @@
 export default function () {
   return {
-    list: [
+    list_of_raws: [
       { id: "1", description: "Pernil Suíno" },
       { id: "2", description: "Paleta Suína" },
       { id: "3", description: "Copa Lombo" },

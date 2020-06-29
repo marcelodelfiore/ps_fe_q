@@ -1,6 +1,6 @@
 export default function () {
   return {
-    list: [
+    list_of_categories: [
       { id: "1", description: "Defumados" },
       { id: "2", description: "Curados" },
       { id: "3", description: "Frescos" },

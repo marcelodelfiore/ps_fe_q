@@ -15,7 +15,7 @@ const { mapGetters, mapState } = createNamespacedHelpers("textures");
 
 export default {
   computed: {
-    ...mapState(["textures"]),
+    ...mapState("textures", ["textures"]),
     ...mapGetters(["textureByID"], ["texturesList"])
   },
   name: 'Texture'

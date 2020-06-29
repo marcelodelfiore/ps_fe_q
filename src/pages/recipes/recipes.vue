@@ -15,15 +15,7 @@ import { mapGetters, mapState } from "vuex";
 
 export default {
   computed: {
-    ...mapState("recipes", ["recipes"]),
-    ...mapGetters("recipes", 
-    [
-      "recipesList",
-      "recipesDefumados",
-      "recipesCurados",
-      "recipesFrescos",
-      "recipesMaturados"
-    ])
+    ...mapGetters("recipes", ["recipesList"])
   },
   name: 'Recipes'
 }

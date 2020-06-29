@@ -14,11 +14,7 @@ import { mapGetters, mapState } from "vuex";
 
 export default {
   computed: {
-    ...mapState("raws", ["raws"]),
-    ...mapGetters("raws",
-    [
-      "rawMaterialsList"
-    ])
+    ...mapGetters("raws", ["rawMaterialsList"])
   },
   name: 'RawMaterials'
 }

@@ -1,6 +1,6 @@
 export default function () {
   return {
-    list: [
+    list_of_Textures: [
       { id: "1", description: "Moído, disco #6" },
       { id: "2", description: "Moído, disco #10" },
       { id: "3", description: "Emulsificado" },

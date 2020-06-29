@@ -1,5 +1,5 @@
 export function categoriesList(state){
-  return state.list
+  return state.list_of_categories
 };
 
 export function categoryByID(state, getters){

@@ -1,5 +1,5 @@
 export function texturesList(state) {
-    return state.list
+    return state.list_of_Textures
 };
 
 export function textureByID(state, getters){

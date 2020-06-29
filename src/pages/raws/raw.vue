@@ -10,7 +10,7 @@
 <script>
 import { createNamespacedHelpers } from "vuex";
 
-const { mapGetters, mapState } = createNamespacedHelpers("raw_materials");
+const { mapGetters, mapState } = createNamespacedHelpers("raws");
 
 export default {
   computed: {

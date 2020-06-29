@@ -15,11 +15,7 @@ import { mapGetters, mapState } from "vuex";
 
 export default {
   computed: {
-    ...mapState("textures", ["textures"]),
-    ...mapGetters("textures", 
-    [
-      "texturesList"
-    ])
+    ...mapGetters("textures", ["texturesList"])
   },
   name: 'Textures'
 }
