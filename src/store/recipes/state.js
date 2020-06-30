@@ -83,7 +83,7 @@ export default function () {
           { id: "27", percent: 0.2, texture: "11" },
           { id: "28", percent: 0.15, texture: "12" },
           { id: "29", percent: 0.05, texture: "12" },
-          { id: "33", percent: 5, texture: "13" }
+          { id: "33", percent: 5, texture: "4" }
         ],
         privacy: "0",
         author: "",

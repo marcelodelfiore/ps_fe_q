@@ -3,7 +3,7 @@
     <q-header>
       <q-toolbar>
 
-        <q-toolbar-title class="large absolute-center">
+        <q-toolbar-title class="large absolute-center text-bold text-h3">
           Porksmith
         </q-toolbar-title>
 
