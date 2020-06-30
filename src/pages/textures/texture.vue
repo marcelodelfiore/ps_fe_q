@@ -9,15 +9,12 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from "vuex";
-
-const { mapGetters, mapState } = createNamespacedHelpers("textures");
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapState("textures", ["textures"]),
-    ...mapGetters(["textureByID"], ["texturesList"])
+    ...mapGetters('textures', ['textureByID'])
   },
-  name: 'Texture'
+  name: 'Textures'
 }
 </script>

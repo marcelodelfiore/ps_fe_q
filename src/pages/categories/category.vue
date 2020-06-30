@@ -6,14 +6,11 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from "vuex";
-
-const { mapGetters, mapState } = createNamespacedHelpers("categories");
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapState(["categories"]),
-    ...mapGetters(["categoryByID", "categoriesList"])
+    ...mapGetters('categories', ['categoryByID'])
   },
   name: 'Categorie'
 }

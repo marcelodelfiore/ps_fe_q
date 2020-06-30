@@ -8,14 +8,11 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from "vuex";
-
-const { mapGetters, mapState } = createNamespacedHelpers("raws");
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapState(["raw_materials"]),
-    ...mapGetters(["rawMaterialByID"])
+    ...mapGetters('raws', ["rawMaterialByID"])
   },
   name: 'RawMaterial'
 }

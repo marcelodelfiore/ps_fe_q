@@ -6,8 +6,8 @@
       v-for="(ingredient, index) in recipeByID($route.params.id).ingredients"
       :key="index"
     >
-      {{ rawMaterialByID(ingredient.id).description }}
-      {{ ingredient.texture }}
+      {{ (rawMaterialByID(ingredient.id)).description }}
+      {{ (textureByID(ingredient.texture)).description }}
       {{ ingredient.percent }}
     </div>
     <hr />
@@ -22,18 +22,14 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapState("recipes",["recipes"]),
-    ...mapGetters("recipes",
-     [
-       "recipeByID"
-    ]),
-    ...mapGetters("raws", ["rawMaterialByID"]),
-    ...mapGetters("textures", ["textureByID"])
+    ...mapGetters('recipes', ['recipeByID']),
+    ...mapGetters('raws', ['rawMaterialByID']),
+    ...mapGetters('textures', ['textureByID'])
   },
-  name: 'Recipe'
+  name: 'Recipes'
 }
 </script>

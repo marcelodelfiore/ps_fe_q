@@ -4,6 +4,6 @@ export function categoriesList(state){
 
 export function categoryByID(state, getters){
   return id => getters.categoriesList.find(r =>{
-      return r.id === id
+    return r.id === id
     })
 };
