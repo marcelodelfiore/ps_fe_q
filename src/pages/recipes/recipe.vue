@@ -3,9 +3,16 @@
 
     <div class="q-pa-md">
       <div class="row">
-        <div class="col-12 text-h4 text-bold text-center q-pb-md">
+        <div class="col-6 text-h4 text-bold text-center">
           {{ recipeByID($route.params.id).title }}  
         </div>
+
+        <div class="col-6 text-h3 text-bold text-center">
+          <q-btn round color="primary" icon="build" class="q-mt-md" @click="newBatch">
+            <q-tooltip >Criar novo lote de produto</q-tooltip>
+          </q-btn>  
+        </div>
+
       </div>
       
       <div class="q-pa-md row items-start q-gutter-md">
@@ -27,10 +34,11 @@
                 </q-card-section>
               </q-card>
         </div>
-      
-        <div class="q-pa-sm col-12 text-left" v-for="step in recipeByID($route.params.id).prep_steps"
+
+
+        <div class="q-pa-sm col-12 text-left text-h5" v-for="step in recipeByID($route.params.id).prep_steps"
           :key="step.seq">
-            {{ step.seq }}
+            <strong>{{ step.seq }}</strong>
             {{ step.description }}
         </div>
       
@@ -48,6 +56,11 @@ export default {
     ...mapGetters('recipes', ['recipeByID']),
     ...mapGetters('raws', ['rawMaterialByID']),
     ...mapGetters('textures', ['textureByID'])
+  },
+  methods: {
+    newBatch: function() {
+      alert("Criar um novo lote de produtos")
+    }
   },
   name: 'Recipes'
 }
