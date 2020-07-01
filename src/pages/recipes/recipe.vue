@@ -12,9 +12,11 @@
         <div class="q-pa-sm col-2 col-md-2 text-center" v-for="(ingredient, index) in recipeByID($route.params.id).ingredients"
             :key="index">         
               <q-card class="no-shadow">
-                <q-img src="https://cdn.quasar.dev/img/mountains.jpg" 
-                style="height: 75px; max-width: 75px"
-                />
+                <q-card-section>
+                  <q-img :src= "(rawMaterialByID(ingredient.id)).thumbnail"
+                  style="height: 75px; max-width: 75px"
+                  />
+                </q-card-section>
                 <q-card-section>
                   <div class="text-h6">{{ (rawMaterialByID(ingredient.id)).description }} </div>
                   <div class="text-subtitle2">{{ (textureByID(ingredient.texture)).description }}</div>
