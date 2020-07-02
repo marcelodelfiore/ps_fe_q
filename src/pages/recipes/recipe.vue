@@ -2,15 +2,15 @@
   <q-page padding>
 
     <div class="q-pa-md">
-      <div class="row">
-        <div class="col-12 text-h4 text-bold text-center fill-height">
+      <div class="row justify-center">
+        <div class="col- text-h4 text-bold">
           {{ recipeByID($route.params.id).title }}
         </div>
       </div>
-      <div class="row">
+      <div class="row justify-center">
         <q-space/>
-        <div class="col-4 vertical-middle text-center">
-          <q-btn round color="primary" icon="build" class="q-mt-sm q-mb-lg" @click="newBatch">
+        <div class="col-3">
+          <q-btn round color="orange-8" icon="build" class="q-mt-sm q-mb-lg" @click="newBatch">
             <q-tooltip >Criar novo lote de produto</q-tooltip>
           </q-btn>
         </div>

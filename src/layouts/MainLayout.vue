@@ -3,7 +3,7 @@
     <q-header>
       <q-toolbar>
 
-        <q-toolbar-title class="my-font-logo large absolute-center text-bold text-h3 q-pt-md">
+        <q-toolbar-title class="my-font-logo large absolute-center text-bold text-h3 q-py-xs q-my-xs">
           Porksmith
         </q-toolbar-title>
 
