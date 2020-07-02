@@ -3,7 +3,7 @@
     <q-header>
       <q-toolbar>
 
-        <q-toolbar-title class="large absolute-center text-bold text-h3">
+        <q-toolbar-title class="my-font-logo large absolute-center text-bold text-h3 q-pt-md">
           Porksmith
         </q-toolbar-title>
 
@@ -24,7 +24,7 @@
       v-model="leftDrawerOpen"
       show-if-above
       bordered
-      content-class="bg-grey-1"
+      content-class="bg-grey-3"
     >
       <q-list>
         <q-item-label
