@@ -3,7 +3,7 @@
 
     <div class="q-pa-md">
       <div class="row justify-center">
-        <div class="col- text-h4 text-bold">
+        <div class="text-h4 text-bold">
           {{ recipeByID($route.params.id).title }}
         </div>
       </div>
@@ -18,9 +18,9 @@
       </div>
       
       <div class="row">
-        <div class="col-xs-12 col-md-4 col-lg-3 text-center text-h4" v-for="(ingredient, index) in recipeByID($route.params.id).ingredients"
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center text-h4" v-for="(ingredient, index) in recipeByID($route.params.id).ingredients"
             :key="index">         
-          <q-card class="no-shadow">
+          <q-card>
             <q-card-section>
               <q-img :src= "(rawMaterialByID(ingredient.id)).thumbnail"
               style="height: 150px; max-width: 150px"
@@ -31,7 +31,7 @@
               <div class="text-h6">{{ (textureByID(ingredient.texture)).description }}</div>
             </q-card-section>
 
-            <q-card-section class="q-pt-none">
+            <q-card-section class="text-h5 text-bold">
               {{ ingredient.percent }}%    
             </q-card-section>
           </q-card>

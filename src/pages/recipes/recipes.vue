@@ -1,19 +1,24 @@
 <template>
   <q-page padding>
-   <h2>Livro de Receitas</h2>
-    <div class="q-pa-sm col-sm-2 text-center" v-for="recipe in recipesList" :key="recipe.id">
-      <router-link :to="`/recipes/${recipe.id}`">
-        <q-card class="no-shadow">
-          <q-card-section>
-            <q-img :src= "recipe.thumbnail"
-            style="height: 200px; max-width: 200px"
-            />
-          </q-card-section>
+    <div class="row justify-center">
+      <div class="text-h4 text-bold">
+        Coleção de Receitas
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center text-h4" v-for="recipe in recipesList" :key="recipe.id">
+        <router-link :to="`/recipes/${recipe.id}`" style="">
+          <q-card class="no-shadow">
             <q-card-section>
-              <div class="text-h7">{{ recipe.title }} </div>
+              <q-img :src= "recipe.thumbnail"
+              style="height: 200px; max-width: 200px"
+              />
             </q-card-section>
-        </q-card>
-      </router-link>
+          </q-card>
+        </router-link>
+        <div class="text-h7">{{ recipe.title }} </div>
+      </div>
     </div>
 
   </q-page>

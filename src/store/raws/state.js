@@ -10,11 +10,11 @@ export default function () {
       { id: "7", description: "Acém bovino" },
       { id: "8", description: "Coxão mole suíno" },
       { id: "9", description: "Patinho suíno", thumbnail: 'patinho_suino.jpg' },
-      { id: "10", description: "Sal de cura #1", thumbnail: 'sal_de_cura.jpg' },
-      { id: "11", description: "Sal de cura #2", thumbnail: 'sal_de_cura.jpg'  },
+      { id: "10", description: "Cura #1, 7% de nitrato", thumbnail: 'sal_de_cura.jpg' },
+      { id: "11", description: "Cura #2", thumbnail: 'sal_de_cura.jpg'  },
       { id: "12", description: "Sal comum", thumbnail: 'sal.jpg'  },
-      { id: "13", description: "Antioxidante (INS 316)" },
-      { id: "14", description: "Emulsificante (Tripolifostato Sódico )" },
+      { id: "13", description: "Antioxidante (INS 316)" , thumbnail: 'sal.jpg'  },
+      { id: "14", description: "Emulsificante (Tripolifostato de sódio )", thumbnail: 'sal.jpg'  },
       { id: "15", description: "Tripa Suína, calibre 28/32" },
       { id: "16", description: "Tripa Suína, calibre 22/24" },
       { id: "17", description: "Tripa Suína, calibre 24/26" },
@@ -27,14 +27,15 @@ export default function () {
       { id: "24", description: "Rede elástica, 130mm" },
       { id: "25", description: "Pimenta do reino", thumbnail: 'pimenta_do_reino.jpg'  },
       { id: "26", description: "Pimenta calabresa", thumbnail: 'pimenta_calabresa.jpg'  },
-      { id: "27", description: "Alho em pó", thumbnail: 'alho.jpg'  },
+      { id: "27", description: "Alho", thumbnail: 'alho.jpg'  },
       { id: "28", description: "Erva doce", thumbnail: 'erva_doce.jpg'  },
       { id: "29", description: "Pimenta calabresa", thumbnail: 'pimenta_calabresa.jpg'  },
       { id: "30", description: "Noz moscada", thumbnail: 'noz_moscada.jpg'  },
       { id: "31", description: "Mostarda", thumbnail: 'nos_mostarda.jpg'  },
       { id: "32", description: "Cominho", thumbnail: 'cominho.jpg'  },
       { id: "33", description: "Açúcar mascavo", thumbnail: 'acucar_mascavo.jpg'  },
-      { id: "34", description: "Água", thumbnail: 'água.jpg'  }
+      { id: "34", description: "Água", thumbnail: 'agua.jpg'  },
+      { id: "35", description: "Eritorbato de sódio", thumbnail: 'água.jpg'  }
       ]
   }; 
 }
