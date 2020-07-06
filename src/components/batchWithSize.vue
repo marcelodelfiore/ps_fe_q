@@ -6,16 +6,17 @@
             </q-card-section>
 
             <q-card-section class="q-pt-none">
-                <div v-for="(ingredient, index) in recipeByID($route.params.id).ingredients" :key="index">
-                    <div class="text-h6">   {{ (rawMaterialByID(ingredient.id)).description }},
-                                            {{ (textureByID(ingredient.texture)).description }},
-                                            {{ ingredient.percent }} %
-                    </div>
+                <div class="q-pa-sm col-12 text-left text-h6" v-for="(ingredient, index) in recipeByID($route.params.id).ingredients"
+                 :key="index"
+                 >
+                    {{ (rawMaterialByID(ingredient.id)).description }},
+                    {{ (textureByID(ingredient.texture)).description }},
+                    {{ calculateWeight(ingredient.percent) }}
                 </div>
             </q-card-section>
 
             <q-card-section class="q-pt-none">
-                <div class="q-pa-sm col-12 text-left text-h5" v-for="step in recipeByID($route.params.id).prep_steps"
+                <div class="q-pa-sm col-12 text-left text-h6" v-for="step in recipeByID($route.params.id).prep_steps"
                 :key="step.seq"
                 >
                     {{ step.description }}
@@ -32,15 +33,29 @@
 import { mapGetters } from "vuex"
 
 export default {
+    data: function() {
+        return{
+            batchSize: 10
+        }
+    },
     computed: {
-    ...mapGetters('recipes', ['recipeByID']),
-    ...mapGetters('raws', ['rawMaterialByID']),
-    ...mapGetters('textures', ['textureByID'])
+        ...mapGetters('recipes', ['recipeByID']),
+        ...mapGetters('raws', ['rawMaterialByID']),
+        ...mapGetters('textures', ['textureByID'])
+    },
+    methods: {
+        calculateWeight: function(percent){
+            let mass_unit = 'kg';
+            const percent_number = parseFloat(percent, 10)
+            let weight_in_mass = (percent_number * this.batchSize)/100
+            if (weight_in_mass < 1.0){
+                weight_in_mass = weight_in_mass * 100
+                mass_unit = 'grs'
+            }
+            const weight_string = weight_in_mass + ' ' + mass_unit
+            return weight_string
+        }
     }
 }
 
 </script>
-
-<style>
-
-</style>
