@@ -12,7 +12,12 @@ export default function () {
       { id: '9', description: 'Moído, disco #5' },
       { id: '10', description: 'Moído, disco #8' },
       { id: '11', description: 'Picado, em cubos de 1 cm' },
-      { id: '12', description: 'Picado, em cubos de 3 cm' }
+      { id: '12', description: 'Picado, em cubos de 3 cm' },
+      { id: '13', description: 'Moído, disco #6' },
+      { id: '14', description: 'Moído, disco RIM' },
+      { id: '15', description: 'Moído, disco #3' },
+      { id: '16', description: 'Em flocos' },
+      { id: '17', description: 'Picado grosseiramente' },
     ]
   };
 }

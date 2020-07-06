@@ -10,7 +10,7 @@ export default function () {
       { id: "7", description: "Acém bovino" },
       { id: "8", description: "Coxão mole suíno" },
       { id: "9", description: "Patinho suíno", thumbnail: 'patinho_suino.jpg' },
-      { id: "10", description: "Cura #1, 7% de nitrato", thumbnail: 'sal_de_cura.jpg' },
+      { id: "10", description: "Cura #1, 6% de nitrato", thumbnail: 'sal_de_cura.jpg' },
       { id: "11", description: "Cura #2", thumbnail: 'sal_de_cura.jpg'  },
       { id: "12", description: "Sal comum", thumbnail: 'sal.jpg'  },
       { id: "13", description: "Antioxidante (INS 316)" , thumbnail: 'sal.jpg'  },
@@ -35,7 +35,13 @@ export default function () {
       { id: "32", description: "Cominho", thumbnail: 'cominho.jpg'  },
       { id: "33", description: "Açúcar mascavo", thumbnail: 'acucar_mascavo.jpg'  },
       { id: "34", description: "Água", thumbnail: 'agua.jpg'  },
-      { id: "35", description: "Eritorbato de sódio", thumbnail: 'água.jpg'  }
+      { id: "35", description: "Eritorbato de sódio", thumbnail: 'agua.jpg' },
+      { id: "36", description: "Pele suína (couro)", thumbnail: 'pele_suina.png' },
+      { id: "37", description: "Toucinho", thumbnail: 'toucinho.png' },
+      { id: "38", description: "Apara suína", thumbnail: 'apara_suina.jpg' },
+      { id: "39", description: "Salsinha fresca", thumbnail: 'salsinha.jpg' },
+      { id: "40", description: "Louro", thumbnail: 'louro.jpg' },
+      { id: "41", description: "Cebola", thumbnail: 'cebola.jpg' }
       ]
   }; 
 }
