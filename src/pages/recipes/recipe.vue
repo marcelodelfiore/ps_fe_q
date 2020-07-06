@@ -10,7 +10,7 @@
       <div class="row justify-center">
         <q-space/>
         <div class="col-3">
-          <q-btn round color="orange-8" icon="build" class="q-mt-sm q-mb-lg" @click="newBatch">
+          <q-btn round color="orange-8" icon="build" class="q-mt-sm q-mb-lg" @click="showBatchSize = true">
             <q-tooltip >Criar novo lote de produto</q-tooltip>
           </q-btn>
         </div>
@@ -32,7 +32,7 @@
             </q-card-section>
 
             <q-card-section class="text-h5 text-bold">
-              {{ ingredient.percent }}%    
+              {{ ingredient.percent }}%
             </q-card-section>
           </q-card>
         </div>
@@ -51,6 +51,12 @@
         </div>
       </div>
     </div>
+  <q-dialog v-model="showBatchSize"
+    persistent
+    full-width
+  >
+    <batchWithSize />
+  </q-dialog>
 
   </q-page>
 </template>
@@ -58,16 +64,21 @@
 <script>
 import { mapGetters } from "vuex";
 
+import batchWithSize from 'components/batchWithSize'
+
 export default {
+  data() {
+    return{
+      showBatchSize: false
+    }
+  },
+  components:{
+    batchWithSize
+  },
   computed: {
     ...mapGetters('recipes', ['recipeByID']),
     ...mapGetters('raws', ['rawMaterialByID']),
     ...mapGetters('textures', ['textureByID'])
-  },
-  methods: {
-    newBatch: function() {
-      alert("Criar um novo lote de produtos")
-    }
   },
   name: 'Recipes'
 }
