@@ -35,8 +35,11 @@ import { mapGetters } from "vuex"
 export default {
     data: function() {
         return{
-            batchSize: 10
+            someNumber: 10
         }
+    },
+    props: {
+        batchSize: Number
     },
     computed: {
         ...mapGetters('recipes', ['recipeByID']),

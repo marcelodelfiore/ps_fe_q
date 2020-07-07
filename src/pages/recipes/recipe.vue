@@ -8,9 +8,19 @@
         </div>
       </div>
       <div class="row justify-center">
-        <q-space/>
         <div class="col-3">
-          <q-btn round color="orange-8" icon="build" class="q-mt-sm q-mb-lg" @click="showBatchSize = true">
+        </div>
+        <q-space/>
+        <div class="col-1 q-gutter-md q-mx-md">
+          <q-input rounded outlined v-model="batchSize" >
+            <template v-slot:prepend>
+              <q-icon name="restaurant" />
+            </template>
+          </q-input>
+        </div>
+        
+        <div class="col-1">
+          <q-btn round color="red" icon="add_shopping_cart" class="q-mt-sm q-mb-lg" @click="showBatchSize = true">
             <q-tooltip >Criar novo lote de produto</q-tooltip>
           </q-btn>
         </div>
@@ -20,11 +30,11 @@
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center text-h4" v-for="(ingredient, index) in recipeByID($route.params.id).ingredients"
             :key="index">         
-          <q-card>
+          <q-card class="no-shadow">
             <q-card-section>
-              <q-img :src= "(rawMaterialByID(ingredient.id)).thumbnail"
-              style="height: 150px; max-width: 150px"
-              />
+              <q-avatar size="150px">
+                <img :src= "(rawMaterialByID(ingredient.id)).thumbnail">
+              </q-avatar>
             </q-card-section>
             <q-card-section>
               <div class="text-h6">{{ (rawMaterialByID(ingredient.id)).description }} </div>
@@ -35,6 +45,10 @@
               {{ ingredient.percent }}%
             </q-card-section>
           </q-card>
+        </div>
+
+        <div>
+          <q-separator color="orange" inset />
         </div>
 
         <div class="q-pa-sm col-12 text-left text-h5" v-for="step in recipeByID($route.params.id).prep_steps"
@@ -55,7 +69,7 @@
     persistent
     full-width
   >
-    <batchWithSize />
+    <batchWithSize :batchSize="batchSize" />
   </q-dialog>
 
   </q-page>
@@ -69,7 +83,8 @@ import batchWithSize from 'components/batchWithSize'
 export default {
   data() {
     return{
-      showBatchSize: false
+      showBatchSize: false,
+      batchSize: undefined
     }
   },
   components:{
