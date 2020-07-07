@@ -39,7 +39,7 @@ export default {
         }
     },
     props: {
-        batchSize: Number
+        batchSize: String
     },
     computed: {
         ...mapGetters('recipes', ['recipeByID']),
@@ -50,10 +50,13 @@ export default {
         calculateWeight: function(percent){
             let mass_unit = 'kg';
             const percent_number = parseFloat(percent, 10)
-            let weight_in_mass = (percent_number * this.batchSize)/100
+            let weight_in_mass = ((percent_number * parseFloat(this.batchSize))/100).toFixed(4)
             if (weight_in_mass < 1.0){
-                weight_in_mass = weight_in_mass * 100
+                weight_in_mass = weight_in_mass * 1000
                 mass_unit = 'grs'
+            }
+            else{
+                weight_in_mass = weight_in_mass.toFixed(3)
             }
             const weight_string = weight_in_mass + ' ' + mass_unit
             return weight_string

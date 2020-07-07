@@ -84,7 +84,7 @@ export default {
   data() {
     return{
       showBatchSize: false,
-      batchSize: undefined
+      batchSize: 1.0
     }
   },
   components:{
