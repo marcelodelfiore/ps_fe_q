@@ -11,9 +11,9 @@
         <router-link :to="`/recipes/${recipe.id}`" style="">
           <q-card class="no-shadow">
             <q-card-section>
-              <q-img :src= "recipe.thumbnail"
-              style="height: 200px; max-width: 200px"
-              />
+              <q-avatar size="350px">
+                <img :src= "recipe.thumbnail">
+              </q-avatar>
             </q-card-section>
           </q-card>
         </router-link>
