@@ -50,16 +50,20 @@ export default {
         calculateWeight: function(percent){
             let mass_unit = 'kg';
             const percent_number = parseFloat(percent, 10)
-            let weight_in_mass = ((percent_number * parseFloat(this.batchSize))/100).toFixed(4)
+            let weight_in_mass = ((percent_number * parseFloat(this.batchSize))/100)
             if (weight_in_mass < 1.0){
                 weight_in_mass = weight_in_mass * 1000
+                weight_in_mass = this.roundNumbers(weight_in_mass, 1)
                 mass_unit = 'grs'
             }
             else{
-                weight_in_mass = weight_in_mass.toFixed(3)
+                weight_in_mass = this.roundNumbers(weight_in_mass, 2)
             }
             const weight_string = weight_in_mass + ' ' + mass_unit
             return weight_string
+        },
+        roundNumbers: function (value, decimals){
+            return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
         }
     }
 }
