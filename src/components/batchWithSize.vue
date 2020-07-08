@@ -6,7 +6,7 @@
             </q-banner>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col col-grow">
                 <q-list bordered padding style="background-color: white">
                     <q-item class="q-pa-sm" v-for="(ingredient, index) in recipeByID($route.params.id).ingredients"
                         :key="index"
@@ -28,7 +28,7 @@
                 </q-list>
             </div>            
         
-            <div class="col">
+            <div class="col col-grow">
                 <q-list q-list bordered padding style="background-color: white">
                     <q-item class="q-pa-sm" v-for="step in recipeByID($route.params.id).prep_steps"
                     :key="step.seq"
@@ -46,7 +46,7 @@
                     </q-item>
                 </q-list>    
                 
-                <q-btn class="q-pa-lg q-ma-lg" flat label="OK" v-close-popup color="red" style="background-color: white"/>
+                <q-btn class="fixed-bottom q-pa-lg q-ma-lg" flat label="Fechar" v-close-popup color="red" style="background-color: white"/>
             
             </div>
         </div>
