@@ -75,7 +75,7 @@ export default {
     data: function() {
         return{
             someNumber: 10,
-            tab: 'sequence'
+            tab: 'ingredients'
         }
     },
     props: {
