@@ -67,7 +67,6 @@
     </div>
   <q-dialog v-model="showBatchSize"
     persistent
-    full-width
   >
     <batchWithSize :batchSize="batchSize" />
   </q-dialog>

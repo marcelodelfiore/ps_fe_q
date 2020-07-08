@@ -8,19 +8,19 @@ export default function () {
         category: "1",
         thumbnail: "calabresa_defumada.jpg",
         ingredients: [
-          { id: "1", percent: 55, texture: "3" },
-          { id: "6", percent: 15, texture: "3" },
-          { id: "3", percent: 15, texture: "11" },
-          { id: "1", percent: 15, texture: "3" },
-          { id: "12", percent: 1.5, texture: "4" },
-          { id: "10", percent: 0.214, texture: "4" },
-          { id: "35", percent: 0.25, texture: "4" },
-          { id: "27", percent: 0.35, texture: "5" },
-          { id: "28", percent: 0.05, texture: "7" },
-          { id: "28", percent: 0.15, texture: "6" },
-          { id: "29", percent: 0.05, texture: "7" },
-          { id: "29", percent: 0.15, texture: "6" },
-          { id: "34", percent: 5, texture: "4" }
+          { id: "1", percent: 55, texture: "3", check: false },
+          { id: "6", percent: 15, texture: "3", check: false },
+          { id: "3", percent: 15, texture: "11", check: false },
+          { id: "1", percent: 15, texture: "3", check: false },
+          { id: "12", percent: 1.5, texture: "4", check: false },
+          { id: "10", percent: 0.214, texture: "4", check: false },
+          { id: "35", percent: 0.25, texture: "4", check: false },
+          { id: "27", percent: 0.35, texture: "5", check: false },
+          { id: "28", percent: 0.05, texture: "7", check: false },
+          { id: "28", percent: 0.15, texture: "6", check: false },
+          { id: "29", percent: 0.05, texture: "7", check: false },
+          { id: "29", percent: 0.15, texture: "6", check: false },
+          { id: "34", percent: 5, texture: "4", check: false }
         ],
         private: false,
         author: "",
@@ -29,38 +29,47 @@ export default function () {
             seq: 1,
             description:
               "Coloque a tripa de colágeno para hidratar em água a temperatura ambiente " +
-              "30 minutos antes de fazer o ensacamento"
+              "30 minutos antes de fazer o ensacamento",
+              check: false
           },
           {
             seq: 2,
             description:
               "Misture todos os temperos e aditivos (sal de cura, emulsificante e antioxidante)," +
-              " fazendo uma mistura uniforme"
+              " fazendo uma mistura uniforme",
+              check: false
           },
           {
             seq: 3,
             description:
-              "Em uma vasilha grande, com tampa, misture as carnes, fazendo uma massa homogênea"
+              "Em uma vasilha grande, com tampa, misture as carnes, fazendo uma massa homogênea",
+              check: false
           },
           {
             seq: 4,
             description:
-              "Espalhe a mistura de ingredientes secos sobre a massa de carnes"
+              "Espalhe a mistura de ingredientes secos sobre a massa de carnes",
+              check: false
           },
           {
             seq: 5,
-            description: "Acrescente a água"
+            description: "Acrescente a água",
+            check: false
           },
           {
             seq: 6,
             description:
-              "Misture bem os ingredientes até que seja obtida uma massa bastante homogênea"
+              "Misture bem os ingredientes até que seja obtida uma massa bastante homogênea",
+              check: false
           },
-          { seq: 7, description: "Ensaque a massa" },
+          { seq: 7, description: "Ensaque a massa",
+          check: false 
+          },
           {
             seq: 8,
             description:
-              "Defume a quente, em temperatura de até 85oC, até o interior das peças atingir 72oC"
+              "Defume a quente, em temperatura de até 85oC, até o interior das peças atingir 72oC",
+              check: false
           }
         ]
       },
@@ -259,7 +268,7 @@ export default function () {
         createdAt: "6/07/2020",
         category: "5",
         thumbnail:
-          "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.carone.com.br%2Fbacon-manta-saboratta-kg&psig=AOvVaw0e-7LX0Qy5HLI3STtGK1vA&ust=1590875422114000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMjHuPaG2ukCFQAAAAAdAAAAABAD",
+          "queijo_de_porco.jpg",
         ingredients: [
           { id: "36", percent: 40, texture: "15" },
           { id: "36", percent: 14, texture: "13" },

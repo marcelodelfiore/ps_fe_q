@@ -1,31 +1,55 @@
 <template>
-    <div>
-        <q-card>
-            <q-card-section>
-                <div class="text-h6">Alert</div>
-            </q-card-section>
+    <div class="q-pa-md" style="width: 700px; max-width: 80vw;">
+        <div class="row justify-center" style="background-color: white">
+            <q-banner class="text-black">
+                <h4><strong>Para o lote de {{ batchSize }} Kg</strong></h4>
+            </q-banner>
+        </div>
+        <div class="row">
+            <div class="col">
+                <q-list bordered padding style="background-color: white">
+                    <q-item class="q-pa-sm" v-for="(ingredient, index) in recipeByID($route.params.id).ingredients"
+                        :key="index"
+                        v-ripple
+                        clickable
+                        @click="ingredient.check = !ingredient.check"
+                    >
+                        <q-item-section side top>
+                            <q-checkbox v-model="ingredient.check"></q-checkbox>
+                        </q-item-section>
 
-            <q-card-section class="q-pt-none">
-                <div class="q-pa-sm col-12 text-left text-h6" v-for="(ingredient, index) in recipeByID($route.params.id).ingredients"
-                 :key="index"
-                 >
-                    {{ (rawMaterialByID(ingredient.id)).description }},
-                    {{ (textureByID(ingredient.texture)).description }},
-                    {{ calculateWeight(ingredient.percent) }}
-                </div>
-            </q-card-section>
-
-            <q-card-section class="q-pt-none">
-                <div class="q-pa-sm col-12 text-left text-h6" v-for="step in recipeByID($route.params.id).prep_steps"
-                :key="step.seq"
-                >
-                    {{ step.description }}
-                </div>
-            </q-card-section>
-            <q-card-actions align="right">
-                <q-btn flat label="OK" color="primary" v-close-popup />
-            </q-card-actions>
-        </q-card>
+                        <q-item-section>
+                            <q-item-label> {{ calculateWeight(ingredient.percent) }} de
+                                {{ (rawMaterialByID(ingredient.id)).description }}
+                                {{ (textureByID(ingredient.texture)).description }}
+                            </q-item-label>
+                        </q-item-section>
+                    </q-item>
+                </q-list>
+            </div>            
+        
+            <div class="col">
+                <q-list q-list bordered padding style="background-color: white">
+                    <q-item class="q-pa-sm" v-for="step in recipeByID($route.params.id).prep_steps"
+                    :key="step.seq"
+                    v-ripple
+                    clickable
+                    @click="step.check = !step.check"
+                    >
+                        <q-item-section side top>
+                            <q-checkbox v-model="step.check"></q-checkbox>
+                        </q-item-section>
+                        
+                        <q-item-section>
+                            <q-item-label>{{ step.description }} </q-item-label>
+                        </q-item-section>
+                    </q-item>
+                </q-list>    
+                
+                <q-btn class="q-pa-lg q-ma-lg" flat label="OK" v-close-popup color="red" style="background-color: white"/>
+            
+            </div>
+        </div>
     </div>
 </template>
 
