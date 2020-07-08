@@ -1,54 +1,69 @@
 <template>
-    <div class="q-pa-md" style="width: 700px; max-width: 80vw;">
-        <div class="row justify-center" style="background-color: white">
-            <q-banner class="text-black">
-                <h4><strong>Para o lote de {{ batchSize }} Kg</strong></h4>
-            </q-banner>
-        </div>
-        <div class="row">
-            <div class="col col-grow">
-                <q-list bordered padding style="background-color: white">
-                    <q-item class="q-pa-sm" v-for="(ingredient, index) in recipeByID($route.params.id).ingredients"
-                        :key="index"
+    <div class="q-pa-md">
+        
+        <div class="row" style="background-color: white">
+            <q-tabs
+                v-model="tab"
+                dense
+                class="text-grey"
+                active-color="primary"
+                indicator-color="primary"
+                align="justify"
+                narrow-indicator
+            >
+                <q-tab name="ingredients" label="Ingredientes" />
+                <q-tab name="sequence" label="Preparo" />
+            </q-tabs>
+
+            <q-separator />
+            
+            <q-tab-panels v-model="tab" animated>
+                
+                <q-tab-panel name="ingredients">
+                    <q-list bordered padding style="background-color: white">
+                        <q-item class="q-pa-sm" v-for="(ingredient, index) in recipeByID($route.params.id).ingredients"
+                            :key="index"
+                            v-ripple
+                            clickable
+                            @click="ingredient.check = !ingredient.check"
+                        >
+                            <q-item-section side top>
+                                <q-checkbox v-model="ingredient.check"></q-checkbox>
+                            </q-item-section>
+
+                            <q-item-section>
+                                <q-item-label> {{ calculateWeight(ingredient.percent) }} de
+                                    {{ (rawMaterialByID(ingredient.id)).description }}
+                                    {{ (textureByID(ingredient.texture)).description }}
+                                </q-item-label>
+                            </q-item-section>
+                        </q-item>
+                    </q-list>
+                </q-tab-panel>
+
+                <q-tab-panel name="sequence">
+                    <q-list bordered padding style="background-color: white">
+                        <q-item class="q-pa-sm" v-for="step in recipeByID($route.params.id).prep_steps"
+                        :key="step.seq"
                         v-ripple
                         clickable
-                        @click="ingredient.check = !ingredient.check"
-                    >
-                        <q-item-section side top>
-                            <q-checkbox v-model="ingredient.check"></q-checkbox>
-                        </q-item-section>
-
-                        <q-item-section>
-                            <q-item-label> {{ calculateWeight(ingredient.percent) }} de
-                                {{ (rawMaterialByID(ingredient.id)).description }}
-                                {{ (textureByID(ingredient.texture)).description }}
-                            </q-item-label>
-                        </q-item-section>
-                    </q-item>
-                </q-list>
-            </div>            
-        
-            <div class="col col-grow">
-                <q-list q-list bordered padding style="background-color: white">
-                    <q-item class="q-pa-sm" v-for="step in recipeByID($route.params.id).prep_steps"
-                    :key="step.seq"
-                    v-ripple
-                    clickable
-                    @click="step.check = !step.check"
-                    >
-                        <q-item-section side top>
-                            <q-checkbox v-model="step.check"></q-checkbox>
-                        </q-item-section>
-                        
-                        <q-item-section>
-                            <q-item-label>{{ step.description }} </q-item-label>
-                        </q-item-section>
-                    </q-item>
-                </q-list>    
-                
-                <q-btn class="fixed-bottom q-pa-lg q-ma-lg" flat label="Fechar" v-close-popup color="red" style="background-color: white"/>
+                        @click="step.check = !step.check"
+                        >
+                            <q-item-section side top>
+                                <q-checkbox v-model="step.check"></q-checkbox>
+                            </q-item-section>
+                            
+                            <q-item-section>
+                                <q-item-label>{{ step.description }} </q-item-label>
+                            </q-item-section>
+                        </q-item>
+                    </q-list>
+                </q-tab-panel>
             
-            </div>
+            </q-tab-panels>
+        
+            <q-btn class="fixed-bottom q-pa-lg q-ma-lg" flat label="Fechar" v-close-popup color="red" style="background-color: white"/>
+            
         </div>
     </div>
 </template>
@@ -59,7 +74,8 @@ import { mapGetters } from "vuex"
 export default {
     data: function() {
         return{
-            someNumber: 10
+            someNumber: 10,
+            tab: 'sequence'
         }
     },
     props: {
