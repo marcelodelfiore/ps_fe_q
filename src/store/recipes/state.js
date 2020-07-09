@@ -24,6 +24,8 @@ export default function () {
         ],
         private: false,
         author: "",
+        description: "Linguiça condimentada com pimenta calabresa e grãos de erva doce. " +
+          "Foi criada no Brasil sob influência dos imigrantes italianos",
         prep_steps: [
           {
             seq: 1,
@@ -74,12 +76,12 @@ export default function () {
         ]
       },
       {
-        title: "Linguiça Portuguesa",
+        title: "Linguiça Seca",
         id: "2",
         createdAt: "11/04/2018",
-        category: "3",
+        category: "2",
         thumbnail:
-          "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.carone.com.br%2Fbacon-manta-saboratta-kg&psig=AOvVaw0e-7LX0Qy5HLI3STtGK1vA&ust=1590875422114000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMjHuPaG2ukCFQAAAAAdAAAAABAD",
+          "linguica_seca.jpg",
         ingredients: [
           { id: "1", percent: 55, texture: "3" },
           { id: "5", percent: 15, texture: "3" },
@@ -94,8 +96,10 @@ export default function () {
           { id: "29", percent: 0.05, texture: "12" },
           { id: "33", percent: 5, texture: "4" }
         ],
-        privacy: "0",
+        private: false,
         author: "",
+        description: "Produto curado, ensacado em tripa fina, bem condimentado. Passa por uma rápida fermentação de até 24 horas." +
+        " O período de cura é relativamente curto, sendo consumido após 30 dias. Muito boa para ser apreciada em uma roda de bons amigos.",
         prep_steps: [
           {
             seq: 1,
@@ -137,12 +141,12 @@ export default function () {
         ]
       },
       {
-        title: "Linguiça Portuguesa",
+        title: "Linguiça Fresca Pura",
         id: "3",
         createdAt: "11/04/2018",
         category: "3",
         thumbnail:
-          "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.carone.com.br%2Fbacon-manta-saboratta-kg&psig=AOvVaw0e-7LX0Qy5HLI3STtGK1vA&ust=1590875422114000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMjHuPaG2ukCFQAAAAAdAAAAABAD",
+          "linguica_fresca_pura.jpg",
         ingredients: [
           { id: "1", percent: 55, texture: "3" },
           { id: "5", percent: 15, texture: "3" },
@@ -157,8 +161,9 @@ export default function () {
           { id: "29", percent: 0.05, texture: "12" },
           { id: "33", percent: 5, texture: "4" }
         ],
-        privacy: "0",
+        private: false,
         author: "",
+        description: "Linguiça fresca estilo toscana, pura carne suína. Receita básica.",
         prep_steps: [
           {
             seq: 1,
@@ -200,12 +205,12 @@ export default function () {
         ]
       },
       {
-        title: "Linguiça Portuguesa",
+        title: "Joelho de Porco Defumado",
         id: "4",
         createdAt: "11/04/2018",
-        category: "3",
+        category: "1",
         thumbnail:
-          "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.carone.com.br%2Fbacon-manta-saboratta-kg&psig=AOvVaw0e-7LX0Qy5HLI3STtGK1vA&ust=1590875422114000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMjHuPaG2ukCFQAAAAAdAAAAABAD",
+          "joelho_defumado.png",
         ingredients: [
           { id: "1", percent: 55, texture: "3" },
           { id: "5", percent: 15, texture: "3" },
@@ -220,8 +225,9 @@ export default function () {
           { id: "29", percent: 0.05, texture: "12" },
           { id: "33", percent: 5, texture: "4" }
         ],
-        privacy: "0",
+        private: false,
         author: "",
+        description: "Joelho de porco defumado, cura em salmora de equilíbrio",
         prep_steps: [
           {
             seq: 1,
@@ -288,6 +294,9 @@ export default function () {
         ],
         privacy: "0",
         author: "",
+        description: "Produto de origem alemã e italiana, foi trazido para o Brasil, principalmente para a região sul, pelos imigrantes no século XIX." + 
+        " Surgiu como forma de aproveitamento integral dos suínos, sendo formulado a partir de miúdos, vísceras e retalhos de " +
+        "carne.",
         prep_steps: [
           {
             seq: 1,
@@ -329,12 +338,12 @@ export default function () {
         ]
       },
       {
-        title: "Linguiça Portuguesa",
-        id: "6",
+        title: "Mortadela",
+        id: "8",
         createdAt: "11/04/2018",
-        category: "3",
+        category: "6",
         thumbnail:
-          "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.carone.com.br%2Fbacon-manta-saboratta-kg&psig=AOvVaw0e-7LX0Qy5HLI3STtGK1vA&ust=1590875422114000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMjHuPaG2ukCFQAAAAAdAAAAABAD",
+          "mortadela.jpg",
         ingredients: [
           { id: "1", percent: 55, texture: "3" },
           { id: "5", percent: 15, texture: "3" },
@@ -349,8 +358,12 @@ export default function () {
           { id: "29", percent: 0.05, texture: "12" },
           { id: "33", percent: 5, texture: "4" }
         ],
-        privacy: "0",
+        private: false,
         author: "",
+        description: "Originária da região de Bolonha, na Itália. Os produtos mais antigos similares datam de 1376" +
+          " Foi levada para a América Latina pelos imigrantes italianos, no início do século XX. Muito popular no Brasil." + 
+          " Pode ser preparara apenas com carnes ou acrescida de pimenta, azeitona, pimentões, alcaparra etc. " +
+          " Uma variação muito interessante é a que passa pelo processo de defumação.",
         prep_steps: [
           {
             seq: 1,

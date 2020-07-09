@@ -5,7 +5,8 @@ export default function () {
       { id: "2", description: "Curados" },
       { id: "3", description: "Frescos" },
       { id: "4", description: "Maturado" },
-      { id: "5", description: "Cozidos" }
+      { id: "5", description: "Cozidos" },
+      { id: "6", description: "Emulsificado" }
     ]
   }
 }

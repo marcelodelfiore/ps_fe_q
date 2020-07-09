@@ -71,21 +71,6 @@ export default {
           title: 'Livro de Receitas',
           icon: 'menu_book',
           link: '/recipes'
-        },
-        {
-          title: 'Coleção de Matérias Primas',
-          icon: 'construction',
-          link: '/raws'
-        },
-        {
-          title: 'Coleção de Texturas',
-          icon: 'texture',
-          link: '/textures'
-        },
-        {
-          title: 'Coleção de Categorias',
-          icon: 'category',
-          link: '/categories'
         }
       ]
     }
