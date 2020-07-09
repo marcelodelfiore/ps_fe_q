@@ -7,6 +7,24 @@
           Porksmith
         </q-toolbar-title>
 
+        <q-btn
+          v-if="!userloggedIn"
+          to="/auth"
+          flat
+          icon-right="login"
+          label="Entrar"
+          class="absolute-right" 
+        />
+
+        <q-btn
+          v-else
+          @click="logoutUser"
+          flat
+          icon-right="account_circle"
+          label="Sair"
+          class="absolute-right"
+        />
+
       </q-toolbar>
     </q-header>
 
@@ -34,11 +52,21 @@
         >
           Atalhos
         </q-item-label>
+
         <EssentialLink
           v-for="link in essentialLinks"
           :key="link.title"
           v-bind="link"
         />
+
+        <div v-if="userLoggedIn">
+          <EssentialLink
+            v-for="link in protectedLinks"
+            :key="link.title"
+            v-bind="link"
+          />
+        </div>
+        
       </q-list>
     </q-drawer>
 
@@ -49,6 +77,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import EssentialLink from 'components/EssentialLink.vue'
 
 export default {
@@ -66,20 +96,20 @@ export default {
           title: 'início',
           icon: 'home',
           link: '/'
-        },
+        }
+      ],
+      protectedLinks: [
         {
           title: 'Livro de Receitas',
           icon: 'menu_book',
           link: '/recipes'
-        },
-        {
-          title: 'Entrar ou Registrar usuário',
-          icon: 'login',
-          link: '/auth'
         }
       ]
     }
-  }
+  },
+  computed: {
+    ...mapState('auth', 'userLoggedIn')
+  },
 }
 </script>
 

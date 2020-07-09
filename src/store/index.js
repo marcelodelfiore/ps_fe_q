@@ -5,6 +5,7 @@ import categories from './categories'
 import raws from './raws'
 import recipes from './recipes'
 import textures from './textures'
+import auth from './auth'
 
 Vue.use(Vuex)
 
@@ -23,7 +24,8 @@ export default function (/* { ssrContext } */) {
       categories,
       raws,
       recipes,
-      textures
+      textures,
+      auth
     },
 
     // enable strict mode (adds overhead!)
