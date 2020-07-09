@@ -30,7 +30,12 @@ const routes = [
       },
       { path: '/categories/:id',
       component: () => import('pages/categories/category.vue')
-      }
+      },
+      { 
+        path: '/auth', 
+        component: () => import('pages/auth/auth.vue') 
+      } 
+
     ]
   },
 

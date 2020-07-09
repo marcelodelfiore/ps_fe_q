@@ -71,6 +71,11 @@ export default {
           title: 'Livro de Receitas',
           icon: 'menu_book',
           link: '/recipes'
+        },
+        {
+          title: 'Entrar ou Registrar usuário',
+          icon: 'login',
+          link: '/auth'
         }
       ]
     }
