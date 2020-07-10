@@ -8,7 +8,7 @@
         </q-toolbar-title>
 
         <q-btn
-          v-if="!userloggedIn"
+          v-if="!userLoggedIn"
           to="/auth"
           flat
           icon-right="login"
@@ -77,7 +77,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 import EssentialLink from 'components/EssentialLink.vue'
 
@@ -108,8 +108,11 @@ export default {
     }
   },
   computed: {
-    ...mapState('auth', 'userLoggedIn')
+    ...mapState('auth', ['userLoggedIn'])
   },
+  methods: {
+    ...mapActions('auth', ['logoutUser'])
+  }
 }
 </script>
 

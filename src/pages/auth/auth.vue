@@ -18,11 +18,11 @@
 
 		  <q-tab-panels v-model="tab" animated>
 		    <q-tab-panel name="login">
-		      <login-register :tab="tab" />
+		      <LoginRegister :tab="tab" />
 		    </q-tab-panel>
 
 		    <q-tab-panel name="register">
-		      <login-register :tab="tab" />
+		      <LoginRegister :tab="tab" />
 		    </q-tab-panel>
 
 		  </q-tab-panels>
@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import LoginRegister from 'components/auth/LoginRegister'
+
 	export default {
 		data () {
 	    return {
@@ -38,7 +40,7 @@
 	    }
 	  },
 	  components: {
-	  	'login-register' : require('components/auth/LoginRegister.vue').default
+	  	LoginRegister
 	  }
 	}
 </script>
