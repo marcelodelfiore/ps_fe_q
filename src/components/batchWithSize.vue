@@ -25,12 +25,7 @@
                             :key="index"
                             v-ripple
                             clickable
-                            @click="ingredient.check = !ingredient.check"
                         >
-                            <q-item-section side top>
-                                <q-checkbox v-model="ingredient.check"></q-checkbox>
-                            </q-item-section>
-
                             <q-item-section>
                                 <q-item-label> {{ calculateWeight(ingredient.percent) }} de
                                     {{ (rawMaterialByID(ingredient.id)).description }}
@@ -47,12 +42,7 @@
                         :key="step.seq"
                         v-ripple
                         clickable
-                        @click="step.check = !step.check"
-                        >
-                            <q-item-section side top>
-                                <q-checkbox v-model="step.check"></q-checkbox>
-                            </q-item-section>
-                            
+                        >                          
                             <q-item-section>
                                 <q-item-label>{{ step.description }} </q-item-label>
                             </q-item-section>

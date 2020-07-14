@@ -8,19 +8,19 @@ export default function () {
         category: "1",
         thumbnail: "calabresa_defumada.jpg",
         ingredients: [
-          { id: "1", percent: 55, texture: "3", check: false },
-          { id: "6", percent: 15, texture: "3", check: false },
-          { id: "3", percent: 15, texture: "11", check: false },
-          { id: "1", percent: 15, texture: "3", check: false },
-          { id: "12", percent: 1.5, texture: "4", check: false },
-          { id: "10", percent: 0.214, texture: "4", check: false },
-          { id: "35", percent: 0.25, texture: "4", check: false },
-          { id: "27", percent: 0.35, texture: "5", check: false },
-          { id: "28", percent: 0.05, texture: "7", check: false },
-          { id: "28", percent: 0.15, texture: "6", check: false },
-          { id: "29", percent: 0.05, texture: "7", check: false },
-          { id: "29", percent: 0.15, texture: "6", check: false },
-          { id: "34", percent: 5, texture: "4", check: false }
+          { id: "1", percent: 55, texture: "3", check: false, sequence: 1 },
+          { id: "6", percent: 15, texture: "3", check: false, sequence: 2 },
+          { id: "3", percent: 15, texture: "11", check: false, sequence: 3 },
+          { id: "1", percent: 15, texture: "3", check: false, sequence: 4 },
+          { id: "12", percent: 1.5, texture: "4", check: false, sequence: 5 },
+          { id: "10", percent: 0.214, texture: "4", check: false, sequence: 6 },
+          { id: "35", percent: 0.25, texture: "4", check: false, sequence: 7  },
+          { id: "27", percent: 0.35, texture: "5", check: false, sequence: 8  },
+          { id: "28", percent: 0.05, texture: "7", check: false, sequence: 9  },
+          { id: "28", percent: 0.15, texture: "6", check: false, sequence: 10  },
+          { id: "29", percent: 0.05, texture: "7", check: false, sequence: 11  },
+          { id: "29", percent: 0.15, texture: "6", check: false, sequence: 12  },
+          { id: "34", percent: 5, texture: "4", check: false, sequence: 13  }
         ],
         private: false,
         author: "",
@@ -270,7 +270,7 @@ export default function () {
       },
       {
         title: "Queijo de Porco",
-        id: "7",
+        id: "5",
         createdAt: "6/07/2020",
         category: "5",
         thumbnail:
@@ -339,7 +339,7 @@ export default function () {
       },
       {
         title: "Mortadela",
-        id: "8",
+        id: "6",
         createdAt: "11/04/2018",
         category: "6",
         thumbnail:
@@ -406,7 +406,7 @@ export default function () {
       },
       {
         title: "Calabresa Defumada",
-        id: "1",
+        id: "7",
         createdAt: "11/04/2018",
         category: "1",
         thumbnail: "calabresa_defumada.jpg",

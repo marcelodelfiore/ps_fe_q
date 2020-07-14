@@ -21,7 +21,8 @@ module.exports = function (/* ctx */) {
     boot: [
       
       'axios',
-      'firebase'
+      'firebase',
+      'router-auth'
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -95,7 +96,9 @@ cfg.module.rules.push({
       // Quasar plugins
       plugins: [
         'LocalStorage',
-        'SessionStorage'
+        'SessionStorage',
+        'Dialog',
+        'Loading'
       ]
     },
 

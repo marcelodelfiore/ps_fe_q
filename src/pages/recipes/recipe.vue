@@ -28,8 +28,8 @@
       </div>
       
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center text-h4" v-for="(ingredient, index) in recipeByID($route.params.id).ingredients"
-            :key="index">         
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center text-h4" v-for="(ingredient) in recipeByID($route.params.id).ingredients"
+            :key="ingredient.sequence">         
           <q-card class="no-shadow">
             <q-card-section>
               <q-avatar size="150px">
@@ -52,7 +52,7 @@
         </div>
 
         <div class="q-pa-sm col-12 text-left text-h5" v-for="step in recipeByID($route.params.id).prep_steps"
-          :key="step.seq">
+          :key="step.description">
           <div class="row">
             <div class="col-1">
               <q-icon name="directions_run"/>

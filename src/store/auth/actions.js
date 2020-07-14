@@ -2,6 +2,7 @@ import { firebaseAuth } from 'boot/firebase'
 
 import { LocalStorage, Loading } from 'quasar'
 
+import { showErrorMessage } from '../../functions/function-show-error-message.js'
 
 export function registerUser({}, payload) {
     Loading.show()
@@ -21,7 +22,7 @@ export function loginUser({}, payload) {
             console.log('response: ', response)
         })
         .catch(error => {
-            showErrorMessage(error.message)
+            showErrorMessage('Usuário não existe')
         })
 }
 export function logoutUser() {
@@ -40,7 +41,7 @@ export function handleAuthStateChange({ commit, dispatch }) {
       }
       else {
           commit('setLoggedIn', false)
-          LocalStorage.set('loggedIn', false)
+          LocalStorage.set('userloggedIn', false)
           this.$router.replace('/auth')
       }
     })
