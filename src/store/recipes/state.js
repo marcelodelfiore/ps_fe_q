@@ -8,19 +8,19 @@ export default function () {
         category: "1",
         thumbnail: "calabresa_defumada.jpg",
         ingredients: [
-          { id: "1", percent: 55, texture: "3", check: false, sequence: 1 },
-          { id: "6", percent: 15, texture: "3", check: false, sequence: 2 },
-          { id: "3", percent: 15, texture: "11", check: false, sequence: 3 },
-          { id: "1", percent: 15, texture: "3", check: false, sequence: 4 },
-          { id: "12", percent: 1.5, texture: "4", check: false, sequence: 5 },
-          { id: "10", percent: 0.214, texture: "4", check: false, sequence: 6 },
-          { id: "35", percent: 0.25, texture: "4", check: false, sequence: 7  },
-          { id: "27", percent: 0.35, texture: "5", check: false, sequence: 8  },
-          { id: "28", percent: 0.05, texture: "7", check: false, sequence: 9  },
-          { id: "28", percent: 0.15, texture: "6", check: false, sequence: 10  },
-          { id: "29", percent: 0.05, texture: "7", check: false, sequence: 11  },
-          { id: "29", percent: 0.15, texture: "6", check: false, sequence: 12  },
-          { id: "34", percent: 5, texture: "4", check: false, sequence: 13  }
+          { id: "1", percent: 55, texture: "10", sequence: 1 },
+          { id: "6", percent: 15, texture: "10", sequence: 2 },
+          { id: "3", percent: 15, texture: "11", sequence: 3 },
+          { id: "1", percent: 15, texture: "3", sequence: 4 },
+          { id: "12", percent: 1.5, texture: "4", sequence: 5 },
+          { id: "10", percent: 0.214, texture: "4", sequence: 6 },
+          { id: "13", percent: 0.25, texture: "4", sequence: 7  },
+          { id: "27", percent: 0.35, texture: "5", sequence: 8  },
+          { id: "28", percent: 0.05, texture: "7", sequence: 9  },
+          { id: "28", percent: 0.15, texture: "6", sequence: 10  },
+          { id: "29", percent: 0.05, texture: "7", sequence: 11  },
+          { id: "29", percent: 0.15, texture: "6", sequence: 12  },
+          { id: "34", percent: 5, texture: "4", sequence: 13  }
         ],
         private: false,
         author: "",
@@ -30,48 +30,53 @@ export default function () {
           {
             seq: 1,
             description:
-              "Coloque a tripa de colágeno para hidratar em água a temperatura ambiente " +
-              "30 minutos antes de fazer o ensacamento",
-              check: false
+              "Misturar todos os temperos secos, COM EXCESSÃO do antioxidante, e despeje a mistura sobre a carne. " +
+              "Bata a mistura até que obtenha uma massa homogênea. " +
+              "Despeje a água e continue batendo a massa até que fique 'liguenta'. Leve a mistura para geladeira e deixe descansar por 12 horas."
           },
           {
             seq: 2,
             description:
-              "Misture todos os temperos e aditivos (sal de cura, emulsificante e antioxidante)," +
-              " fazendo uma mistura uniforme",
-              check: false
+              "Coloque a tripa de colágeno para hidratar em água a temperatura ambiente " +
+              "30 minutos antes de fazer o ensacamento"
           },
           {
             seq: 3,
             description:
-              "Em uma vasilha grande, com tampa, misture as carnes, fazendo uma massa homogênea",
-              check: false
+              "Faça o pré aquecimento do defumador, ajustando sua temperatura em 50oC."
           },
           {
             seq: 4,
             description:
-              "Espalhe a mistura de ingredientes secos sobre a massa de carnes",
-              check: false
+              "Mistura a massa de carne e temperos secos com o antioxidante, batendo até obter uma massa bem homogênea."
           },
           {
             seq: 5,
-            description: "Acrescente a água",
-            check: false
+            description:
+              "Ensacar a massa. Depois de ensacada, fure a peça para garantir que todas as bolhas de ar sejam retiradas."
           },
           {
             seq: 6,
             description:
-              "Misture bem os ingredientes até que seja obtida uma massa bastante homogênea",
-              check: false
+              "Leve a peça para o defumador, ajustando sua temperatura para 80oC."
           },
-          { seq: 7, description: "Ensaque a massa",
-          check: false 
+          {
+            seq: 7,
+            description: "Acione a fumaça por 4 horas, ou pelo tempo que produzir o resultado de sua preferência."
           },
           {
             seq: 8,
             description:
-              "Defume a quente, em temperatura de até 85oC, até o interior das peças atingir 72oC",
-              check: false
+              "Mantenha a linguiça no defumador até que seu interior atinja 72oC."
+          },
+          { 
+            seq: 9,
+            description: "Quando terminar a defumação, mergulhe a linguiça em água gelada para diminuir o enrugamento e melhor a aparência final."
+          },
+          {
+            seq: 10,
+            description:
+              "Leve a linguiça para a geladeira e mantenha resfriada por 12 horas antes de fatiar."
           }
         ]
       },
@@ -83,18 +88,19 @@ export default function () {
         thumbnail:
           "linguica_seca.jpg",
         ingredients: [
-          { id: "1", percent: 55, texture: "3" },
-          { id: "5", percent: 15, texture: "3" },
-          { id: "2", percent: 15, texture: "7" },
-          { id: "1", percent: 15, texture: "8" },
-          { id: "9", percent: 0.214, texture: "9" },
-          { id: "11", percent: 1.5, texture: "9" },
-          { id: "12", percent: 0.25, texture: "9" },
-          { id: "26", percent: 0.35, texture: "10" },
-          { id: "27", percent: 0.2, texture: "11" },
-          { id: "28", percent: 0.15, texture: "12" },
-          { id: "29", percent: 0.05, texture: "12" },
-          { id: "33", percent: 5, texture: "4" }
+          { id: "1", percent: 65, texture: "1", sequence: 1 },
+          { id: "7", percent: 25, texture: "1", sequence: 2 },
+          { id: "6", percent: 10, texture: "1", sequence: 3 },
+          { id: "12", percent: 2, texture: "4", sequence: 4 },
+          { id: "11", percent: 0.214, texture: "4", sequence: 5 },
+          { id: "29", percent: 0.1, texture: "16", sequence: 6 },
+          { id: "29", percent: 0.1, texture: "5", sequence: 7 },
+          { id: "28", percent: 0.05, texture: "5", sequence: 8 },
+          { id: "28", percent: 0.05, texture: "6", sequence: 9 },
+          { id: "42", percent: 0.02, texture: "4", sequence: 10 },
+          { id: "43", percent: 0.6, texture: "4", sequence: 11 },
+          { id: "34", percent: 1.0, texture: "4", sequence: 12 },
+          { id: "34", percent: 0.04, texture: "4", sequence: 13 }
         ],
         private: false,
         author: "",
@@ -104,103 +110,92 @@ export default function () {
           {
             seq: 1,
             description:
-              "Coloque a tripa de colágeno para hidratar em água a temperatura ambiente " +
-              "30 minutos antes de fazer o ensacamento"
+              "Misture a água sem cloro com a cultura e reserve."
           },
           {
             seq: 2,
             description:
-              "Misture todos os temperos e aditivos (sal de cura, emulsificante e antioxidante)," +
-              " fazendo uma mistura uniforme"
+              "Lave bem a tripa natural e coloque hidratar em água a temperatura ambiente 90 minutos antes de fazer o ensacamento."
           },
           {
             seq: 3,
             description:
-              "Em uma vasilha grande, com tampa, misture as carnes, fazendo uma massa homogênea"
+              "Misturar todos os temperos secos, COM EXCESSÃO do antioxidante, e despeje a mistura sobre a carne. " +
+              "Bata a mistura até que obtenha uma massa homogênea. " +
+              "Despeje a água e continue batendo a massa até que fique 'liguenta'. Leve a mistura para geladeira e deixe descansar por 12 horas."
           },
+          {
+            seq: 3,
+            description:
+              "Mistura a massa de carne e temperos secos com o antioxidante, batendo até obter uma massa bem homogênea. Embora na lista de " +
+              " ingredientes tenhamos corante de carmin, por experiência própria a cor do produto final muda pouco, e por isso normalmente não " +
+              "uso corante em minhas produções."
+            },          
           {
             seq: 4,
             description:
-              "Espalhe a mistura de ingredientes secos sobre a massa de carnes"
+              "Ensaque a massa. Faça furos nos peças para garantir que as bolhas de ar internas sejam removidas."
           },
           {
             seq: 5,
-            description: "Acrescente a água"
+            description:
+              "Fermente a linguiça em um ambiente protegido de insetos, com temperatura de 30oC por 24 horas."
           },
           {
             seq: 6,
             description:
-              "Misture bem os ingredientes até que seja obtida uma massa bastante homogênea"
-          },
-          { seq: 7, description: "Ensaque a massa" },
-          {
-            seq: 8,
-            description:
-              "Defume a quente, em temperatura de até 85oC, até o interior das peças atingir 72oC"
+              "Terminada a fermentação, coloque as peças na câmara, e a maturação deve ser terminada em 25~30 dias, ou na geladeira, " +
+              " e a maturação deve ser terminada em 10~15 dias, para que sequem."
           }
         ]
       },
       {
-        title: "Linguiça Fresca Pura",
+        title: "Linguiça Fresca Estilo Toscana",
         id: "3",
         createdAt: "11/04/2018",
         category: "3",
         thumbnail:
           "linguica_fresca_pura.jpg",
         ingredients: [
-          { id: "1", percent: 55, texture: "3" },
-          { id: "5", percent: 15, texture: "3" },
-          { id: "2", percent: 15, texture: "7" },
-          { id: "1", percent: 15, texture: "8" },
-          { id: "9", percent: 0.214, texture: "9" },
-          { id: "11", percent: 1.5, texture: "9" },
-          { id: "12", percent: 0.25, texture: "9" },
-          { id: "26", percent: 0.35, texture: "10" },
-          { id: "27", percent: 0.2, texture: "11" },
-          { id: "28", percent: 0.15, texture: "12" },
-          { id: "29", percent: 0.05, texture: "12" },
-          { id: "33", percent: 5, texture: "4" }
+          { id: "3", percent: 80, texture: "10", sequence: 1 },
+          { id: "6", percent: 20, texture: "1", sequence: 2 },
+          { id: "10", percent: 0.214, texture: "4", sequence: 3 },
+          { id: "12", percent: 1.5, texture: "4", sequence: 4 },
+          { id: "25", percent: 0.3, texture: "5", sequence: 5 },
+          { id: "27", percent: 0.4, texture: "5", sequence: 6 },
+          { id: "13", percent: 0.3, texture: "4", sequence: 7 },
+          { id: "14", percent: 0.3, texture: "4", sequence: 8 },
+          { id: "34", percent: 5, texture: "4", sequence: 9  }
         ],
         private: false,
         author: "",
         description: "Linguiça fresca estilo toscana, pura carne suína. Receita básica.",
         prep_steps: [
           {
-            seq: 1,
-            description:
-              "Coloque a tripa de colágeno para hidratar em água a temperatura ambiente " +
-              "30 minutos antes de fazer o ensacamento"
-          },
-          {
             seq: 2,
             description:
-              "Misture todos os temperos e aditivos (sal de cura, emulsificante e antioxidante)," +
-              " fazendo uma mistura uniforme"
+              "Lave bem a tripa natural e coloque para hidratar em água a temperatura ambiente 90 minutos antes de fazer o ensacamento."
           },
           {
             seq: 3,
             description:
-              "Em uma vasilha grande, com tampa, misture as carnes, fazendo uma massa homogênea"
+              "Misturar todos os temperos secos, COM EXCESSÃO do antioxidante, e despeje a mistura sobre a carne. " +
+              "Bata a mistura até que obtenha uma massa homogênea. " +
+              "Despeje a água e continue batendo a massa até que fique 'liguenta'. Leve a mistura para geladeira e deixe descansar por 12 horas."
           },
+          {
+            seq: 3,
+            description:
+              "Misture a massa de carne e temperos secos com o antioxidante, batendo até obter uma massa bem homogênea."
+            },          
           {
             seq: 4,
             description:
-              "Espalhe a mistura de ingredientes secos sobre a massa de carnes"
+              "Ensaque a massa."
           },
           {
             seq: 5,
-            description: "Acrescente a água"
-          },
-          {
-            seq: 6,
-            description:
-              "Misture bem os ingredientes até que seja obtida uma massa bastante homogênea"
-          },
-          { seq: 7, description: "Ensaque a massa" },
-          {
-            seq: 8,
-            description:
-              "Defume a quente, em temperatura de até 85oC, até o interior das peças atingir 72oC"
+            description: "Leve as linguiças prontas para a geladeira para que descansem por 12 horas."
           }
         ]
       },
@@ -212,18 +207,8 @@ export default function () {
         thumbnail:
           "joelho_defumado.png",
         ingredients: [
-          { id: "1", percent: 55, texture: "3" },
-          { id: "5", percent: 15, texture: "3" },
-          { id: "2", percent: 15, texture: "7" },
-          { id: "1", percent: 15, texture: "8" },
-          { id: "9", percent: 0.214, texture: "9" },
-          { id: "11", percent: 1.5, texture: "9" },
-          { id: "12", percent: 0.25, texture: "9" },
-          { id: "26", percent: 0.35, texture: "10" },
-          { id: "27", percent: 0.2, texture: "11" },
-          { id: "28", percent: 0.15, texture: "12" },
-          { id: "29", percent: 0.05, texture: "12" },
-          { id: "33", percent: 5, texture: "4" }
+          { id: "49", percent: 100, texture: "4" },
+          { id: "48", percent: 200, texture: "4" }
         ],
         private: false,
         author: "",
@@ -232,39 +217,30 @@ export default function () {
           {
             seq: 1,
             description:
-              "Coloque a tripa de colágeno para hidratar em água a temperatura ambiente " +
-              "30 minutos antes de fazer o ensacamento"
+              "Limpe os joelhos, retirando excesso de gordura e peles indesejáveis."
           },
           {
             seq: 2,
             description:
-              "Misture todos os temperos e aditivos (sal de cura, emulsificante e antioxidante)," +
-              " fazendo uma mistura uniforme"
+              "Separe uma parte da salmoura para injetar na peça em preparação. Essa quantidade deve corresponder " +
+              "a 10% do peso da peça em preparação. Para melhorar a apresentação final do produto, injete a salmoura " +
+              "no sentido perpendicular das fibras da carne em preparação. Esse trabalho é importante para garantir que " +
+              "peças grandes sejam corretamente curadas."
           },
           {
             seq: 3,
             description:
-              "Em uma vasilha grande, com tampa, misture as carnes, fazendo uma massa homogênea"
+              "Mergulhe a peça em preparação na salmoura, de maneira que fique completamente coberta."
           },
           {
             seq: 4,
             description:
-              "Espalhe a mistura de ingredientes secos sobre a massa de carnes"
+              "Mantenha a vasilha onde temos a salmoura e o joelho em ambiente refrigerado por 8 dias."
           },
           {
             seq: 5,
-            description: "Acrescente a água"
-          },
-          {
-            seq: 6,
             description:
-              "Misture bem os ingredientes até que seja obtida uma massa bastante homogênea"
-          },
-          { seq: 7, description: "Ensaque a massa" },
-          {
-            seq: 8,
-            description:
-              "Defume a quente, em temperatura de até 85oC, até o interior das peças atingir 72oC"
+              "Remova as peças da salmoura, faça a amarração desejada e leve ao defumador."
           }
         ]
       },
@@ -345,18 +321,19 @@ export default function () {
         thumbnail:
           "mortadela.jpg",
         ingredients: [
-          { id: "1", percent: 55, texture: "3" },
-          { id: "5", percent: 15, texture: "3" },
-          { id: "2", percent: 15, texture: "7" },
-          { id: "1", percent: 15, texture: "8" },
-          { id: "9", percent: 0.214, texture: "9" },
-          { id: "11", percent: 1.5, texture: "9" },
-          { id: "12", percent: 0.25, texture: "9" },
-          { id: "26", percent: 0.35, texture: "10" },
-          { id: "27", percent: 0.2, texture: "11" },
-          { id: "28", percent: 0.15, texture: "12" },
-          { id: "29", percent: 0.05, texture: "12" },
-          { id: "33", percent: 5, texture: "4" }
+          { id: "1", percent: 90, texture: "15", sequence: 1 },
+          { id: "6", percent: 10, texture: "11", sequence: 2 },
+          { id: "12", percent: 2, texture: "4", sequence: 3 },
+          { id: "10", percent: 0.214, texture: "4", sequence: 4 },
+          { id: "14", percent: 0.15, texture: "9", sequence: 5 },
+          { id: "25", percent: 0.2, texture: "7", sequence: 6 },
+          { id: "25", percent: 0.2, texture: "6", sequence: 7 },
+          { id: "35", percent: 0.05, texture: "5", sequence: 8 },
+          { id: "44", percent: 0.10, texture: "5", sequence: 9 },
+          { id: "28", percent: 0.05, texture: "5", sequence: 10 },
+          { id: "27", percent: 0.2, texture: "5", sequence: 11 },
+          { id: "45", percent: 20, texture: "18", sequence: 12 },
+          { id: "46", percent: 3, texture: "4", sequence: 13 }
         ],
         private: false,
         author: "",
@@ -368,39 +345,66 @@ export default function () {
           {
             seq: 1,
             description:
-              "Coloque a tripa de colágeno para hidratar em água a temperatura ambiente " +
-              "30 minutos antes de fazer o ensacamento"
+              "Corte o pernil em cubos pequenos. Acrescente o sal comum e o sal de cura, embale e leve para a geladeira por 24 horas."  
           },
           {
             seq: 2,
             description:
-              "Misture todos os temperos e aditivos (sal de cura, emulsificante e antioxidante)," +
-              " fazendo uma mistura uniforme"
+              "Passadas 24 horas, leve a carne ao congelador por pelo menos 2 horas. Depois esse período, moa a carne usando disco #3 e em " +
+              "refaça a moagem usando o disco #6."
           },
           {
             seq: 3,
             description:
-              "Em uma vasilha grande, com tampa, misture as carnes, fazendo uma massa homogênea"
+              "Coloque a tripa de colágeno para hidratar em água sem cloro por 30 minutos"
           },
           {
             seq: 4,
             description:
-              "Espalhe a mistura de ingredientes secos sobre a massa de carnes"
+              "Adicione os temperos em pó e o vinho à carne moída, misturando bem. Em seguida emulsifique a mistura usando o gelo triturado. "
           },
           {
             seq: 5,
-            description: "Acrescente a água"
+            description:
+              "Conseguimos um resultado melhor se os cubos de gordura forem escaldados em água fervente e em seguida mergulhados em " +
+              "água gelada. Depois disso deixe-os escorrer o excesso de água."
           },
           {
             seq: 6,
             description:
-              "Misture bem os ingredientes até que seja obtida uma massa bastante homogênea"
+              "Misture a carne emulsificada, os cubos de gordura e a pimenta em grãos. "
           },
-          { seq: 7, description: "Ensaque a massa" },
+          {
+            seq: 7,
+            description:
+               "Ensaque utilizando tripa de colágeno previamente hidratada. Terminado o ensacamento, fure a peça para retirar as bolhas de ar."
+          },
           {
             seq: 8,
             description:
-              "Defume a quente, em temperatura de até 85oC, até o interior das peças atingir 72oC"
+              "Deixar a peça descansar pelo menos 12 horas na câmara de maturação produz resultados melhores."
+          },
+          {
+            seq: 9,
+            description: "Cozinhe a peça em água com temperatura de 70oC."
+          },
+          {
+            seq: 10,
+            description:
+              "Terminado o cozimento mergulhe a peça em água gelada para diminuir o enrugamento e dar uma melhor aparência."
+          },
+          { seq: 11,
+            description: "Depois do choque térmico deixe a peça descansar 24 horas na câmara de maturação."
+          },
+          {
+            seq: 13,
+            description:
+              "Defume a frio por 4 horas, usando fumaça azulada bem leve."
+          },
+          {
+            seq: 14,
+            description:
+              "Terminada a defumação, retorne a peça à câmara de maturação pode 1 semana."
           }
         ]
       },

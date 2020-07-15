@@ -14,14 +14,21 @@
         <div class="col-1 q-gutter-md q-mx-md">
           <q-input rounded outlined v-model="batchSize" >
             <template v-slot:prepend>
-              <q-icon name="restaurant" />
+              <q-tooltip 
+              content-style="font-size: 16px"
+              >
+                Kg
+              </q-tooltip>
             </template>
           </q-input>
         </div>
         
         <div class="col-1">
-          <q-btn round color="red" icon="add_shopping_cart" class="q-mt-sm q-mb-lg" @click="showBatchSize = true">
-            <q-tooltip >Criar novo lote de produto</q-tooltip>
+          <q-btn round color="red" icon="restaurant" class="q-mt-sm q-mb-lg" @click="showBatchSize = true">
+            <q-tooltip 
+            content-style="font-size: 16px"
+            >
+            Criar novo lote de produto</q-tooltip>
           </q-btn>
         </div>
 
