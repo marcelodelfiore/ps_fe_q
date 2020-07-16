@@ -11,7 +11,7 @@
         <router-link :to="`/recipes/${recipe.id}`" style="">
           <q-card class="no-shadow">
             <q-card-section>
-              <q-avatar size="250px">
+              <q-avatar size="200px">
                   <q-tooltip
                     max-width="200px"
                     anchor="top right"

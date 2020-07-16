@@ -49,7 +49,8 @@ export default function () {
       { id: "46", description: "vinho tinto seco", thumbnail: 'vinho_tinto.jpg' },
       { id: "47", description: "corante carmin líquido", thumbnail: 'corante_carmin.jpg' },
       { id: "48", description: "salmoura para cura líquida", thumbnail: 'salmoura.jpg' },
-      { id: "49", description: "joelho suíno", thumbnail: 'joelho_suino.png' }
+      { id: "49", description: "joelho suíno", thumbnail: 'joelho_suino.png' },
+      { id: "50", description: "cravo da índia", thumbnail: 'cravo_da_india.jpg' }
     ]
   }; 
 }

@@ -409,25 +409,19 @@ export default function () {
         ]
       },
       {
-        title: "Calabresa Defumada",
+        title: "Salmoura para Cura Úmida",
         id: "7",
         createdAt: "11/04/2018",
         category: "1",
-        thumbnail: "calabresa_defumada.jpg",
+        thumbnail: "salmoura.jpg",
         ingredients: [
-          { id: "1", percent: 55, texture: "3" },
-          { id: "6", percent: 15, texture: "3" },
-          { id: "3", percent: 15, texture: "11" },
-          { id: "1", percent: 15, texture: "3" },
-          { id: "12", percent: 1.5, texture: "4" },
-          { id: "10", percent: 0.214, texture: "4" },
-          { id: "35", percent: 0.25, texture: "4" },
-          { id: "27", percent: 0.35, texture: "5" },
-          { id: "28", percent: 0.05, texture: "7" },
-          { id: "28", percent: 0.15, texture: "6" },
-          { id: "29", percent: 0.05, texture: "7" },
-          { id: "29", percent: 0.15, texture: "6" },
-          { id: "34", percent: 5, texture: "4" }
+          { id: "34", percent: 100, texture: "4" },
+          { id: "12", percent: 5.0, texture: "4" },
+          { id: "10", percent: 1.0, texture: "4" },
+          { id: "25", percent: 0.3, texture: "6" },
+          { id: "27", percent: 0.3, texture: "5" },
+          { id: "33", percent: 0.5, texture: "4" },
+          { id: "50", percent: 0.02, texture: "5" },
         ],
         private: false,
         author: "",
@@ -435,39 +429,14 @@ export default function () {
           {
             seq: 1,
             description:
-              "Coloque a tripa de colágeno para hidratar em água a temperatura ambiente " +
-              "30 minutos antes de fazer o ensacamento"
+              "No dia anterior ao preparo das peças coloque as pimentas do reino na água para aromatizar. A pimenta é colocada no dia " +
+              "anterior para que possamos usa-las inteiras, evitando assim que seus grãos sejam injetados nas peças. Se vocẽ não se importar " +
+              "com a presença desses grãos no interior das peças, pode evitar esse preparo do dia anterior."
           },
           {
             seq: 2,
             description:
-              "Misture todos os temperos e aditivos (sal de cura, emulsificante e antioxidante)," +
-              " fazendo uma mistura uniforme"
-          },
-          {
-            seq: 3,
-            description:
-              "Em uma vasilha grande, com tampa, misture as carnes, fazendo uma massa homogênea"
-          },
-          {
-            seq: 4,
-            description:
-              "Espalhe a mistura de ingredientes secos sobre a massa de carnes"
-          },
-          {
-            seq: 5,
-            description: "Acrescente a água"
-          },
-          {
-            seq: 6,
-            description:
-              "Misture bem os ingredientes até que seja obtida uma massa bastante homogênea"
-          },
-          { seq: 7, description: "Ensaque a massa" },
-          {
-            seq: 8,
-            description:
-              "Defume a quente, em temperatura de até 85oC, até o interior das peças atingir 72oC"
+              "Misture todos os temperos restantes na água, dissolvendo bem os ingredientes de maneira a garantir uma salmoura uniforme."
           }
         ]
       },
