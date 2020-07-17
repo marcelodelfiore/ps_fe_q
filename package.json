@@ -14,10 +14,10 @@
     "axios": "^0.18.1",
     "core-js": "^3.6.5",
     "firebase": "^7.16.0",
-    "quasar": "^1.0.0"
+    "quasar": "^1.12.12"
   },
   "devDependencies": {
-    "@quasar/app": "^2.0.0",
+    "@quasar/app": "^2.0.6",
     "babel-eslint": "^10.0.1",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",

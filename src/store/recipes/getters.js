@@ -2,22 +2,33 @@ export function recipesList(state) {
     return state.list_of_recipes
 };
 
-export function recipesDefumados(state, getters){
+export function recipesSample(state, getters) {
+    return getters.recipesList.filter(r => r.sample == true)
+};
+
+export function recipesSmoked(state, getters){
     return getters.recipesList.filter(r => r.category === "1")
 };
 
-export function recipesCurados(state, getters){
+export function recipesCured(state, getters){
     return getters.recipesList.filter(r => r.category === "2")
 };
 
-export function recipesFrescos(state, getters){
+export function recipesFresh(state, getters){
     return getters.recipesList.filter(r => r.category === "3")
 };
 
-export function recipesMaturados(state, getters){
+export function recipesAged(state, getters){
     return getters.recipesList.filter(r => r.category === "4")
 };
 
+export function recipesEmulsified(state, getters){
+    return getters.recipesList.filter(r => r.category === "6")
+};
+
+export function recipesCooked(state, getters){
+    return getters.recipesList.filter(r => r.category === "5")
+};
 export function recipeByID(state, getters){
     return id => getters.recipesList.find(r =>{
         return r.id === id

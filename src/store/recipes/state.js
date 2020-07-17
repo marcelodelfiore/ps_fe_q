@@ -23,6 +23,7 @@ export default function () {
           { id: "34", percent: 5, texture: "4", sequence: 13  }
         ],
         private: false,
+        sample: false,
         author: "",
         description: "Linguiça condimentada com pimenta calabresa e grãos de erva doce. " +
           "Foi criada no Brasil sob influência dos imigrantes italianos",
@@ -103,6 +104,7 @@ export default function () {
           { id: "34", percent: 0.04, texture: "4", sequence: 13 }
         ],
         private: false,
+        sample: false,
         author: "",
         description: "Produto curado, ensacado em tripa fina, bem condimentado. Passa por uma rápida fermentação de até 24 horas." +
         " O período de cura é relativamente curto, sendo consumido após 30 dias. Muito boa para ser apreciada em uma roda de bons amigos.",
@@ -168,6 +170,7 @@ export default function () {
           { id: "34", percent: 5, texture: "4", sequence: 9  }
         ],
         private: false,
+        sample: true,
         author: "",
         description: "Linguiça fresca estilo toscana, pura carne suína. Receita básica.",
         prep_steps: [
@@ -211,6 +214,7 @@ export default function () {
           { id: "48", percent: 200, texture: "4" }
         ],
         private: false,
+        sample: true,
         author: "",
         description: "Joelho de porco defumado, cura em salmora de equilíbrio",
         prep_steps: [
@@ -268,7 +272,8 @@ export default function () {
           { id: "40", percent: 0.25, texture: "5" },
           { id: "41", percent: 0.30, texture: "5" }
         ],
-        privacy: "0",
+        private: false,
+        sample: false,
         author: "",
         description: "Produto de origem alemã e italiana, foi trazido para o Brasil, principalmente para a região sul, pelos imigrantes no século XIX." + 
         " Surgiu como forma de aproveitamento integral dos suínos, sendo formulado a partir de miúdos, vísceras e retalhos de " +
@@ -336,6 +341,7 @@ export default function () {
           { id: "46", percent: 3, texture: "4", sequence: 13 }
         ],
         private: false,
+        sample: false,
         author: "",
         description: "Originária da região de Bolonha, na Itália. Os produtos mais antigos similares datam de 1376" +
           " Foi levada para a América Latina pelos imigrantes italianos, no início do século XX. Muito popular no Brasil." + 
@@ -424,6 +430,7 @@ export default function () {
           { id: "50", percent: 0.02, texture: "5" },
         ],
         private: false,
+        sample: false,
         author: "",
         prep_steps: [
           {
