@@ -2,6 +2,10 @@ export function recipesList(state) {
     return state.list_of_recipes
 };
 
+export function recipesSample(state, getters) {
+    return getters.recipesList.filter(r => r.sample == true)
+};
+
 export function recipesDefumados(state, getters){
     return getters.recipesList.filter(r => r.category === "1")
 };
