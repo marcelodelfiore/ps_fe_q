@@ -40,6 +40,7 @@
 
     <q-drawer
       v-model="leftDrawerOpen"
+      :breakpoint="1036"
       show-if-above
       bordered
       content-class="bg-grey-3"
@@ -62,6 +63,14 @@
         <div v-if="userLoggedIn">
           <EssentialLink
             v-for="link in protectedLinks"
+            :key="link.title"
+            v-bind="link"
+          />
+        </div>
+
+        <div v-else>
+          <EssentialLink
+            v-for="link in sampleLinks"
             :key="link.title"
             v-bind="link"
           />
@@ -104,6 +113,13 @@ export default {
           icon: 'menu_book',
           link: '/recipes'
         }
+      ],
+      sampleLinks: [
+        {
+          title: 'Livro de Receitas - Amostra',
+          icon: 'menu_book',
+          link: '/recipesSample'
+        }
       ]
     }
   },
@@ -117,7 +133,7 @@ export default {
 </script>
 
 <style>
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 1023px){
     .q-footer{
       display: none;
     }
