@@ -22,9 +22,6 @@ const routes = [
       { path: '/recipesSmoked',
       component: () => import('pages/recipes/recipesSmoked.vue')
       },
-      { path: '/recipesCured',
-      component: () => import('pages/recipes/recipesCured.vue')
-      },
       { path: '/recipesFresh',
       component: () => import('pages/recipes/recipesFresh.vue')
       },

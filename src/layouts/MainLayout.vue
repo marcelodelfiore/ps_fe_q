@@ -32,9 +32,11 @@
       <q-tabs dense>
         <q-route-tab to="/" icon="home" label="Início" />
         <q-route-tab to="/recipes" icon="menu_book" label="Receitas" />
-        <q-route-tab to="/raws" icon="construction" label="M.Primas" />
-        <q-route-tab to="/textures" icon="texture" label="Texturas" />
-        <q-route-tab to="/categories" icon="category" label="Categorias" />
+        <q-route-tab to="/recipesSmoked" icon="img:icons/camping.svg" label="Defumados" />
+        <q-route-tab to="/recipesAged" icon="img:icons/prosciuto2.svg" label="Maturados" />
+        <q-route-tab to="/recipesFresh" icon="img:icons/fresh.svg" label="Produtos Frescos" />
+        <q-route-tab to="/recipesEmulsified" icon="img:icons/sausages.svg" label="Emulsificados" />
+        <q-route-tab to="/recipesCooked" icon="img:icons/ham.svg" label="Cozidos" />
       </q-tabs>
     </q-footer>
 
@@ -109,38 +111,43 @@ export default {
       ],
       protectedLinks: [
         {
+          title: '',
+          icon: '',
+          link: ''
+        },
+        {
           title: 'Livro de Receitas',
           icon: 'menu_book',
           link: '/recipes'
         },
         {
+          title: '',
+          icon: '',
+          link: ''
+        },
+        {
           title: 'Defumados',
-          icon: 'menu_book',
+          icon: 'img:icons/camping.svg',
           link: '/recipesSmoked'
         },
         {
-          title: 'Curados',
-          icon: 'menu_book',
-          link: '/recipesCured'
+          title: 'Maturados',
+          icon: 'img:icons/prosciuto2.svg',
+          link: '/recipesAged'
         },
         {
           title: 'Produtos Frescos',
-          icon: 'menu_book',
+          icon: 'img:icons/fresh.svg',
           link: '/recipesFresh'
         },
         {
           title: 'Emulsificados',
-          icon: 'menu_book',
+          icon: 'img:icons/sausages.svg',
           link: '/recipesEmulsified'
         },
         {
-          title: 'Maturados',
-          icon: 'menu_book',
-          link: '/recipesAged'
-        },
-        {
           title: 'Cozidos',
-          icon: 'menu_book',
+          icon: 'img:icons/ham.svg',
           link: '/recipesCooked'
         },
       ],
