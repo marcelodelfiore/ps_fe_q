@@ -112,7 +112,37 @@ export default {
           title: 'Livro de Receitas',
           icon: 'menu_book',
           link: '/recipes'
-        }
+        },
+        {
+          title: 'Defumados',
+          icon: 'menu_book',
+          link: '/recipesSmoked'
+        },
+        {
+          title: 'Curados',
+          icon: 'menu_book',
+          link: '/recipesCured'
+        },
+        {
+          title: 'Produtos Frescos',
+          icon: 'menu_book',
+          link: '/recipesFresh'
+        },
+        {
+          title: 'Emulsificados',
+          icon: 'menu_book',
+          link: '/recipesEmulsified'
+        },
+        {
+          title: 'Maturados',
+          icon: 'menu_book',
+          link: '/recipesAged'
+        },
+        {
+          title: 'Cozidos',
+          icon: 'menu_book',
+          link: '/recipesCooked'
+        },
       ],
       sampleLinks: [
         {

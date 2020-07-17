@@ -16,6 +16,27 @@ const routes = [
       { path: '/recipesSample',
       component: () => import('pages/recipes/recipesSample.vue')
       },
+      { path: '/recipes',
+      component: () => import('pages/recipes/recipesSample.vue')
+      },
+      { path: '/recipesSmoked',
+      component: () => import('pages/recipes/recipesSmoked.vue')
+      },
+      { path: '/recipesCured',
+      component: () => import('pages/recipes/recipesCured.vue')
+      },
+      { path: '/recipesFresh',
+      component: () => import('pages/recipes/recipesFresh.vue')
+      },
+      { path: '/recipesEmulsified',
+      component: () => import('pages/recipes/recipesEmulsified.vue')
+      },
+      { path: '/recipesAged',
+      component: () => import('pages/recipes/recipesAged.vue')
+      },
+      { path: '/recipesCooked',
+      component: () => import('pages/recipes/recipesCooked.vue')
+      },
       { path: '/raws',
       component: () => import('pages/raws/raws.vue')
       },
