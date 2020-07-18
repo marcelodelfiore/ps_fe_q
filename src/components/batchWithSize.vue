@@ -21,7 +21,8 @@
                 
                 <q-tab-panel name="ingredients">
                     <q-list bordered padding style="background-color: white">
-                        <q-item class="q-pa-sm" v-for="(ingredient, index) in recipeByID($route.params.id).ingredients"
+                        <q-item class="q-pa-sm" 
+                        v-for="(ingredient, index) in recipeByID($route.params.id).recipe.ingredients"
                             :key="index"
                             v-ripple
                             clickable
@@ -38,7 +39,7 @@
 
                 <q-tab-panel name="sequence">
                     <q-list bordered padding style="background-color: white">
-                        <q-item class="q-pa-sm" v-for="step in recipeByID($route.params.id).prep_steps"
+                        <q-item class="q-pa-sm" v-for="step in recipeByID($route.params.id).recipe.prep_steps"
                         :key="step.seq"
                         v-ripple
                         clickable

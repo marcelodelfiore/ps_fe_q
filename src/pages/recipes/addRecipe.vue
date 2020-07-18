@@ -17,15 +17,17 @@
             
             <div class="col-lg-5">
                 <q-form
-                    @submit="onSubmit"
+                    @submit.prevent="onSubmit"
                     @reset="onReset"
                     class="q-gutter-lg"
                 >
                     <q-input
                     class="q-ma-lg"
                         standout
-                        v-model="recipeToSubmit.title" 
-                        label="Título" 
+                        v-model="recipeToSubmit.title"
+                        :rules="[val => !!val || 'Campo obrigatório']"
+                        label="Título"
+                        ref="title" 
                     />
                     
                     <q-input
@@ -52,6 +54,8 @@
                     class="q-ma-lg"
                         standout
                         v-model="recipeToSubmit.category"
+                        :rules="[val => !!val || 'Campo obrigatório']"
+                        ref="category"
                         label="Categoria" 
                     />
 
@@ -59,6 +63,8 @@
                     class="q-ma-lg"
                         standout
                         v-model="recipeToSubmit.private"
+                        :rules="[val => !!val || 'Campo obrigatório']"
+                        ref="shared"
                         label="Compartilhada ?" 
                     />
 
@@ -111,6 +117,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
     data(){
         return{
@@ -131,15 +139,11 @@ export default {
         }
     },
     methods: {
-        onSubmit () {
-            this.$q.notify({
-            color: 'green-4',
-            textColor: 'white',
-            icon: 'cloud_done',
-            message: 'Enviado'
-            })
+        ...mapActions('recipes', ['addNewRecipe']),
+        onSubmit() {
+            this.submitNewRecipe()
         },
-        onReset () {
+        onReset() {
             this.recipeToSubmit.title = null
             this.recipeToSubmit.createdAt = null,
             this.recipeToSubmit.category = null,
@@ -147,7 +151,10 @@ export default {
             this.recipeToSubmit.description = null,
             this.recipeToSubmit.ingredients = [],
             this.recipeToSubmit.prep_steps = []
+        },
+        submitNewRecipe(){
+            this.addNewRecipe(this.recipeToSubmit)
         }
-  }
+    }
 }
 </script>

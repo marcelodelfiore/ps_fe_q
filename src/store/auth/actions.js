@@ -31,13 +31,11 @@ export function logoutUser() {
 }
 
 export function handleAuthStateChange({ commit, dispatch }) {
-    console.log('Na action onAuthStateChanged !')
     firebaseAuth.onAuthStateChanged(user => {
         Loading.hide()
       if (user) {
         commit('setLoggedIn', true)
         LocalStorage.set('userLoggedIn', true)
-        this.$router.push('/')
       }
       else {
           commit('setLoggedIn', false)
