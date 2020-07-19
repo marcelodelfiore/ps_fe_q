@@ -7,10 +7,9 @@
     </div>
 
     <div class="row">
-      {{recipesSmoked}}
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center text-h4"
        v-for="thisRecipe in recipesSmoked" :key="thisRecipe.id">
-        <router-link :to="`/recipes/${recipe.id}`" style="">
+        <router-link :to="`/recipes/${thisRecipe.id}`" style="">
           <q-card class="no-shadow">
             <q-card-section>
               <q-avatar size="200px">
