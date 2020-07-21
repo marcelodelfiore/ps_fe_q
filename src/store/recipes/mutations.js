@@ -1,6 +1,8 @@
 import Vue from 'vue'
 
 export function addNewRecipe(state, payload){
-    Vue.set(state.list_of_recipes, payload.id, payload.recipe)
+    console.log('Na mutation addNewRecipe')
+    state.listOfRecipes.push(payload)
+    // Vue.set(state.listOfRecipes, payload.id, payload.recipe)
 }
 

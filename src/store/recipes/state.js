@@ -1,6 +1,6 @@
 export default function () {
   return {
-    list_of_recipes: [
+    listOfRecipes: [
       {
         id: "1",
         recipe: {

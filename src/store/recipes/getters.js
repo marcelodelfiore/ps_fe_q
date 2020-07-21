@@ -1,5 +1,5 @@
 export function recipesList(state) {
-    return state.list_of_recipes
+    return state.listOfRecipes
 };
 
 export function recipesSample(state, getters) {

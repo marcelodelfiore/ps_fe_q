@@ -100,7 +100,7 @@
                         <div class="col q-ma-lg">
                             <q-btn type="reset" color="negative" class="q-ml-sm">
                                 <q-tooltip content-style="font-size: 16px">
-                                    Apagar o conteúdo preenchido
+                                    Limpar formulário
                                 </q-tooltip>
                                 <q-icon name="delete_forever"></q-icon>
                             </q-btn>
@@ -113,6 +113,125 @@
             <div class="col-lg-3 col-md-1">
             </div>
         </div>
+
+        <q-dialog 
+            v-model="showIngredientsDialog"
+            persistent
+        >
+            <div class="q-pa-md q-gutter-sm">
+                <div class="row">
+                    <q-tabs
+                        v-model="tab"
+                        inline-label
+                        class="bg-primary text-white shadow-2"
+                    > 
+                        <q-tab name="ingredients" icon="img:icons/grocery.svg" label="Ingredientes" />
+                        <q-tab name="preps" icon="img:icons/preparations.svg" label="Preparo" />               
+
+                    </q-tabs>
+                    
+                    <q-separator />
+                
+                    <q-tab-panels v-model="tab" animated>
+                    
+                        <q-tab-panel name="ingredients">
+                            form de ingredientes
+                            <q-form 
+                                @submit.prevent="onSubmitIngredients"
+                                @reset="onResetIngredients"
+                                class="q-gutter-lg">
+                                
+                                <q-input
+                                    class="q-ma-lg"
+                                    standout
+                                    v-model="ingredientToInput"
+                                    label="Ingrediente"
+                                />
+
+                                <q-input
+                                    class="q-ma-lg"
+                                    standout
+                                    v-model="textureToInput"
+                                    label="Textura"
+                                />
+
+                                <q-input
+                                    class="q-ma-lg"
+                                    standout
+                                    v-model="quantityToInput"
+                                    label="Quantidade (%)"
+                                />
+                                
+                                <q-input
+                                    class="q-ma-lg"
+                                    standout
+                                    v-model="ingredientSequenceToInput"
+                                    label="Sequência"
+                                />
+                                
+                                <q-btn type="submit" icon="send" color="primary">
+                                    <q-tooltip content-style="font-size: 16px">
+                                        Salvar ingrediente
+                                    </q-tooltip>
+                                </q-btn>
+                                <q-btn type="reset" icon="delete_forever" color="negative" class="q-ml-sm">
+                                    <q-tooltip content-style="font-size: 16px">
+                                        Limpar formulário
+                                    </q-tooltip>
+                                </q-btn>
+                            </q-form>
+                        </q-tab-panel>
+
+                        <q-tab-panel name="preps">
+                            form de preparo
+                            <q-form 
+                                @submit.prevent="onSubmitPrepSteps"
+                                @reset="onResetPrepSteps"
+                                class="q-gutter-lg">
+                                
+                                <q-input
+                                    class="q-ma-lg"
+                                    standout
+                                    v-model="sequenceToInput"
+                                    label="Sequência"
+                                />
+
+                                <q-input
+                                    class="q-ma-lg"
+                                    standout
+                                    v-model="prepStepToInput"
+                                    label="Procedimento"
+                                />
+                                <q-btn type="submit" icon="send" color="primary">
+                                    <q-tooltip content-style="font-size: 16px">
+                                        Salvar preparo
+                                    </q-tooltip>
+                                </q-btn>
+                                <q-btn type="reset" icon="delete_forever" color="negative" class="q-ml-sm">
+                                    <q-tooltip content-style="font-size: 16px">
+                                        Limpar formulário
+                                    </q-tooltip>
+                                </q-btn>
+                            </q-form>
+                        </q-tab-panel>
+
+                    </q-tab-panels>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                    </div>
+
+                    <div class="col">
+                        <q-btn label="Fechar" color="primary" v-close-popup />
+                    </div>
+
+                    <div class="col">
+                    </div>
+                </div>
+            </div>
+        </q-dialog>
+
     </div>
 </template>
 
@@ -135,26 +254,63 @@ export default {
                 description: '',
                 prep_steps: []
             },
-            showIngredientsDialog: false
+            showIngredientsDialog: false,
+            tab: 'ingredients',
+            ingredientToInput: '',
+            textureToInput: '',
+            quantityToInput: 1.0,
+            ingredientSequenceToInput: 1,
+            sequenceToInput: 1,
+            prepStepToInput: ''
         }
     },
     methods: {
         ...mapActions('recipes', ['addNewRecipe']),
         onSubmit() {
             this.submitNewRecipe()
+            console.log(this.recipeToSubmit)
         },
         onReset() {
             this.recipeToSubmit.title = null
-            this.recipeToSubmit.createdAt = null,
-            this.recipeToSubmit.category = null,
-            this.recipeToSubmit.private = null,
-            this.recipeToSubmit.description = null,
-            this.recipeToSubmit.ingredients = [],
+            this.recipeToSubmit.createdAt = null
+            this.recipeToSubmit.category = null
+            this.recipeToSubmit.private = null
+            this.recipeToSubmit.description = null
+            this.recipeToSubmit.ingredients = []
             this.recipeToSubmit.prep_steps = []
         },
         submitNewRecipe(){
             this.addNewRecipe(this.recipeToSubmit)
+        },
+        onSubmitIngredients() {
+            const new_ingredient= {
+                id: this.ingredientToInput,
+                percent: this.quantityToInput,
+                texture: this.textureToInput,
+                sequence: this.ingredientSequenceToInput
+            }
+            this.recipeToSubmit.ingredients.push(new_ingredient)
+            this.onResetIngredients()
+        },
+        onResetIngredients() {
+            this.ingredientToInput = null
+            this.textureToInput = null
+            this.quantityToInput = null
+            this.ingredientSequenceToInput = null
+        },
+        onSubmitPrepSteps() {
+            const new_prepStep = {
+                seq: this.sequenceToInput,
+                description: this.prepStepToInput
+            }
+            this.recipeToSubmit.prep_steps.push(new_prepStep)
+            this.onResetPrepSteps()
+        },
+        onResetPrepSteps() {
+            this.sequenceToInput = null
+            this.prepStepToInput = null
         }
+
     }
 }
 </script>
