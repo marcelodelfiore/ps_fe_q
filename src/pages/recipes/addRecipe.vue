@@ -33,7 +33,6 @@
                     <q-input
                         filled
                         class="q-ma-lg"
-                        mask="date"
                         v-model="recipeToSubmit.createdAt"
                         label="Data de criação"
                     >
@@ -41,6 +40,7 @@
                             <q-icon name="event" class="cursor-pointer">
                             <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
                                 <q-date
+                                    mask="DD/MM/YYYY"
                                     bordered
                                     v-model="recipeToSubmit.createdAt"
                                     @input="() => $refs.qDateProxy.hide()"
