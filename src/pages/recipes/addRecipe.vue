@@ -50,22 +50,24 @@
                         </template>
                     </q-input>
                                     
-                    <q-input
+                    <q-select
                     class="q-ma-lg"
                         standout
-                        v-model="recipeToSubmit.category"
+                        v-model="categoryOptions"
                         :rules="[val => !!val || 'Campo obrigatório']"
                         ref="category"
-                        label="Categoria" 
+                        label="Categoria"
+                        :options="categoryOptionslabels"
                     />
 
-                    <q-input
+                    <q-select
                     class="q-ma-lg"
                         standout
-                        v-model="recipeToSubmit.private"
+                        v-model="shareOptions"
                         :rules="[val => !!val || 'Campo obrigatório']"
                         ref="shared"
-                        label="Compartilhada ?" 
+                        label="Compartilhada ?"
+                        :options="shareOptionslabels"
                     />
 
                     <q-input
@@ -232,18 +234,19 @@
             </div>
         </q-dialog>
 
+
     </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
+import { categoriesList } from '../../store/categories/getters'
 
 export default {
     data(){
         return{
             recipeToSubmit: {
                 title: '',
-                id: '',
                 createdAt: '',
                 category: '',
                 thumbnail: '',
@@ -261,12 +264,49 @@ export default {
             quantityToInput: 1.0,
             ingredientSequenceToInput: 1,
             sequenceToInput: 1,
-            prepStepToInput: ''
+            prepStepToInput: '',
+            categoryOptions: null,
+            categoryOptionslabels: ['Defumados', 'Curados', 'Frescos', 'Maturados', 'Cozidos', 'Emulsificados'],
+            shareOptions: null,
+            shareOptionslabels: ['Sim', 'Não']
         }
+    },
+    computed: {
+        ...mapGetters('categories', ['categoriesList'])
     },
     methods: {
         ...mapActions('recipes', ['addNewRecipe']),
         onSubmit() {
+            console.log('Labels list', this.catList)
+
+            if(this.shareOptions == 'Sim'){
+                this.recipeToSubmit.private = true
+            }
+            else{
+                this.recipeToSubmit.private = false
+            }
+
+            switch(this.categoryOptions){
+                case 'Defumados':
+                 this.recipeToSubmit.category = '1'
+                 break;
+                case 'Curados':
+                 this.recipeToSubmit.category = '2'
+                 break;
+                case 'Frescos':
+                 this.recipeToSubmit.category = '3'
+                 break;
+                case 'Maturados':
+                 this.recipeToSubmit.category = '4'
+                 break;
+                case 'Cozidos':
+                 this.recipeToSubmit.category = '5'
+                 break;
+                case 'Emulsificados':
+                 this.recipeToSubmit.category = '6'
+                 break;
+            }
+
             this.submitNewRecipe()
             console.log(this.recipeToSubmit)
         },
