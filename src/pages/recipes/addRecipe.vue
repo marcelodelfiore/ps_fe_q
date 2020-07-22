@@ -147,18 +147,28 @@
                                 @reset="onResetIngredients"
                                 class="q-gutter-lg">
                                 
-                                <q-input
+                                <q-select
                                     class="q-ma-lg"
                                     standout
                                     v-model="ingredientToInput"
                                     label="Ingrediente"
+                                    :options="rawMaterialsList"
+                                    option-value="id"
+                                    option-label="description"
+                                    emit-value
+                                    map-options
                                 />
 
-                                <q-input
+                                <q-select
                                     class="q-ma-lg"
                                     standout
                                     v-model="textureToInput"
                                     label="Textura"
+                                    :options="texturesList"
+                                    option-value="id"
+                                    option-label="description"
+                                    emit-value
+                                    map-options
                                 />
 
                                 <q-input
@@ -246,6 +256,8 @@
 import { mapActions, mapGetters } from 'vuex'
 
 import { categoriesList } from '../../store/categories/getters'
+import { rawMaterialsList } from '../../store/raws/getters'
+import { texturesList } from '../../store/textures/getters'
 
 import { firebaseAuth } from 'boot/firebase'
 
@@ -277,7 +289,9 @@ export default {
         }
     },
     computed: {
-        ...mapGetters('categories', ['categoriesList'])
+        ...mapGetters('categories', ['categoriesList']),
+        ...mapGetters('raws', ['rawMaterialsList']),
+        ...mapGetters('textures', ['texturesList']),
     },
     methods: {
         ...mapActions('recipes', ['addNewRecipe']),
