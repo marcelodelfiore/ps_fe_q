@@ -123,115 +123,134 @@
         <q-dialog 
             v-model="showIngredientsDialog"
             persistent
+            full-width
         >
             <div class="q-pa-md q-gutter-sm">
-                <div class="row">
-                    <q-tabs
-                        v-model="tab"
-                        inline-label
-                        class="bg-primary text-white shadow-2"
-                    > 
-                        <q-tab name="ingredients" icon="img:icons/grocery.svg" label="Ingredientes" />
-                        <q-tab name="preps" icon="img:icons/preparations.svg" label="Preparo" />               
+                <div class="row" style="background-color: white">
+                    <div class="col-6 q-pa-md">
+                        <q-tabs
+                            v-model="tab"
+                            inline-label
+                            class="bg-primary text-white shadow-2"
+                        > 
+                            <q-tab name="ingredients" icon="img:icons/grocery.svg" label="Ingredientes" />
+                            <q-tab name="preps" icon="img:icons/preparations.svg" label="Preparo" />               
 
-                    </q-tabs>
+                        </q-tabs>
+                        
+                        <q-separator />
                     
-                    <q-separator />
-                
-                    <q-tab-panels v-model="tab" animated>
-                    
-                        <q-tab-panel name="ingredients">
-                            form de ingredientes
-                            <q-form 
-                                @submit.prevent="onSubmitIngredients"
-                                @reset="onResetIngredients"
-                                class="q-gutter-lg">
-                                
-                                <q-select
-                                    class="q-ma-lg"
-                                    standout
-                                    v-model="ingredientToInput"
-                                    label="Ingrediente"
-                                    :options="rawMaterialsList"
-                                    option-value="id"
-                                    option-label="description"
-                                    emit-value
-                                    map-options
-                                />
+                        <q-tab-panels v-model="tab" animated>
+                        
+                            <q-tab-panel name="ingredients">
+                                form de ingredientes
+                                <q-form 
+                                    @submit.prevent="onSubmitIngredients"
+                                    @reset="onResetIngredients"
+                                    class="q-gutter-lg">
+                                    
+                                    <q-select
+                                        class="q-ma-lg"
+                                        standout
+                                        v-model="ingredientToInput"
+                                        label="Ingrediente"
+                                        :options="rawMaterialsList"
+                                        option-value="id"
+                                        option-label="description"
+                                        emit-value
+                                        map-options
+                                    />
 
-                                <q-select
-                                    class="q-ma-lg"
-                                    standout
-                                    v-model="textureToInput"
-                                    label="Textura"
-                                    :options="texturesList"
-                                    option-value="id"
-                                    option-label="description"
-                                    emit-value
-                                    map-options
-                                />
+                                    <q-select
+                                        class="q-ma-lg"
+                                        standout
+                                        v-model="textureToInput"
+                                        label="Textura"
+                                        :options="texturesList"
+                                        option-value="id"
+                                        option-label="description"
+                                        emit-value
+                                        map-options
+                                    />
 
-                                <q-input
-                                    class="q-ma-lg"
-                                    standout
-                                    v-model="quantityToInput"
-                                    label="Quantidade (%)"
-                                />
-                                
-                                <q-input
-                                    class="q-ma-lg"
-                                    standout
-                                    v-model="ingredientSequenceToInput"
-                                    label="Sequência"
-                                />
-                                
-                                <q-btn type="submit" icon="send" color="primary">
-                                    <q-tooltip content-style="font-size: 16px">
-                                        Salvar ingrediente
-                                    </q-tooltip>
-                                </q-btn>
-                                <q-btn type="reset" icon="delete_forever" color="negative" class="q-ml-sm">
-                                    <q-tooltip content-style="font-size: 16px">
-                                        Limpar formulário
-                                    </q-tooltip>
-                                </q-btn>
-                            </q-form>
-                        </q-tab-panel>
+                                    <q-input
+                                        class="q-ma-lg"
+                                        standout
+                                        v-model="quantityToInput"
+                                        label="Quantidade (%)"
+                                    />
+                                    
+                                    <q-input
+                                        class="q-ma-lg"
+                                        standout
+                                        v-model="ingredientSequenceToInput"
+                                        label="Sequência"
+                                    />
+                                    
+                                    <q-btn type="submit" icon="send" color="primary">
+                                        <q-tooltip content-style="font-size: 16px">
+                                            Salvar ingrediente
+                                        </q-tooltip>
+                                    </q-btn>
+                                    <q-btn type="reset" icon="delete_forever" color="negative" class="q-ml-sm">
+                                        <q-tooltip content-style="font-size: 16px">
+                                            Limpar formulário
+                                        </q-tooltip>
+                                    </q-btn>
+                                </q-form>
+                            </q-tab-panel>
 
-                        <q-tab-panel name="preps">
-                            form de preparo
-                            <q-form 
-                                @submit.prevent="onSubmitPrepSteps"
-                                @reset="onResetPrepSteps"
-                                class="q-gutter-lg">
-                                
-                                <q-input
-                                    class="q-ma-lg"
-                                    standout
-                                    v-model="sequenceToInput"
-                                    label="Sequência"
-                                />
+                            <q-tab-panel name="preps">
+                                form de preparo
+                                <q-form 
+                                    @submit.prevent="onSubmitPrepSteps"
+                                    @reset="onResetPrepSteps"
+                                    class="q-gutter-lg">
+                                    
+                                    <q-input
+                                        class="q-ma-lg"
+                                        standout
+                                        v-model="sequenceToInput"
+                                        label="Sequência"
+                                    />
 
-                                <q-input
-                                    class="q-ma-lg"
-                                    standout
-                                    v-model="prepStepToInput"
-                                    label="Procedimento"
-                                />
-                                <q-btn type="submit" icon="send" color="primary">
-                                    <q-tooltip content-style="font-size: 16px">
-                                        Salvar preparo
-                                    </q-tooltip>
-                                </q-btn>
-                                <q-btn type="reset" icon="delete_forever" color="negative" class="q-ml-sm">
-                                    <q-tooltip content-style="font-size: 16px">
-                                        Limpar formulário
-                                    </q-tooltip>
-                                </q-btn>
-                            </q-form>
-                        </q-tab-panel>
+                                    <q-input
+                                        class="q-ma-lg"
+                                        standout
+                                        v-model="prepStepToInput"
+                                        label="Procedimento"
+                                    />
+                                    <q-btn type="submit" icon="send" color="primary">
+                                        <q-tooltip content-style="font-size: 16px">
+                                            Salvar preparo
+                                        </q-tooltip>
+                                    </q-btn>
+                                    <q-btn type="reset" icon="delete_forever" color="negative" class="q-ml-sm">
+                                        <q-tooltip content-style="font-size: 16px">
+                                            Limpar formulário
+                                        </q-tooltip>
+                                    </q-btn>
+                                </q-form>
+                            </q-tab-panel>
 
-                    </q-tab-panels>
+                        </q-tab-panels>
+                    </div>
+
+                    <div class="col-3 q-pa-md text-center">
+                        <h6><strong>Ingredientes adicionados</strong></h6>
+                        <div v-for="ingredient in recipeToSubmit.ingredients" :key="ingredient.sequence">
+                            {{ ingredient.sequence }} - {{ (rawMaterialByID(ingredient.id)).description }}; {{ ingredient.percent }}%;
+                             {{ (textureByID(ingredient.texture)).description }}
+                        </div>
+                    </div>
+
+                    <div class="col-3 q-pa-md text-center">
+                        <h6><strong>Preparos adicionados</strong></h6>
+                        <div v-for="prepStep in recipeToSubmit.prep_steps" :key="prepStep.seq">
+                            {{ prepStep.seq }} - {{ prepStep.description }}
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="row">
@@ -256,8 +275,8 @@
 import { mapActions, mapGetters } from 'vuex'
 
 import { categoriesList } from '../../store/categories/getters'
-import { rawMaterialsList } from '../../store/raws/getters'
-import { texturesList } from '../../store/textures/getters'
+import { rawMaterialsList, rawMaterialByID } from '../../store/raws/getters'
+import { texturesList, textureToInput } from '../../store/textures/getters'
 
 import { firebaseAuth } from 'boot/firebase'
 
@@ -290,8 +309,8 @@ export default {
     },
     computed: {
         ...mapGetters('categories', ['categoriesList']),
-        ...mapGetters('raws', ['rawMaterialsList']),
-        ...mapGetters('textures', ['texturesList']),
+        ...mapGetters('raws', ['rawMaterialsList', 'rawMaterialByID']),
+        ...mapGetters('textures', ['texturesList', 'textureByID']),
     },
     methods: {
         ...mapActions('recipes', ['addNewRecipe']),
@@ -337,6 +356,7 @@ export default {
             this.textureToInput = null
             this.quantityToInput = null
             this.ingredientSequenceToInput = null
+            
         },
         onSubmitPrepSteps() {
             const new_prepStep = {
@@ -349,6 +369,7 @@ export default {
         onResetPrepSteps() {
             this.sequenceToInput = null
             this.prepStepToInput = null
+            
         }
 
     }
