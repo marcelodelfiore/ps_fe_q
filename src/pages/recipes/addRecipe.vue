@@ -244,7 +244,10 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+
 import { categoriesList } from '../../store/categories/getters'
+
+import { firebaseAuth } from 'boot/firebase'
 
 export default {
     data(){
@@ -280,6 +283,8 @@ export default {
         ...mapActions('recipes', ['addNewRecipe']),
         onSubmit() {
             console.log('Labels list', this.catList)
+            
+            this.recipeToSubmit.author = firebaseAuth.currentUser.uid
 
             if(this.shareOptions == 'Sim'){
                 this.recipeToSubmit.private = true
