@@ -53,11 +53,15 @@
                     <q-select
                     class="q-ma-lg"
                         standout
-                        v-model="categoryOptions"
+                        v-model="recipeToSubmit.category"
                         :rules="[val => !!val || 'Campo obrigatório']"
                         ref="category"
                         label="Categoria"
-                        :options="categoryOptionslabels"
+                        :options="categoriesList"
+                        option-value="id"
+                        option-label="description"
+                        emit-value
+                        map-options
                     />
 
                     <q-select
@@ -67,7 +71,7 @@
                         :rules="[val => !!val || 'Campo obrigatório']"
                         ref="shared"
                         label="Compartilhada ?"
-                        :options="shareOptionslabels"
+                        :options="shareOptionsLabels"
                     />
 
                     <q-input
@@ -265,10 +269,8 @@ export default {
             ingredientSequenceToInput: 1,
             sequenceToInput: 1,
             prepStepToInput: '',
-            categoryOptions: null,
-            categoryOptionslabels: ['Defumados', 'Curados', 'Frescos', 'Maturados', 'Cozidos', 'Emulsificados'],
             shareOptions: null,
-            shareOptionslabels: ['Sim', 'Não']
+            shareOptionsLabels: ['Sim', 'Não']
         }
     },
     computed: {
@@ -284,27 +286,6 @@ export default {
             }
             else{
                 this.recipeToSubmit.private = false
-            }
-
-            switch(this.categoryOptions){
-                case 'Defumados':
-                 this.recipeToSubmit.category = '1'
-                 break;
-                case 'Curados':
-                 this.recipeToSubmit.category = '2'
-                 break;
-                case 'Frescos':
-                 this.recipeToSubmit.category = '3'
-                 break;
-                case 'Maturados':
-                 this.recipeToSubmit.category = '4'
-                 break;
-                case 'Cozidos':
-                 this.recipeToSubmit.category = '5'
-                 break;
-                case 'Emulsificados':
-                 this.recipeToSubmit.category = '6'
-                 break;
             }
 
             this.submitNewRecipe()

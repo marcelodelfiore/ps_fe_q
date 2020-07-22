@@ -22,7 +22,7 @@ export function loginUser({}, payload) {
             console.log('response: ', response)
         })
         .catch(error => {
-            showErrorMessage('Usuário não existe')
+            showErrorMessage('Erro na autenticação')
         })
 }
 export function logoutUser() {
