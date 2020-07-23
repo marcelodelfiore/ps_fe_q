@@ -19,11 +19,14 @@ const routes = [
       { path: '/recipes',
       component: () => import('pages/recipes/recipesSample.vue')
       },
+      { path: '/recipesMyRecipes',
+      component: () => import('pages/recipes/recipesMyRecipes.vue')
+      },
+      { path: '/recipesShared',
+      component: () => import('pages/recipes/recipesShared.vue')
+      },
       { path: '/recipesSmoked',
       component: () => import('pages/recipes/recipesSmoked.vue')
-      },
-      { path: '/recipesCured',
-      component: () => import('pages/recipes/recipesCured.vue')
       },
       { path: '/recipesFresh',
       component: () => import('pages/recipes/recipesFresh.vue')
@@ -36,6 +39,9 @@ const routes = [
       },
       { path: '/recipesCooked',
       component: () => import('pages/recipes/recipesCooked.vue')
+      },
+      { path: '/addRecipe',
+      component: () => import('pages/recipes/addRecipe.vue')
       },
       { path: '/raws',
       component: () => import('pages/raws/raws.vue')

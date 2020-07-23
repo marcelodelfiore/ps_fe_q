@@ -2,13 +2,14 @@
   <q-page padding>
     <div class="row justify-center">
       <div class="text-h4 text-bold">
-        Livro de Receitas
+        Receitas Compartilhadas
       </div>
     </div>
 
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center text-h4" v-for="recipe in recipesCured" :key="recipe.id">
-        <router-link :to="`/recipes/${recipe.id}`" style="">
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center text-h4"
+       v-for="thisRecipe in recipesShared" :key="thisRecipe.id">
+        <router-link :to="`/recipes/${thisRecipe.id}`" style="">
           <q-card class="no-shadow">
             <q-card-section>
               <q-avatar size="200px">
@@ -18,14 +19,15 @@
                     content-class="bg-info text-black" 
                     content-style="font-size: 16px"
                     >
-                    {{ recipe.description }}
+                    {{ thisRecipe.recipe.description }}
                   </q-tooltip>
-                <img :src= "recipe.thumbnail">
+                <img :src= "thisRecipe.recipe.thumbnail">
               </q-avatar>
             </q-card-section>
           </q-card>
         </router-link>
-        <div class="text-h7">{{ recipe.title }} </div>
+        <div class="text-h7">{{ thisRecipe.recipe.title }} </div>
+        <div class="text-caption">({{ currentLoggedUser.email }})</div>
       </div>
     </div>
 
@@ -33,12 +35,13 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapState } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters("recipes", ["recipesCured"])
+    ...mapGetters("recipes", ["recipesShared"]),
+    ...mapState('auth', ['currentLoggedUser'])
   },
-  name: 'Recipes'
+  name: 'RecipesShared'
 }
 </script>
