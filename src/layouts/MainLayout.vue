@@ -118,52 +118,64 @@ export default {
           seq: 1
         },
         {
-          title: 'Livro de Receitas',
-          icon: 'menu_book',
-          link: '/recipes',
+          title: 'Minhas Receitas',
+          icon: 'accessibility_new',
+          link: '/recipesMyRecipes',
           seq: 2
-        },
-        {
-          title: 'Defumados',
-          icon: 'img:icons/camping.svg',
-          link: '/recipesSmoked',
-          seq: 3
-        },
-        {
-          title: 'Maturados',
-          icon: 'img:icons/prosciuto2.svg',
-          link: '/recipesAged',
-          seq: 4
-        },
-        {
-          title: 'Produtos Frescos',
-          icon: 'img:icons/fresh.svg',
-          link: '/recipesFresh',
-          seq: 5
-        },
-        {
-          title: 'Emulsificados',
-          icon: 'img:icons/sausages.svg',
-          link: '/recipesEmulsified',
-          seq: 6
-        },
-        {
-          title: 'Cozidos',
-          icon: 'img:icons/ham.svg',
-          link: '/recipesCooked',
-          seq: 7
         },
         {
           title: '',
           icon: '',
           link: '',
+          seq: 3
+        },
+        {
+          title: 'Receitas Públicas',
+          icon: 'menu_book',
+          link: '/recipesShared',
+          seq: 4
+        },
+        {
+          title: 'Defumados',
+          icon: 'img:icons/camping.svg',
+          link: '/recipesSmoked',
+          seq: 5
+        },
+        {
+          title: 'Maturados',
+          icon: 'img:icons/prosciuto2.svg',
+          link: '/recipesAged',
+          seq: 6
+        },
+        {
+          title: 'Produtos Frescos',
+          icon: 'img:icons/fresh.svg',
+          link: '/recipesFresh',
+          seq: 7
+        },
+        {
+          title: 'Emulsificados',
+          icon: 'img:icons/sausages.svg',
+          link: '/recipesEmulsified',
           seq: 8
+        },
+        {
+          title: 'Cozidos',
+          icon: 'img:icons/ham.svg',
+          link: '/recipesCooked',
+          seq: 9
+        },
+        {
+          title: '',
+          icon: '',
+          link: '',
+          seq: 10
         },
         {
           title: 'Criar nova receita',
           icon: 'add_circle',
           link: '/addRecipe',
-          seq: 9
+          seq: 11
         },
       ],
       sampleLinks: [

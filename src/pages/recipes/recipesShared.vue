@@ -2,13 +2,13 @@
   <q-page padding>
     <div class="row justify-center">
       <div class="text-h4 text-bold">
-        Livro de Receitas
+        Receitas Compartilhadas
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center text-h4"
-       v-for="thisRecipe in recipesCooked" :key="thisRecipe.id">
+       v-for="thisRecipe in recipesShared" :key="thisRecipe.id">
         <router-link :to="`/recipes/${thisRecipe.id}`" style="">
           <q-card class="no-shadow">
             <q-card-section>
@@ -46,8 +46,8 @@ export default {
       }
   },
   computed: {
-      ...mapGetters("recipes", ["recipesCooked"])
-    },
-    name: 'Recipes'
+    ...mapGetters("recipes", ["recipesShared"])
+  },
+  name: 'Recipes'
 }
 </script>

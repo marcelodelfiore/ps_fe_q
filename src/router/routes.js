@@ -19,6 +19,12 @@ const routes = [
       { path: '/recipes',
       component: () => import('pages/recipes/recipesSample.vue')
       },
+      { path: '/recipesMyRecipes',
+      component: () => import('pages/recipes/recipesMyRecipes.vue')
+      },
+      { path: '/recipesShared',
+      component: () => import('pages/recipes/recipesShared.vue')
+      },
       { path: '/recipesSmoked',
       component: () => import('pages/recipes/recipesSmoked.vue')
       },

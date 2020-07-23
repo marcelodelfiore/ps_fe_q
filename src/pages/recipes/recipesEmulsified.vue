@@ -27,6 +27,7 @@
           </q-card>
         </router-link>
         <div class="text-h7">{{ thisRecipe.recipe.title }} </div>
+        <div class="text-caption">({{ user }})</div>
       </div>
     </div>
 
@@ -36,9 +37,16 @@
 <script>
 import { mapGetters } from "vuex";
 
+import { firebaseAuth } from 'boot/firebase'
+
 export default {
+  data: function (){
+      return {
+        user: firebaseAuth.currentUser.email
+      }
+  },
   computed: {
-    ...mapGetters("recipes", ["recipesEmulsified"])
+      ...mapGetters("recipes", ["recipesEmulsified"])
   },
   name: 'Recipes'
 }

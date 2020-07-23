@@ -25,7 +25,7 @@ export default function () {
           ],
           private: false,
           sample: false,
-          author: "",
+          author: "ljqCiipK2LhPz2uGsb9ZKIiAbeJ2",
           description: "Linguiça condimentada com pimenta calabresa e grãos de erva doce. " +
             "Foi criada no Brasil sob influência dos imigrantes italianos",
           prep_steps: [
@@ -108,7 +108,7 @@ export default function () {
           ],
           private: false,
           sample: false,
-          author: "",
+          author: "ljqCiipK2LhPz2uGsb9ZKIiAbeJ2",
           description: "Produto curado, ensacado em tripa fina, bem condimentado. Passa por uma rápida fermentação de até 24 horas." +
           " O período de cura é relativamente curto, sendo consumido após 30 dias. Muito boa para ser apreciada em uma roda de bons amigos.",
           prep_steps: [
@@ -176,7 +176,7 @@ export default function () {
           ],
           private: false,
           sample: true,
-          author: "",
+          author: "ljqCiipK2LhPz2uGsb9ZKIiAbeJ2",
           description: "Linguiça fresca estilo toscana, pura carne suína. Receita básica.",
           prep_steps: [
             {
@@ -281,9 +281,9 @@ export default function () {
             { id: "40", percent: 0.25, texture: "5" },
             { id: "41", percent: 0.30, texture: "5" }
           ],
-          private: false,
+          private: true,
           sample: false,
-          author: "",
+          author: "GoVhaPXVyrQEM6jObAbcp70LN4f2",
           description: "Produto de origem alemã e italiana, foi trazido para o Brasil, principalmente para a região sul, pelos imigrantes no século XIX." + 
           " Surgiu como forma de aproveitamento integral dos suínos, sendo formulado a partir de miúdos, vísceras e retalhos de " +
           "carne.",

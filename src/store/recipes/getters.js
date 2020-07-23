@@ -1,3 +1,5 @@
+import { firebaseAuth } from 'boot/firebase'
+
 export function recipesList(state) {
     return state.listOfRecipes
 };
@@ -7,30 +9,39 @@ export function recipesSample(state, getters) {
 };
 
 export function recipesSmoked(state, getters){
-    return getters.recipesList.filter(r => r.recipe.category === "1")
+    return getters.recipesList.filter(r => (r.recipe.category === "1") && r.recipe.private == false)
 };
 
 export function recipesCured(state, getters){
-    return getters.recipesList.filter(r => r.recipe.category === "2")
+    return getters.recipesList.filter(r => (r.recipe.category === "2") && r.recipe.private == false)
 };
 
 export function recipesFresh(state, getters){
-    return getters.recipesList.filter(r => r.recipe.category === "3")
+    return getters.recipesList.filter(r => (r.recipe.category === "3") && r.recipe.private == false)
 };
 
 export function recipesAged(state, getters){
-    return getters.recipesList.filter(r => r.recipe.category === "4")
+    return getters.recipesList.filter(r => (r.recipe.category === "4") && r.recipe.private == false)
 };
 
 export function recipesEmulsified(state, getters){
-    return getters.recipesList.filter(r => r.recipe.category === "6")
+    return getters.recipesList.filter(r => (r.recipe.category === "6") && r.recipe.private == false)
 };
 
 export function recipesCooked(state, getters){
-    return getters.recipesList.filter(r => r.recipe.category === "5")
+    return getters.recipesList.filter(r => (r.recipe.category === "5") && r.recipe.private == false)
 };
+
 export function recipeByID(state, getters){
     return id => getters.recipesList.find(r =>{
         return r.id === id
       })
+};
+
+export function recipesMyRecipes(state, getters){
+    return getters.recipesList.filter(r => r.recipe.author == firebaseAuth.currentUser.uid)
+};
+
+export function recipesShared(state, getters){
+    return getters.recipesList.filter(r => r.recipe.private == false)
 };

@@ -318,6 +318,7 @@ export default {
             console.log('Labels list', this.catList)
             
             this.recipeToSubmit.author = firebaseAuth.currentUser.uid
+            
 
             if(this.shareOptions == 'Sim'){
                 this.recipeToSubmit.private = true

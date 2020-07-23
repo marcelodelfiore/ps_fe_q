@@ -2,13 +2,13 @@
   <q-page padding>
     <div class="row justify-center">
       <div class="text-h4 text-bold">
-        Livro de Receitas
+        Minhas Receitas
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center text-h4"
-       v-for="thisRecipe in recipesCooked" :key="thisRecipe.id">
+       v-for="thisRecipe in recipesMyRecipes" :key="thisRecipe.id">
         <router-link :to="`/recipes/${thisRecipe.id}`" style="">
           <q-card class="no-shadow">
             <q-card-section>
@@ -27,7 +27,6 @@
           </q-card>
         </router-link>
         <div class="text-h7">{{ thisRecipe.recipe.title }} </div>
-        <div class="text-caption">({{ user }})</div>
       </div>
     </div>
 
@@ -40,13 +39,13 @@ import { mapGetters } from "vuex";
 import { firebaseAuth } from 'boot/firebase'
 
 export default {
-  data: function (){
-      return {
+    data: function (){
+        return {
         user: firebaseAuth.currentUser.email
-      }
-  },
-  computed: {
-      ...mapGetters("recipes", ["recipesCooked"])
+        }
+    },
+    computed: {
+    ...mapGetters("recipes", ["recipesMyRecipes"])
     },
     name: 'Recipes'
 }
