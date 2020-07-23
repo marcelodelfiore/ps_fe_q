@@ -1,5 +1,3 @@
-import { firebaseAuth } from 'boot/firebase'
-
 export function recipesList(state) {
     return state.listOfRecipes
 };
@@ -28,7 +26,7 @@ export function recipesEmulsified(state, getters){
     return getters.recipesList.filter(r => (r.recipe.category === "6") && r.recipe.private == false)
 };
 
-export function recipesCooked(state, getters){
+export function recipesCooked(state, getters, rootState, rootGetters){
     return getters.recipesList.filter(r => (r.recipe.category === "5") && r.recipe.private == false)
 };
 
@@ -38,8 +36,8 @@ export function recipeByID(state, getters){
       })
 };
 
-export function recipesMyRecipes(state, getters){
-    return getters.recipesList.filter(r => r.recipe.author == firebaseAuth.currentUser.uid)
+export function recipesMyRecipes(state, getters, rootState, rootGetters){
+    return getters.recipesList.filter(r => r.recipe.author === rootState.auth.currentLoggedUser.id)
 };
 
 export function recipesShared(state, getters){

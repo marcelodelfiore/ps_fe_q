@@ -26,7 +26,6 @@ export function loginUser({}, payload) {
         })
 }
 export function logoutUser() {
-    console.log('logoutUser')
     firebaseAuth.signOut()
 }
 
@@ -36,11 +35,21 @@ export function handleAuthStateChange({ commit, dispatch }) {
       if (user) {
         commit('setLoggedIn', true)
         LocalStorage.set('userLoggedIn', true)
-      }
-      else {
+        let userData = {
+            id: firebaseAuth.currentUser.uid,
+            email: firebaseAuth.currentUser.email
+        }
+        commit('setUserData', userData)
+    }
+    else {
           commit('setLoggedIn', false)
           LocalStorage.set('userloggedIn', false)
-          this.$router.replace('/auth')
+          let userData = {
+            id: '-',
+            email: '-'
+        }
+        commit('setUserData', userData)
+        this.$router.replace('/auth')
       }
     })
 }

@@ -27,8 +27,8 @@
             </q-card-section>
           </q-card>
         </router-link>
-        <div class="text-h7">{{ thisRecipe.recipe.title }} </div>
-        <div class="text-caption">({{ user }})</div>
+        <div class="text-caption">{{ thisRecipe.recipe.title }} </div>
+        <div class="text-caption">({{ currentLoggedUser.email }})</div>
       </div>
     </div>
 
@@ -36,18 +36,12 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
-import { firebaseAuth } from 'boot/firebase'
+import { mapGetters, mapState } from "vuex";
 
 export default {
-  data: function (){
-      return {
-        user: firebaseAuth.currentUser.email
-      }
-  },
   computed: {
-    ...mapGetters("recipes", ["recipesList"])
+    ...mapGetters('recipes', ['recipesList']),
+    ...mapState('auth', ['currentLoggedUser'])    
   },
   name: 'Recipes'
 }

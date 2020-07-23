@@ -18,7 +18,7 @@
           <q-tooltip 
             content-style="font-size: 16px"
             >
-            {{ user }}
+            {{ currentLoggedUser.email }}
             </q-tooltip>
         </q-btn>
 
@@ -33,7 +33,7 @@
           <q-tooltip 
             content-style="font-size: 16px"
             >
-            {{ user }}
+            {{ currentLoggedUser.email }}
             </q-tooltip>
         </q-btn>
 
@@ -104,8 +104,6 @@
 import { mapState, mapActions } from 'vuex'
 
 import EssentialLink from 'components/EssentialLink.vue'
-
-import { firebaseAuth } from 'boot/firebase'
 
 export default {
   name: 'MainLayout',
@@ -199,11 +197,11 @@ export default {
           link: '/recipesSample'
         }
       ],
-      user: firebaseAuth.currentUser.email
+      user: ''
     }
   },
   computed: {
-    ...mapState('auth', ['userLoggedIn'])
+    ...mapState('auth', ['userLoggedIn', 'currentLoggedUser']),
   },
   methods: {
     ...mapActions('auth', ['logoutUser'])

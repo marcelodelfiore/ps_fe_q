@@ -103,6 +103,6 @@ export default {
     ...mapGetters('raws', ['rawMaterialByID']),
     ...mapGetters('textures', ['textureByID'])
   },
-  name: 'Recipes'
+  name: 'Recipe'
 }
 </script>

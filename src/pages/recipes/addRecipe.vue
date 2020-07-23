@@ -272,13 +272,11 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapState } from 'vuex'
 
 import { categoriesList } from '../../store/categories/getters'
 import { rawMaterialsList, rawMaterialByID } from '../../store/raws/getters'
 import { texturesList, textureToInput } from '../../store/textures/getters'
-
-import { firebaseAuth } from 'boot/firebase'
 
 export default {
     data(){
@@ -311,13 +309,12 @@ export default {
         ...mapGetters('categories', ['categoriesList']),
         ...mapGetters('raws', ['rawMaterialsList', 'rawMaterialByID']),
         ...mapGetters('textures', ['texturesList', 'textureByID']),
+        ...mapState('auth', ['currentLoggedUser'])
     },
     methods: {
         ...mapActions('recipes', ['addNewRecipe']),
         onSubmit() {
-            console.log('Labels list', this.catList)
-            
-            this.recipeToSubmit.author = firebaseAuth.currentUser.uid
+            this.recipeToSubmit.author = currentLoggedUser.ID
             
 
             if(this.shareOptions == 'Sim'){
@@ -328,7 +325,6 @@ export default {
             }
 
             this.submitNewRecipe()
-            console.log(this.recipeToSubmit)
         },
         onReset() {
             this.recipeToSubmit.title = null

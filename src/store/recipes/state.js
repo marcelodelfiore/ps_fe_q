@@ -158,7 +158,7 @@ export default function () {
       {
         id: "3",
         recipe: {
-          title: "Linguiça Fresca Estilo Toscana",
+          title: "Linguiça Estilo Toscana",
           createdAt: "11/04/2018",
           category: "3",
           thumbnail:
@@ -211,7 +211,7 @@ export default function () {
       {
         id: "4",
         recipe: {
-          title: "Joelho de Porco Defumado",
+          title: "Joelho Defumado",
           createdAt: "11/04/2018",
           category: "1",
           thumbnail:
@@ -220,9 +220,9 @@ export default function () {
             { id: "49", percent: 100, texture: "4" },
             { id: "48", percent: 200, texture: "4" }
           ],
-          private: false,
+          private: true,
           sample: true,
-          author: "",
+          author: "GoVhaPXVyrQEM6jObAbcp70LN4f2",
           description: "Joelho de porco defumado, cura em salmora de equilíbrio",
           prep_steps: [
             {
@@ -353,7 +353,7 @@ export default function () {
           ],
           private: false,
           sample: false,
-          author: "",
+          author: "ljqCiipK2LhPz2uGsb9ZKIiAbeJ2",
           description: "Originária da região de Bolonha, na Itália. Os produtos mais antigos similares datam de 1376" +
             " Foi levada para a América Latina pelos imigrantes italianos, no início do século XX. Muito popular no Brasil." + 
             " Pode ser preparara apenas com carnes ou acrescida de pimenta, azeitona, pimentões, alcaparra etc. " +
@@ -444,7 +444,7 @@ export default function () {
           ],
           private: false,
           sample: false,
-          author: "",
+          author: "ljqCiipK2LhPz2uGsb9ZKIiAbeJ2",
           prep_steps: [
             {
               seq: 1,
