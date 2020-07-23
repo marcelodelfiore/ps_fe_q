@@ -14,7 +14,13 @@
           icon-right="login"
           label="Entrar"
           class="absolute-right" 
-        />
+        >
+          <q-tooltip 
+            content-style="font-size: 16px"
+            >
+            {{ user }}
+            </q-tooltip>
+        </q-btn>
 
         <q-btn
           v-else
@@ -23,7 +29,13 @@
           icon-right="account_circle"
           label="Sair"
           class="absolute-right"
-        />
+        >
+          <q-tooltip 
+            content-style="font-size: 16px"
+            >
+            {{ user }}
+            </q-tooltip>
+        </q-btn>
 
       </q-toolbar>
     </q-header>
@@ -92,6 +104,8 @@
 import { mapState, mapActions } from 'vuex'
 
 import EssentialLink from 'components/EssentialLink.vue'
+
+import { firebaseAuth } from 'boot/firebase'
 
 export default {
   name: 'MainLayout',
@@ -184,7 +198,8 @@ export default {
           icon: 'menu_book',
           link: '/recipesSample'
         }
-      ]
+      ],
+      user: firebaseAuth.currentUser.email
     }
   },
   computed: {
