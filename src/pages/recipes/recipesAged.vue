@@ -2,13 +2,14 @@
   <q-page padding>
     <div class="row justify-center">
       <div class="text-h4 text-bold">
-        Livro de Receitas
+        Receitas de Produtos Maturados
       </div>
     </div>
 
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center text-h4" v-for="recipe in recipesAged" :key="recipe.id">
-        <router-link :to="`/recipes/${recipe.id}`" style="">
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center text-h4"
+       v-for="recipe in recipesAged" :key="recipe.id">
+        <router-link :to="`/recipes/${thisRecipe.id}`" style="">
           <q-card class="no-shadow">
             <q-card-section>
               <q-avatar size="200px">
@@ -26,6 +27,7 @@
           </q-card>
         </router-link>
         <div class="text-h7">{{ recipe.title }} </div>
+        <div class="text-caption">({{ currentLoggedUser.email }})</div>
       </div>
     </div>
 
@@ -33,12 +35,14 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapState } from "vuex";
+
 
 export default {
   computed: {
-    ...mapGetters("recipes", ["recipesAged"])
+    ...mapGetters("recipes", ["recipesAged"]),
+    ...mapState('auth', ['currentLoggedUser'])
   },
-  name: 'Recipes'
+  name: 'RecipesAged'
 }
 </script>

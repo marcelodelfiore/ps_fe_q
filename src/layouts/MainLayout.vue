@@ -14,7 +14,13 @@
           icon-right="login"
           label="Entrar"
           class="absolute-right" 
-        />
+        >
+          <q-tooltip 
+            content-style="font-size: 16px"
+            >
+            {{ currentLoggedUser.email }}
+            </q-tooltip>
+        </q-btn>
 
         <q-btn
           v-else
@@ -23,7 +29,13 @@
           icon-right="account_circle"
           label="Sair"
           class="absolute-right"
-        />
+        >
+          <q-tooltip 
+            content-style="font-size: 16px"
+            >
+            {{ currentLoggedUser.email }}
+            </q-tooltip>
+        </q-btn>
 
       </q-toolbar>
     </q-header>
@@ -37,6 +49,7 @@
         <q-route-tab to="/recipesFresh" icon="img:icons/fresh.svg" label="Produtos Frescos" />
         <q-route-tab to="/recipesEmulsified" icon="img:icons/sausages.svg" label="Emulsificados" />
         <q-route-tab to="/recipesCooked" icon="img:icons/ham.svg" label="Cozidos" />
+        <q-route-tab to="/addRecipe" icon="add_circle" label="Nova Receita" />
       </q-tabs>
     </q-footer>
 
@@ -50,7 +63,7 @@
       <q-list>
         <q-item-label
           header
-          class="text-grey-8"
+          class="text-h6 text-center text-black"
 
         >
           Atalhos
@@ -65,7 +78,7 @@
         <div v-if="userLoggedIn">
           <EssentialLink
             v-for="link in protectedLinks"
-            :key="link.title"
+            :key="link.seq"
             v-bind="link"
           />
         </div>
@@ -113,42 +126,68 @@ export default {
         {
           title: '',
           icon: '',
-          link: ''
+          link: '',
+          seq: 1
         },
         {
-          title: 'Livro de Receitas',
-          icon: 'menu_book',
-          link: '/recipes'
+          title: 'Minhas Receitas',
+          icon: 'accessibility_new',
+          link: '/recipesMyRecipes',
+          seq: 2
         },
         {
           title: '',
           icon: '',
-          link: ''
+          link: '',
+          seq: 3
+        },
+        {
+          title: 'Receitas Públicas',
+          icon: 'menu_book',
+          link: '/recipesShared',
+          seq: 4
         },
         {
           title: 'Defumados',
           icon: 'img:icons/camping.svg',
-          link: '/recipesSmoked'
+          link: '/recipesSmoked',
+          seq: 5
         },
         {
           title: 'Maturados',
           icon: 'img:icons/prosciuto2.svg',
-          link: '/recipesAged'
+          link: '/recipesAged',
+          seq: 6
         },
         {
           title: 'Produtos Frescos',
           icon: 'img:icons/fresh.svg',
-          link: '/recipesFresh'
+          link: '/recipesFresh',
+          seq: 7
         },
         {
           title: 'Emulsificados',
           icon: 'img:icons/sausages.svg',
-          link: '/recipesEmulsified'
+          link: '/recipesEmulsified',
+          seq: 8
         },
         {
           title: 'Cozidos',
           icon: 'img:icons/ham.svg',
-          link: '/recipesCooked'
+          link: '/recipesCooked',
+          seq: 9
+        },
+        {
+          title: '',
+          icon: '',
+          link: '',
+          seq: 10
+        },
+        {
+          title: 'Criar nova receita',
+          icon: 'add_circle',
+          link: '/addRecipe',
+          seq: 11
         },
       ],
       sampleLinks: [
@@ -157,11 +196,12 @@ export default {
           icon: 'menu_book',
           link: '/recipesSample'
         }
-      ]
+      ],
+      user: ''
     }
   },
   computed: {
-    ...mapState('auth', ['userLoggedIn'])
+    ...mapState('auth', ['userLoggedIn', 'currentLoggedUser']),
   },
   methods: {
     ...mapActions('auth', ['logoutUser'])

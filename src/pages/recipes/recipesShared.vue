@@ -2,14 +2,13 @@
   <q-page padding>
     <div class="row justify-center">
       <div class="text-h4 text-bold">
-        Livro de Receitas
+        Receitas Compartilhadas
       </div>
     </div>
 
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center text-h4" v-for="thisRecipe in recipesList"
-       :key="thisRecipe.recipe.id"
-      >
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center text-h4"
+       v-for="thisRecipe in recipesShared" :key="thisRecipe.id">
         <router-link :to="`/recipes/${thisRecipe.id}`" style="">
           <q-card class="no-shadow">
             <q-card-section>
@@ -27,7 +26,7 @@
             </q-card-section>
           </q-card>
         </router-link>
-        <div class="text-caption">{{ thisRecipe.recipe.title }} </div>
+        <div class="text-h7">{{ thisRecipe.recipe.title }} </div>
         <div class="text-caption">({{ currentLoggedUser.email }})</div>
       </div>
     </div>
@@ -40,9 +39,9 @@ import { mapGetters, mapState } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters('recipes', ['recipesList']),
-    ...mapState('auth', ['currentLoggedUser'])    
+    ...mapGetters("recipes", ["recipesShared"]),
+    ...mapState('auth', ['currentLoggedUser'])
   },
-  name: 'Recipes'
+  name: 'RecipesShared'
 }
 </script>

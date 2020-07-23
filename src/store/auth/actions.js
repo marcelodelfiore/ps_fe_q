@@ -22,27 +22,34 @@ export function loginUser({}, payload) {
             console.log('response: ', response)
         })
         .catch(error => {
-            showErrorMessage('Usuário não existe')
+            showErrorMessage('Erro na autenticação')
         })
 }
 export function logoutUser() {
-    console.log('logoutUser')
     firebaseAuth.signOut()
 }
 
 export function handleAuthStateChange({ commit, dispatch }) {
-    console.log('Na action onAuthStateChanged !')
     firebaseAuth.onAuthStateChanged(user => {
         Loading.hide()
       if (user) {
         commit('setLoggedIn', true)
         LocalStorage.set('userLoggedIn', true)
-        this.$router.push('/')
-      }
-      else {
+        let userData = {
+            id: firebaseAuth.currentUser.uid,
+            email: firebaseAuth.currentUser.email
+        }
+        commit('setUserData', userData)
+    }
+    else {
           commit('setLoggedIn', false)
           LocalStorage.set('userloggedIn', false)
-          this.$router.replace('/auth')
+          let userData = {
+            id: '-',
+            email: '-'
+        }
+        commit('setUserData', userData)
+        this.$router.replace('/auth')
       }
     })
 }

@@ -1,5 +1,10 @@
 export default function () {
   return {
-    userLoggedIn: false
+    userLoggedIn: false,
+    currentLoggedUser: {
+      ID: '',
+      email: ''
+    }
   }
 }
+

@@ -11,8 +11,8 @@
                 align="justify"
                 narrow-indicator
             >
-                <q-tab name="ingredients" label="Ingredientes" />
-                <q-tab name="sequence" label="Preparo" />
+                <q-tab name="ingredients" icon="img:icons/grocery.svg" label="Ingredientes" />
+                <q-tab name="sequence" icon="img:icons/preparations.svg" label="Preparo" />
             </q-tabs>
 
             <q-separator />
@@ -21,7 +21,8 @@
                 
                 <q-tab-panel name="ingredients">
                     <q-list bordered padding style="background-color: white">
-                        <q-item class="q-pa-sm" v-for="(ingredient, index) in recipeByID($route.params.id).ingredients"
+                        <q-item class="q-pa-sm" 
+                        v-for="(ingredient, index) in recipeByID($route.params.id).recipe.ingredients"
                             :key="index"
                             v-ripple
                             clickable
@@ -38,7 +39,7 @@
 
                 <q-tab-panel name="sequence">
                     <q-list bordered padding style="background-color: white">
-                        <q-item class="q-pa-sm" v-for="step in recipeByID($route.params.id).prep_steps"
+                        <q-item class="q-pa-sm" v-for="step in recipeByID($route.params.id).recipe.prep_steps"
                         :key="step.seq"
                         v-ripple
                         clickable
@@ -52,7 +53,7 @@
             
             </q-tab-panels>
         
-            <q-btn class="fixed-bottom q-pa-lg q-ma-lg" flat label="Fechar" v-close-popup color="red" style="background-color: white"/>
+            <q-btn class="fixed-bottom q-pa-lg q-ma-lg" label="Fechar" v-close-popup color="red" style="background-color: white"/>
             
         </div>
     </div>
