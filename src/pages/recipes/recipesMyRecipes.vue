@@ -32,10 +32,12 @@
 
             <q-card-actions>
               <div class="q-ma-lg">
-                <q-btn-group>
-                  <q-btn color="green" text-color="black" label="Editar" icon="edit" />
-                  <q-btn color="red" text-color="black" label="Apagar" icon="delete_forever" />
-                </q-btn-group>
+              </div>
+              <div class="q-ma-lg">
+                <q-btn dense round color="primary" icon="edit" />
+              </div>
+              <div class="q-ma-lg">
+                <q-btn dense round color="negative" icon="delete_forever" @click="promptToDelete(thisRecipe.id)"/>
               </div>
             </q-card-actions>
           </q-card>
@@ -46,11 +48,25 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
+import { deleteRecipe } from '../../store/recipes/mutations';
 
 export default {
     computed: {
     ...mapGetters('recipes', ["recipesMyRecipes"])
+    },
+    methods:{
+      ...mapActions('recipes', ['deleteRecipe']),
+      promptToDelete(id){
+      this.$q.dialog({
+              title: 'Confirmar',
+              message: 'Tem certeza que deseja apagar essa receita ?',
+              cancel: true,
+              persistent: true
+            }).onOk(() => {
+              this.deleteRecipe(id)
+            })
+      },
     },
     name: 'Recipes'
 }
