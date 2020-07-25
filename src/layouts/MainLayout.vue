@@ -142,7 +142,7 @@ export default {
           seq: 3
         },
         {
-          title: 'Receitas Públicas',
+          title: 'Receitas Compartilhadas',
           icon: 'menu_book',
           link: '/recipesShared',
           seq: 4

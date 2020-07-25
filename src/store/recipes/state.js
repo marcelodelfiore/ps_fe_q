@@ -23,7 +23,7 @@ export default function () {
             { id: "29", percent: 0.15, texture: "6", sequence: 12  },
             { id: "34", percent: 5, texture: "4", sequence: 13  }
           ],
-          private: false,
+          private: 'Não',
           sample: false,
           author: "ljqCiipK2LhPz2uGsb9ZKIiAbeJ2",
           description: "Linguiça condimentada com pimenta calabresa e grãos de erva doce. " +
@@ -106,7 +106,7 @@ export default function () {
             { id: "34", percent: 1.0, texture: "4", sequence: 12 },
             { id: "34", percent: 0.04, texture: "4", sequence: 13 }
           ],
-          private: false,
+          private: 'Não',
           sample: false,
           author: "ljqCiipK2LhPz2uGsb9ZKIiAbeJ2",
           description: "Produto curado, ensacado em tripa fina, bem condimentado. Passa por uma rápida fermentação de até 24 horas." +
@@ -174,7 +174,7 @@ export default function () {
             { id: "14", percent: 0.3, texture: "4", sequence: 8 },
             { id: "34", percent: 5, texture: "4", sequence: 9  }
           ],
-          private: false,
+          private: 'Não',
           sample: true,
           author: "ljqCiipK2LhPz2uGsb9ZKIiAbeJ2",
           description: "Linguiça fresca estilo toscana, pura carne suína. Receita básica.",
@@ -220,7 +220,7 @@ export default function () {
             { id: "49", percent: 100, texture: "4" },
             { id: "48", percent: 200, texture: "4" }
           ],
-          private: true,
+          private: 'Sim',
           sample: true,
           author: "GoVhaPXVyrQEM6jObAbcp70LN4f2",
           description: "Joelho de porco defumado, cura em salmora de equilíbrio",
@@ -281,7 +281,7 @@ export default function () {
             { id: "40", percent: 0.25, texture: "5" },
             { id: "41", percent: 0.30, texture: "5" }
           ],
-          private: true,
+          private: 'Sim',
           sample: false,
           author: "GoVhaPXVyrQEM6jObAbcp70LN4f2",
           description: "Produto de origem alemã e italiana, foi trazido para o Brasil, principalmente para a região sul, pelos imigrantes no século XIX." + 
@@ -351,7 +351,7 @@ export default function () {
             { id: "45", percent: 20, texture: "18", sequence: 12 },
             { id: "46", percent: 3, texture: "4", sequence: 13 }
           ],
-          private: false,
+          private: 'Não',
           sample: false,
           author: "ljqCiipK2LhPz2uGsb9ZKIiAbeJ2",
           description: "Originária da região de Bolonha, na Itália. Os produtos mais antigos similares datam de 1376" +
@@ -442,7 +442,7 @@ export default function () {
             { id: "33", percent: 0.5, texture: "4" },
             { id: "50", percent: 0.02, texture: "5" },
           ],
-          private: false,
+          private: 'Não',
           sample: false,
           author: "ljqCiipK2LhPz2uGsb9ZKIiAbeJ2",
           prep_steps: [

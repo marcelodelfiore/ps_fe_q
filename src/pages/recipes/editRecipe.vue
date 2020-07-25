@@ -2,21 +2,23 @@
     <div class="q-ma-md">
         <div class="row justify-around align-items:center">
             <div class="col q-pa-md text-center text-h4 text-bold">
-                Editar Receita - {{ recipeToSubmit.recipe.title }}
+                Editar Receita - {{ recipeByID(this.$route.params.id).recipe.title }}
             </div>
         </div>
         
         <div class="row">
             <div class="col q-pa-md justify-around">
-                form dos dados de cadastro
+                <editRecipeFormData 
+                    :recipeToEdit="recipeByID(this.$route.params.id).recipe"
+                />
             </div>
 
             <div class="col q-pa-md justify-around">
-                form dos dados de ingredientes
+                <editRecipeFormIngredients :ingredientsToEdit="this.recipeToSubmit" />
             </div>
 
             <div class="col q-pa-md justify-around">
-                {{ recipeToSubmit }}
+                <editRecipeFormPrepSteps :prepStepsToEdit="this.recipeByID" />
             </div>
 
         </div>
@@ -27,6 +29,10 @@
 <script>
 import { mapGetters } from 'vuex'
 
+import editRecipeFormData from 'components/recipes/editRecipeFormData'
+import editRecipeFormIngredients from 'components/recipes/editRecipeFormIngredients'
+import editRecipeFormPrepSteps from 'components/recipes/editRecipeFormPrepSteps'
+
 export default {
     data() {
 			return {
@@ -36,8 +42,10 @@ export default {
     computed:{
         ...mapGetters('recipes', ['recipeByID'])
     },
-    mounted() {
-      this.recipeToSubmit = Object.assign({}, this.recipeByID(this.$route.params.id))
+    components: {
+        editRecipeFormData,
+        editRecipeFormIngredients,
+        editRecipeFormPrepSteps
     }
 }
 </script>
