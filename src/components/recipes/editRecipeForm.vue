@@ -1,26 +1,9 @@
 <template>
     <div>
+        <!-- general data -->
         <div class="row">
-            <div class="col q-ma-sm text-center text-h5 text-bold">
-                Dados de identificação
-            </div>
-
-            <div class="col q-ma-sm text-center text-h5 text-bold">
-                Ingredientes
-            </div>
-
-            <div class="col q-ma-sm text-center text-h5 text-bold">
-                Preparações
-            </div>
-        </div>
-
-        <div class="row">
-
-            <div class="col q-ma-sm">
-                <q-form
-                    class="q-gutter-lg"
-                >
-                    <q-input
+            <div class="col">
+                <q-input
             
                     class="q-ma-lg"
                         filled
@@ -28,144 +11,108 @@
                         :rules="[val => !!val || 'Campo obrigatório']"
                         label="Título"
                         ref="title" 
-                    />
-                            
-                    <q-input
-                        filled
-                        class="q-ma-lg"
-                        v-model="recipeToSubmit.createdAt"
-                        label="Data de criação"
-                    >
-                        <template v-slot:append>
-                            <q-icon name="event" class="cursor-pointer">
-                            <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
-                                <q-date
-                                    mask="DD/MM/YYYY"
-                                    bordered
-                                    v-model="recipeToSubmit.createdAt"
-                                    @input="() => $refs.qDateProxy.hide()"
-                                />
-                            </q-popup-proxy>
-                            </q-icon>
-                        </template>
-                    </q-input>
-                                            
-                    <q-select
-                    class="q-ma-lg"
-                        filled
-                        v-model="recipeToSubmit.category"
-                        :rules="[val => !!val || 'Campo obrigatório']"
-                        ref="category"
-                        label="Categoria"
-                        :options="categoriesList"
-                        option-value="id"
-                        option-label="description"
-                        emit-value
-                        map-options
-                    />
-
-                    <q-select
-                    class="q-ma-lg"
-                        filled
-                        v-model="recipeToSubmit.private"
-                        :rules="[val => !!val || 'Campo obrigatório']"
-                        ref="shared"
-                        label="Compartilhada ?"
-                        :options="shareOptionsLabels"
-                    />
-
-                    <q-input
-                    class="q-ma-lg"
-                        filled
-                        v-model="recipeToSubmit.description"
-                        label="Descrição" 
-                    />
-                </q-form>
+                    />                
             </div>
 
-            <div class="col q-ma-sm">
-                <q-form>
-                   <q-select
-                    class="q-pb-sm"
+            <div class="col">
+                <q-input
                     filled
-                    v-model="recipeToEdit.ingredients[this.ingredientPointer].id"
-                    label="Ingrediente"
-                    :options="rawMaterialsList"
+                    class="q-ma-lg"
+                    v-model="recipeToSubmit.createdAt"
+                    label="Data de criação"
+                >
+                    <template v-slot:append>
+                        <q-icon name="event" class="cursor-pointer">
+                        <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
+                            <q-date
+                                mask="DD/MM/YYYY"
+                                bordered
+                                v-model="recipeToSubmit.createdAt"
+                                @input="() => $refs.qDateProxy.hide()"
+                            />
+                        </q-popup-proxy>
+                        </q-icon>
+                    </template>
+                </q-input>
+            </div>
+
+            <div class="col">
+                <q-select
+                class="q-ma-lg"
+                    filled
+                    v-model="recipeToSubmit.category"
+                    :rules="[val => !!val || 'Campo obrigatório']"
+                    ref="category"
+                    label="Categoria"
+                    :options="categoriesList"
                     option-value="id"
                     option-label="description"
                     emit-value
                     map-options
-                    /> 
-
-                    <q-select
-                    class="q-pb-sm"
-                    filled
-                    v-model="recipeToEdit.ingredients[this.ingredientPointer].texture"
-                    label="Textura"
-                    :options="texturesList"
-                    option-value="id"
-                    option-label="description"
-                    emit-value
-                    map-options
-                    />
-
-                    <q-input
-                    class="q-pb-sm"
-                    filled
-                    v-model="recipeToEdit.ingredients[this.ingredientPointer].percent"
-                    label="Quantidade (%)"
-                    />
-                </q-form>
-
-                <div class="row q-pa-lg">
-                    <q-btn round color="positive" icon="arrow_forward" @click="ingredientForward">
-                        <q-tooltip content-style="font-size: 16px">
-                            Próximo ingrediente
-                        </q-tooltip>
-                    </q-btn>
-                    
-                    <q-space/>
-
-                    <q-btn type="submit" icon="publish" color="secondary">
-                        <q-tooltip content-style="font-size: 16px">
-                            Salvar ingredientes modificados
-                        </q-tooltip>
-                    </q-btn>
-                </div>
+                />
             </div>
-            
-            <div class="col q-ma-sm">
-                <q-form>
-                    <q-input
-                    class="q-pb-sm"
-                    filled
-                    v-model="recipeToEdit.prep_steps[this.prepStepPointer].seq"
-                    label="Sequência"
-                    />
 
-                    <q-input
-                    class="q-pb-sm"
+            <div class="col">
+                <q-select
+                    class="q-ma-lg"
                     filled
-                    v-model="recipeToEdit.prep_steps[this.prepStepPointer].description"
-                    label="Sequência"
-                    />
-                </q-form>                
-                
-                <div class="row q-pa-lg">
-                    <q-btn round color="positive" icon="arrow_forward" @click="prepStepForward">
-                        <q-tooltip content-style="font-size: 16px">
-                            Próxima etapa de preparação
-                        </q-tooltip>
-                    </q-btn>
-                    
-                    <q-space/>
+                    v-model="recipeToSubmit.private"
+                    :rules="[val => !!val || 'Campo obrigatório']"
+                    ref="shared"
+                    label="Compartilhada ?"
+                    :options="shareOptionsLabels"
+                />
+            </div>
 
-                    <q-btn type="submit" icon="publish" color="secondary">
-                        <q-tooltip content-style="font-size: 16px">
-                            Salvar preparações modificadas
-                        </q-tooltip>
-                    </q-btn>
-                </div>
+            <div class="col">
+                <q-input
+                    class="q-ma-lg"
+                    filled
+                    v-model="recipeToSubmit.description"
+                    label="Descrição" 
+                />
+            </div>
+
+        </div>
+
+        <div class="row">
+            <q-separator color="indigo-10" inset />
+        </div>
+        
+        <!-- ingredients -->
+        
+        <div class="row" v-for="(ingredient, index) in recipeToEdit.ingredients"
+         :key="index">
+            <div class="col q-pa-sm">
+                <q-input
+                class="q-pb-sm"
+                filled
+                v-model="recipeToSubmit.ingredients[index].id"
+                label="Ingrediente"
+                />
+            </div>
+
+            <div class="col q-pa-sm">
+                <q-select
+                class="q-pb-sm"
+                filled
+                v-model="recipeToEdit.ingredients.texture"
+                label="Textura"
+                :options="texturesList"
+                option-value="id"
+                option-label="description"
+                emit-value
+                map-options
+                />
+            </div>
+
+            <div class="col q-pa-sm">
+                <q-input
+                class="q-pb-sm"
+                filled
+                v-model="recipeToEdit.ingredients.percent"
+                label="Quantidade (%)"
+                />
             </div>
 
         </div>
@@ -174,17 +121,22 @@
             <q-separator color="indigo-10" inset />
         </div>
 
-        <div class="row q-ma-lg">
-            <div class="col">
-                <q-btn type="submit" icon="send" color="primary">
-                    <q-tooltip content-style="font-size: 16px">
-                        Salvar modificações
-                    </q-tooltip>
-                </q-btn>
+        <!-- preparation steps -->
+        <div class="row">
+            <div class="col q-pa-sm">
+                <q-input
+                    filled
+                    v-model="recipeToEdit.prep_steps.seq"
+                    label="Sequência"
+                />
             </div>
-                {{ recipeToSubmit }}
-            <div class="col">
-            
+        
+            <div class="col q-pa-sm">
+                <q-input
+                    filled
+                    v-model="recipeToEdit.prep_steps.description"
+                    label="Preparo"
+                />
             </div>
         </div>
 
