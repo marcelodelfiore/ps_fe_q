@@ -34,7 +34,7 @@
               <div class="q-ma-lg">
               </div>
               <div class="q-ma-lg">
-                <q-btn dense round color="primary" icon="edit" />
+                <q-btn dense round color="primary" icon="edit" :to="`/editRecipe/${thisRecipe.id}`" />
               </div>
               <div class="q-ma-lg">
                 <q-btn dense round color="negative" icon="delete_forever" @click="promptToDelete(thisRecipe.id)"/>

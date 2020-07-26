@@ -43,6 +43,9 @@ const routes = [
       { path: '/addRecipe',
       component: () => import('pages/recipes/addRecipe.vue')
       },
+      { path: '/editRecipe/:id',
+      component: () => import('pages/recipes/editRecipe.vue')
+      },
       { path: '/raws',
       component: () => import('pages/raws/raws.vue')
       },

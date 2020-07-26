@@ -4,7 +4,7 @@ export default function () {
       { id: '1', description: 'moído em disco #6' },
       { id: '2', description: 'moído em disco #10' },
       { id: '3', description: 'emulsificado' },
-      { id: '4', description: ' ' },
+      { id: '4', description: 'N/A' },
       { id: '5', description: 'em pó' },
       { id: '6', description: 'em grãos' },
       { id: '7', description: 'moída' },

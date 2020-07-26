@@ -2,7 +2,7 @@
   <q-page padding>
     <div class="row justify-center">
       <div class="text-h4 text-bold">
-        Livro de Receitas
+        Livro de Receitas - Completo
       </div>
     </div>
 
@@ -28,7 +28,6 @@
           </q-card>
         </router-link>
         <div class="text-caption">{{ thisRecipe.recipe.title }} </div>
-        <div class="text-caption">({{ currentLoggedUser.email }})</div>
       </div>
     </div>
 
