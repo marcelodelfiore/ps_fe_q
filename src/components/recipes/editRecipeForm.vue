@@ -88,7 +88,7 @@
                 class="q-pb-sm"
                 filled
                 v-model="recipeToSubmit.ingredients[index].id"
-                label="Componente"
+                label="Ingrediente"
                 :options="rawMaterialsList"
                 option-value="id"
                 option-label="description"
