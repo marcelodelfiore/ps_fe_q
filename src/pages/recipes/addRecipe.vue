@@ -23,7 +23,7 @@
                 >
                     <q-input
                     class="q-ma-lg"
-                        standout
+                        filled
                         v-model="recipeToSubmit.title"
                         :rules="[val => !!val || 'Campo obrigatório']"
                         label="Título"
@@ -52,7 +52,7 @@
                                     
                     <q-select
                     class="q-ma-lg"
-                        standout
+                        filled
                         v-model="recipeToSubmit.category"
                         :rules="[val => !!val || 'Campo obrigatório']"
                         ref="category"
@@ -66,7 +66,7 @@
 
                     <q-select
                     class="q-ma-lg"
-                        standout
+                        filled
                         v-model="shareOptions"
                         :rules="[val => !!val || 'Campo obrigatório']"
                         ref="shared"
@@ -76,7 +76,7 @@
 
                     <q-input
                     class="q-ma-lg"
-                        standout
+                        filled
                         v-model="recipeToSubmit.description"
                         label="Descrição" 
                     />
@@ -151,7 +151,7 @@
                                     
                                     <q-select
                                         class="q-ma-lg"
-                                        standout
+                                        filled
                                         v-model="ingredientToInput"
                                         label="Ingrediente"
                                         :options="rawMaterialsList"
@@ -163,7 +163,7 @@
 
                                     <q-select
                                         class="q-ma-lg"
-                                        standout
+                                        filled
                                         v-model="textureToInput"
                                         label="Textura"
                                         :options="texturesList"
@@ -175,14 +175,14 @@
 
                                     <q-input
                                         class="q-ma-lg"
-                                        standout
+                                        filled
                                         v-model="quantityToInput"
                                         label="Quantidade (%)"
                                     />
                                     
                                     <q-input
                                         class="q-ma-lg"
-                                        standout
+                                        filled
                                         v-model="ingredientSequenceToInput"
                                         label="Sequência"
                                     />
@@ -209,14 +209,14 @@
                                     
                                     <q-input
                                         class="q-ma-lg"
-                                        standout
+                                        filled
                                         v-model="sequenceToInput"
                                         label="Sequência"
                                     />
 
                                     <q-input
                                         class="q-ma-lg"
-                                        standout
+                                        filled
                                         v-model="prepStepToInput"
                                         label="Procedimento"
                                     />

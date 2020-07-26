@@ -2,7 +2,7 @@
   <q-page padding>
     <div class="row justify-center">
       <div class="text-h4 text-bold">
-        Receitas de Produtos Maturados
+        Receitas Compartilhadas - Maturados
       </div>
     </div>
 
@@ -27,7 +27,6 @@
           </q-card>
         </router-link>
         <div class="text-h7">{{ recipe.title }} </div>
-        <div class="text-caption">({{ currentLoggedUser.email }})</div>
       </div>
     </div>
 

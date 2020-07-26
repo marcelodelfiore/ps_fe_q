@@ -8,3 +8,7 @@ export function addNewRecipe({ commit }, recipe) {
     }
     commit('addNewRecipe', payload)
 }
+
+export function deleteRecipe({commit}, id){
+    commit('deleteRecipe', id)
+}

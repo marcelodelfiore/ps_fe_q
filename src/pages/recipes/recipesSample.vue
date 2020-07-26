@@ -2,7 +2,7 @@
   <q-page padding>
     <div class="row justify-center">
       <div class="text-h4 text-bold">
-        Livro de Receitas
+        Livro de Receitas - Amostras
       </div>
     </div>
 

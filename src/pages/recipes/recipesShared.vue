@@ -27,7 +27,6 @@
           </q-card>
         </router-link>
         <div class="text-h7">{{ thisRecipe.recipe.title }} </div>
-        <div class="text-caption">({{ currentLoggedUser.email }})</div>
       </div>
     </div>
 
