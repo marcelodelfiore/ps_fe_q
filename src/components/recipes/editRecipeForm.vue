@@ -24,7 +24,7 @@
             
                     class="q-ma-lg"
                         filled
-                        v-model="recipeToEdit.title"
+                        v-model="recipeToSubmit.title"
                         :rules="[val => !!val || 'Campo obrigatório']"
                         label="Título"
                         ref="title" 
@@ -33,7 +33,7 @@
                     <q-input
                         filled
                         class="q-ma-lg"
-                        v-model="recipeToEdit.createdAt"
+                        v-model="recipeToSubmit.createdAt"
                         label="Data de criação"
                     >
                         <template v-slot:append>
@@ -42,7 +42,7 @@
                                 <q-date
                                     mask="DD/MM/YYYY"
                                     bordered
-                                    v-model="recipeToEdit.createdAt"
+                                    v-model="recipeToSubmit.createdAt"
                                     @input="() => $refs.qDateProxy.hide()"
                                 />
                             </q-popup-proxy>
@@ -53,7 +53,7 @@
                     <q-select
                     class="q-ma-lg"
                         filled
-                        v-model="recipeToEdit.category"
+                        v-model="recipeToSubmit.category"
                         :rules="[val => !!val || 'Campo obrigatório']"
                         ref="category"
                         label="Categoria"
@@ -67,7 +67,7 @@
                     <q-select
                     class="q-ma-lg"
                         filled
-                        v-model="recipeToEdit.private"
+                        v-model="recipeToSubmit.private"
                         :rules="[val => !!val || 'Campo obrigatório']"
                         ref="shared"
                         label="Compartilhada ?"
@@ -77,7 +77,7 @@
                     <q-input
                     class="q-ma-lg"
                         filled
-                        v-model="recipeToEdit.description"
+                        v-model="recipeToSubmit.description"
                         label="Descrição" 
                     />
                 </q-form>
@@ -175,11 +175,17 @@
         </div>
 
         <div class="row q-ma-lg">
-            <q-btn type="submit" icon="send" color="primary">
-                <q-tooltip content-style="font-size: 16px">
-                    Salvar modificações
-                </q-tooltip>
-            </q-btn>
+            <div class="col">
+                <q-btn type="submit" icon="send" color="primary">
+                    <q-tooltip content-style="font-size: 16px">
+                        Salvar modificações
+                    </q-tooltip>
+                </q-btn>
+            </div>
+                {{ recipeToSubmit }}
+            <div class="col">
+            
+            </div>
         </div>
 
     </div>
@@ -193,7 +199,8 @@ export default {
         return{
             shareOptionsLabels: ['Sim', 'Não'],
             ingredientPointer: 0,
-            prepStepPointer: 0
+            prepStepPointer: 0,
+            recipeToSubmit: {}
         }
     },
     props: ['recipeToEdit'],
@@ -212,6 +219,9 @@ export default {
             if(++this.prepStepPointer >= this.recipeToEdit.prep_steps.length - 1)
                 this.prepStepPointer = this.recipeToEdit.prep_steps.length - 1
         }
-    }
+    }, 
+    mounted() {
+			this.recipeToSubmit = Object.assign({}, this.recipeToEdit)
+		}
 }
 </script>
