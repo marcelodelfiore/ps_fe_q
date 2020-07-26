@@ -81,14 +81,19 @@
         
         <!-- ingredients -->
         
-        <div class="row" v-for="(ingredient, index) in recipeToEdit.ingredients"
+        <div class="row" v-for="(ingredient, index) in recipeToSubmit.ingredients"
          :key="index">
             <div class="col q-pa-sm">
-                <q-input
+                <q-select
                 class="q-pb-sm"
                 filled
                 v-model="recipeToSubmit.ingredients[index].id"
-                label="Ingrediente"
+                label="Componente"
+                :options="rawMaterialsList"
+                option-value="id"
+                option-label="description"
+                emit-value
+                map-options
                 />
             </div>
 
@@ -96,7 +101,7 @@
                 <q-select
                 class="q-pb-sm"
                 filled
-                v-model="recipeToEdit.ingredients.texture"
+                v-model="recipeToSubmit.ingredients[index].texture"
                 label="Textura"
                 :options="texturesList"
                 option-value="id"
@@ -110,7 +115,7 @@
                 <q-input
                 class="q-pb-sm"
                 filled
-                v-model="recipeToEdit.ingredients.percent"
+                v-model="recipeToSubmit.ingredients[index].percent"
                 label="Quantidade (%)"
                 />
             </div>
