@@ -8,6 +8,7 @@
         
         <div class="col q-pa-md justify-around">
             <editRecipeForm 
+                :recipeID="this.$route.params.id"
                 :recipeToEdit="recipeByID(this.$route.params.id).recipe"
             />
         </div>
