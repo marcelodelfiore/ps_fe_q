@@ -1,6 +1,7 @@
 import * as firebase from "firebase/app"
 
 import "firebase/auth"
+import "firebase/database"
 
 // Porksmith project configuration @ Firebase
 var firebaseConfig = {
@@ -18,5 +19,6 @@ var firebaseConfig = {
 let firebaseAPP = firebase.initializeApp(firebaseConfig)
 
 let firebaseAuth = firebase.auth()
+let firebaseDataBase = firebase.database()
 
-export { firebaseAuth }
+export { firebaseAuth, firebaseDataBase }
