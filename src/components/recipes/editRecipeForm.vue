@@ -150,11 +150,13 @@
             </div>
 
             <!-- submit changes -->
-            <q-btn type="submit" icon="send" color="primary">
-                <q-tooltip content-style="font-size: 16px">
-                    Salvar modificações
-                </q-tooltip>
-            </q-btn>
+            <q-page-sticky position="bottom-right" :offset="[18, 18]">
+                <q-btn round type="submit" icon="send" color="primary">
+                    <q-tooltip content-style="font-size: 16px">
+                        Salvar
+                    </q-tooltip>
+                </q-btn>
+            </q-page-sticky>
 
         </q-form>
 
