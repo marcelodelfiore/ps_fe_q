@@ -1,6 +1,7 @@
 <template>
     <div>
         <!-- general data -->
+    <q-form>
         <div class="row">
             <div class="col">
                 <q-input
@@ -127,11 +128,12 @@
         </div>
 
         <!-- preparation steps -->
-        <div class="row">
-            <div class="col q-pa-sm">
+        <div class="row"  v-for="(prepStep, index) in recipeToSubmit.prep_steps"
+         :key="index">
+            <div class="col-2 q-pa-sm">
                 <q-input
                     filled
-                    v-model="recipeToEdit.prep_steps.seq"
+                    v-model="recipeToSubmit.prep_steps[index].seq"
                     label="Sequência"
                 />
             </div>
@@ -139,11 +141,16 @@
             <div class="col q-pa-sm">
                 <q-input
                     filled
-                    v-model="recipeToEdit.prep_steps.description"
+                    v-model="recipeToSubmit.prep_steps[index].description"
                     label="Preparo"
                 />
             </div>
         </div>
+    </q-form>
+
+    <div class="row">
+        {{ recipeToSubmit }}
+    </div>
 
     </div>
 </template>
