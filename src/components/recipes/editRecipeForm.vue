@@ -164,7 +164,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
     data(){
@@ -175,7 +175,7 @@ export default {
             recipeToSubmit: {}
         }
     },
-    props: ['recipeToEdit'],
+    props: ['recipeID', 'recipeToEdit'],
     computed:{
         ...mapGetters('categories', ['categoriesList']),
         ...mapGetters('recipes', ['recipeByID']),
@@ -183,9 +183,14 @@ export default {
         ...mapGetters('textures', ['textureByID', 'texturesList'])
     },
     methods: {
+        ...mapActions('recipes', ['editRecipe']),
         onSubmit: function(){
-            console.log(this.recipeToSubmit)
-        }
+            const payload= {
+                id: this.recipeID,
+                recipe: this.recipeToSubmit
+            }
+            this.editRecipe(payload)
+        },
     }, 
     mounted() {
 			this.recipeToSubmit = Object.assign({}, this.recipeToEdit)
