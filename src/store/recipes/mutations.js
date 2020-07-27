@@ -11,9 +11,9 @@ export function deleteRecipe(state, id){
     }
 }
 
-export function editRecipe(state, {id, recipe}){
-    const index = state.listOfRecipes.findIndex(r => r.id === id)
+export function editRecipe(state, payload){
+    const index = state.listOfRecipes.findIndex(r => r.payload.id === payload.id)
     if(index > -1){
-        state.listOfRecipes.splice(index,1, recipe)
+        state.listOfRecipes.splice(index,1, payload)
     }
 }
