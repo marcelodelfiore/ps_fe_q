@@ -1,35 +1,23 @@
 <template>
     <div>
-        <div class="row">
-            <div class="col q-ma-sm text-center text-h5 text-bold">
-                Dados de identificação
-            </div>
-
-            <div class="col q-ma-sm text-center text-h5 text-bold">
-                Ingredientes
-            </div>
-
-            <div class="col q-ma-sm text-center text-h5 text-bold">
-                Preparações
-            </div>
-        </div>
-
-        <div class="row">
-
-            <div class="col q-ma-sm">
-                <q-form
-                    class="q-gutter-lg"
-                >
+        <q-form
+            @submit.prevent="onSubmit"
+        >
+            <!-- general data -->
+            <div class="row">
+                <div class="col">
                     <q-input
-            
-                    class="q-ma-lg"
-                        filled
-                        v-model="recipeToSubmit.title"
-                        :rules="[val => !!val || 'Campo obrigatório']"
-                        label="Título"
-                        ref="title" 
-                    />
-                            
+                
+                        class="q-ma-lg"
+                            filled
+                            v-model="recipeToSubmit.title"
+                            :rules="[val => !!val || 'Campo obrigatório']"
+                            label="Título"
+                            ref="title" 
+                        />                
+                </div>
+
+                <div class="col">
                     <q-input
                         filled
                         class="q-ma-lg"
@@ -49,7 +37,9 @@
                             </q-icon>
                         </template>
                     </q-input>
-                                            
+                </div>
+
+                <div class="col">
                     <q-select
                     class="q-ma-lg"
                         filled
@@ -63,9 +53,11 @@
                         emit-value
                         map-options
                     />
+                </div>
 
+                <div class="col">
                     <q-select
-                    class="q-ma-lg"
+                        class="q-ma-lg"
                         filled
                         v-model="recipeToSubmit.private"
                         :rules="[val => !!val || 'Campo obrigatório']"
@@ -73,34 +65,46 @@
                         label="Compartilhada ?"
                         :options="shareOptionsLabels"
                     />
+                </div>
 
+                <div class="col">
                     <q-input
-                    class="q-ma-lg"
+                        class="q-ma-lg"
                         filled
                         v-model="recipeToSubmit.description"
                         label="Descrição" 
                     />
-                </q-form>
+                </div>
+
             </div>
 
-            <div class="col q-ma-sm">
-                <q-form>
-                   <q-select
+            <div class="row">
+                <q-separator color="indigo-10" inset />
+            </div>
+            
+            <!-- ingredients -->
+            
+            <div class="row" v-for="(ingredient, index) in recipeToSubmit.ingredients"
+            :key="index">
+                <div class="col q-pa-sm">
+                    <q-select
                     class="q-pb-sm"
                     filled
-                    v-model="recipeToEdit.ingredients[this.ingredientPointer].id"
+                    v-model="recipeToSubmit.ingredients[index].id"
                     label="Ingrediente"
                     :options="rawMaterialsList"
                     option-value="id"
                     option-label="description"
                     emit-value
                     map-options
-                    /> 
+                    />
+                </div>
 
+                <div class="col q-pa-sm">
                     <q-select
                     class="q-pb-sm"
                     filled
-                    v-model="recipeToEdit.ingredients[this.ingredientPointer].texture"
+                    v-model="recipeToSubmit.ingredients[index].texture"
                     label="Textura"
                     :options="texturesList"
                     option-value="id"
@@ -108,91 +112,59 @@
                     emit-value
                     map-options
                     />
+                </div>
 
+                <div class="col q-pa-sm">
                     <q-input
                     class="q-pb-sm"
                     filled
-                    v-model="recipeToEdit.ingredients[this.ingredientPointer].percent"
+                    v-model="recipeToSubmit.ingredients[index].percent"
                     label="Quantidade (%)"
                     />
-                </q-form>
-
-                <div class="row q-pa-lg">
-                    <q-btn round color="positive" icon="arrow_forward" @click="ingredientForward">
-                        <q-tooltip content-style="font-size: 16px">
-                            Próximo ingrediente
-                        </q-tooltip>
-                    </q-btn>
-                    
-                    <q-space/>
-
-                    <q-btn type="submit" icon="publish" color="secondary">
-                        <q-tooltip content-style="font-size: 16px">
-                            Salvar ingredientes modificados
-                        </q-tooltip>
-                    </q-btn>
                 </div>
+
             </div>
+
+            <div class="row">
+                <q-separator color="indigo-10" inset />
+            </div>
+
+            <!-- preparation steps -->
+            <div class="row"  v-for="(prepStep, index) in recipeToSubmit.prep_steps"
+            :key="index">
+                <div class="col-2 q-pa-sm">
+                    <q-input
+                        filled
+                        v-model="recipeToSubmit.prep_steps[index].seq"
+                        label="Sequência"
+                    />
+                </div>
             
-            <div class="col q-ma-sm">
-                <q-form>
+                <div class="col q-pa-sm">
                     <q-input
-                    class="q-pb-sm"
-                    filled
-                    v-model="recipeToEdit.prep_steps[this.prepStepPointer].seq"
-                    label="Sequência"
+                        filled
+                        v-model="recipeToSubmit.prep_steps[index].description"
+                        label="Preparo"
                     />
-
-                    <q-input
-                    class="q-pb-sm"
-                    filled
-                    v-model="recipeToEdit.prep_steps[this.prepStepPointer].description"
-                    label="Sequência"
-                    />
-                </q-form>                
-                
-                <div class="row q-pa-lg">
-                    <q-btn round color="positive" icon="arrow_forward" @click="prepStepForward">
-                        <q-tooltip content-style="font-size: 16px">
-                            Próxima etapa de preparação
-                        </q-tooltip>
-                    </q-btn>
-                    
-                    <q-space/>
-
-                    <q-btn type="submit" icon="publish" color="secondary">
-                        <q-tooltip content-style="font-size: 16px">
-                            Salvar preparações modificadas
-                        </q-tooltip>
-                    </q-btn>
                 </div>
             </div>
 
-        </div>
-
-        <div class="row">
-            <q-separator color="indigo-10" inset />
-        </div>
-
-        <div class="row q-ma-lg">
-            <div class="col">
-                <q-btn type="submit" icon="send" color="primary">
+            <!-- submit changes -->
+            <q-page-sticky position="bottom-right" :offset="[18, 18]">
+                <q-btn round type="submit" icon="send" color="primary">
                     <q-tooltip content-style="font-size: 16px">
-                        Salvar modificações
+                        Salvar
                     </q-tooltip>
                 </q-btn>
-            </div>
-                {{ recipeToSubmit }}
-            <div class="col">
-            
-            </div>
-        </div>
+            </q-page-sticky>
+
+        </q-form>
 
     </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
     data(){
@@ -203,7 +175,7 @@ export default {
             recipeToSubmit: {}
         }
     },
-    props: ['recipeToEdit'],
+    props: ['recipeID', 'recipeToEdit'],
     computed:{
         ...mapGetters('categories', ['categoriesList']),
         ...mapGetters('recipes', ['recipeByID']),
@@ -211,14 +183,14 @@ export default {
         ...mapGetters('textures', ['textureByID', 'texturesList'])
     },
     methods: {
-        ingredientForward: function(){
-            if(++this.ingredientPointer >= this.recipeToEdit.ingredients.length - 1)
-                this.ingredientPointer = this.recipeToEdit.ingredients.length - 1
+        ...mapActions('recipes', ['editRecipe']),
+        onSubmit: function(){
+            const payload= {
+                id: this.recipeID,
+                recipe: this.recipeToSubmit
+            }
+            this.editRecipe(payload)
         },
-        prepStepForward: function(){
-            if(++this.prepStepPointer >= this.recipeToEdit.prep_steps.length - 1)
-                this.prepStepPointer = this.recipeToEdit.prep_steps.length - 1
-        }
     }, 
     mounted() {
 			this.recipeToSubmit = Object.assign({}, this.recipeToEdit)
