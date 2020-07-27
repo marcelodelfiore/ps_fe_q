@@ -19,15 +19,21 @@ export function editRecipe({ commit }, payload){
     commit('editRecipe', payload)
 }
 
-export function firebaseReadData(){
-    console.log('firebase connect !!!')
+export function firebaseReadData({ commit }){
     let recipesRef = firebaseDataBase.ref('recipes')
+    let recipesFromFirebase = []
     recipesRef.on("value", function(snapshot){
         snapshot.forEach(function(childSnapshot){
-            var id = childSnapshot.key
-            var data = childSnapshot.val()
-            console.log('id', id)
-            console.log('dados', data)
+            const idRecipeFromFirebase = childSnapshot.key
+            const recipeRecipeFromFirebase = childSnapshot.val()
+            const recipeFromFirebase = {
+                id: idRecipeFromFirebase,
+                recipe: recipeRecipeFromFirebase
+            }
+            console.log('elemento ', recipeFromFirebase)
+            commit('initialPopulateRecipesFromFirebase', recipeFromFirebase)
         })
     })
+    
+    //commit('initialPopulateRecipesFromFirebase', )
 }

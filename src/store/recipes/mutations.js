@@ -17,3 +17,8 @@ export function editRecipe(state, payload){
         state.listOfRecipes.splice(index,1, payload)
     }
 }
+
+export function initialPopulateRecipesFromFirebase(state, payload){
+    console.log('Na mutation initialPopulateRecipesFromFirebase', payload)
+    state.listOfRecipes.push(payload)
+}
