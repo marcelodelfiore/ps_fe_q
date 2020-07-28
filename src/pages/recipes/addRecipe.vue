@@ -274,6 +274,8 @@
 <script>
 import { mapActions, mapGetters, mapState } from 'vuex'
 
+import { firebaseAuth } from 'boot/firebase'
+
 import { categoriesList } from '../../store/categories/getters'
 import { rawMaterialsList, rawMaterialByID } from '../../store/raws/getters'
 import { texturesList, textureToInput } from '../../store/textures/getters'
@@ -314,7 +316,7 @@ export default {
     methods: {
         ...mapActions('recipes', ['addNewRecipe']),
         onSubmit() {
-            this.recipeToSubmit.author = currentLoggedUser.ID
+            this.recipeToSubmit.author = firebaseAuth.currentUser.uid
             
 
             if(this.shareOptions == 'Sim'){
