@@ -132,18 +132,10 @@
             <!-- preparation steps -->
             <div class="row"  v-for="(prepStep, index) in recipeToSubmit.prep_steps"
             :key="index">
-                <div class="col-2 q-pa-sm">
-                    <q-input
-                        filled
-                        v-model="recipeToSubmit.prep_steps[index].seq"
-                        label="Sequência"
-                    />
-                </div>
-            
                 <div class="col q-pa-sm">
                     <q-input
                         filled
-                        v-model="recipeToSubmit.prep_steps[index].description"
+                        v-model="recipeToSubmit.prep_steps[index]"
                         label="Preparo"
                     />
                 </div>
@@ -178,7 +170,6 @@ export default {
     props: ['recipeID', 'recipeToEdit'],
     computed:{
         ...mapGetters('categories', ['categoriesList']),
-        ...mapGetters('recipes', ['recipeByID']),
         ...mapGetters('raws', ['rawMaterialByID', 'rawMaterialsList']),
         ...mapGetters('textures', ['textureByID', 'texturesList'])
     },

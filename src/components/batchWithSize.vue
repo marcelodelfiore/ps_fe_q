@@ -39,13 +39,13 @@
 
                 <q-tab-panel name="sequence">
                     <q-list bordered padding style="background-color: white">
-                        <q-item class="q-pa-sm" v-for="step in recipeByID($route.params.id).recipe.prep_steps"
-                        :key="step.seq"
+                        <q-item class="q-pa-sm" v-for="(step, index) in recipeByID($route.params.id).recipe.prep_steps"
+                        :key="index"
                         v-ripple
                         clickable
                         >                          
                             <q-item-section>
-                                <q-item-label>{{ step.description }} </q-item-label>
+                                <q-item-label>{{ step }} </q-item-label>
                             </q-item-section>
                         </q-item>
                     </q-list>
