@@ -21,19 +21,30 @@ export function editRecipe({ commit }, payload){
 
 export function firebaseReadData({ commit }){
     let recipesRef = firebaseDataBase.ref('recipes')
-    let recipesFromFirebase = []
-    recipesRef.on("value", function(snapshot){
-        snapshot.forEach(function(childSnapshot){
-            const idRecipeFromFirebase = childSnapshot.key
-            const recipeRecipeFromFirebase = childSnapshot.val()
-            const recipeFromFirebase = {
-                id: idRecipeFromFirebase,
+    
+        // child added
+        recipesRef.on('child_added', snapshot => {
+            let recipeRecipeFromFirebase = snapshot.val()
+            let recipeFromFirebase = {
+                id: snapshot.key,
                 recipe: recipeRecipeFromFirebase
             }
-            console.log('elemento ', recipeFromFirebase)
-            commit('initialPopulateRecipesFromFirebase', recipeFromFirebase)
+            commit('addNewRecipe', recipeFromFirebase)
         })
-    })
-    
-    //commit('initialPopulateRecipesFromFirebase', )
+
+        // child changed
+        recipesRef.on('child_changed', snapshot => {
+            let recipeRecipeFromFirebase = snapshot.val()
+            let recipeFromFirebase = {
+                id: snapshot.key,
+                recipe: recipeRecipeFromFirebase
+            }
+            commit('editRecipe', recipeFromFirebase)
+        })
+
+        // child removed
+        recipesRef.on('child_removed', snapshot => {
+            let recipeId = snapshot.key
+            commit('deleteRecipe', recipeId)
+        })
 }
