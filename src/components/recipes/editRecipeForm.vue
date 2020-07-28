@@ -135,7 +135,7 @@
                 <div class="col q-pa-sm">
                     <q-input
                         filled
-                        v-model="recipeToSubmit.prep_steps[index].description"
+                        v-model="recipeToSubmit.prep_steps[index]"
                         label="Preparo"
                     />
                 </div>
