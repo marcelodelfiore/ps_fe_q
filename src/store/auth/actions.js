@@ -40,6 +40,7 @@ export function handleAuthStateChange({ commit, dispatch }) {
             email: firebaseAuth.currentUser.email
         }
         commit('setUserData', userData)
+        dispatch('recipes/firebaseReadData', null, {root:true})
     }
     else {
           commit('setLoggedIn', false)

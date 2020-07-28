@@ -59,16 +59,11 @@
           <q-separator color="orange" inset />
         </div>
 
-        <div class="q-pa-sm col-12 text-left text-h5" v-for="step in recipeByID($route.params.id).recipe.prep_steps"
-          :key="step.seq">
+        <div class="q-pa-sm col-12 text-left text-h5" v-for="(step, index) in recipeByID($route.params.id).recipe.prep_steps"
+          :key="index">
           <div class="row">
-            <div class="col-1">
-              {{ step.seq }}
-              <!-- <q-icon name="directions_run"/> -->
-            </div>
-            
             <div class="col">
-              {{ step.description }}
+              {{ step }}
             </div>
           </div>              
         </div>

@@ -12,8 +12,13 @@ export function deleteRecipe(state, id){
 }
 
 export function editRecipe(state, payload){
-    const index = state.listOfRecipes.findIndex(r => r.payload.id === payload.id)
+    const index = state.listOfRecipes.findIndex(r => r.recipe.id === payload.id)
     if(index > -1){
         state.listOfRecipes.splice(index,1, payload)
     }
+}
+
+export function initialPopulateRecipesFromFirebase(state, payload){
+    console.log('Na mutation initialPopulateRecipesFromFirebase', payload)
+    state.listOfRecipes.push(payload)
 }
