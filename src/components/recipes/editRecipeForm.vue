@@ -134,8 +134,9 @@
             :key="index">
                 <div class="col q-pa-sm">
                     <q-input
+                        clearable
                         filled
-                        v-model="recipeToSubmit.prep_steps[index]"
+                        v-model="recipeToSubmit.prep_steps[index].description"
                         label="Preparo"
                     />
                 </div>
@@ -162,8 +163,6 @@ export default {
     data(){
         return{
             shareOptionsLabels: ['Sim', 'Não'],
-            ingredientPointer: 0,
-            prepStepPointer: 0,
             recipeToSubmit: {}
         }
     },
@@ -184,7 +183,8 @@ export default {
         },
     }, 
     mounted() {
-			this.recipeToSubmit = Object.assign({}, this.recipeToEdit)
+            this.recipeToSubmit = Object.assign({}, this.recipeToEdit)
+            console.log('Receita para editar: ', this.recipeToSubmit)
 		}
 }
 </script>

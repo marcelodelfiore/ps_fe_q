@@ -45,7 +45,7 @@
                         clickable
                         >                          
                             <q-item-section>
-                                <q-item-label>{{ step }} </q-item-label>
+                                <q-item-label>{{ step.description }} </q-item-label>
                             </q-item-section>
                         </q-item>
                     </q-list>
