@@ -1,37 +1,16 @@
 <template>
 	<q-page padding>
-		<q-card class="auth-tabs">
-		  <q-tabs
-		    v-model="tab"
-		    dense
-		    class="text-grey"
-		    active-color="primary"
-		    indicator-color="primary"
-		    align="justify"
-		    narrow-indicator
-		  >
-		    <q-tab name="login" label="Entrar" />
-		    <q-tab name="register" label="Registrar" />
-		  </q-tabs>
 
-		  <q-separator />
+		<q-btn @click="facebookLogin"/>
 
-		  <q-tab-panels v-model="tab" animated>
-		    <q-tab-panel name="login">
-		      <LoginRegister :tab="tab" />
-		    </q-tab-panel>
-
-		    <q-tab-panel name="register">
-		      <LoginRegister :tab="tab" />
-		    </q-tab-panel>
-
-		  </q-tab-panels>
-		</q-card>
 	</q-page>
 </template>
 
 <script>
-import LoginRegister from 'components/auth/LoginRegister'
+import * as firebase from "firebase"
+
+import "firebase/auth"
+import { firebaseAuth } from '../../boot/firebase'
 
 	export default {
 		data () {
@@ -40,7 +19,34 @@ import LoginRegister from 'components/auth/LoginRegister'
 	    }
 	  },
 	  components: {
-	  	LoginRegister
+	  },
+	  methods:{
+		  facebookLogin: function(){
+			var provider = new firebase.auth.FacebookAuthProvider();
+			//var provider = new firebase.auth().FacebookAuthProvider();
+			provider.addScope('user_birthday');
+			firebaseAuth.signInWithPopup(provider)
+			.then(function(result) {
+				// This gives you a Facebook Access Token. You can use it to access the Facebook API.
+				var token = result.credential.accessToken;
+				// The signed-in user info.
+				var user = result.user;
+				// ...
+				console.log('facebook token: ', token)
+				console.log('facebook user: ', user)
+			})
+			.catch(function(error) {
+				// Handle Errors here.
+				var errorCode = error.code;
+				var errorMessage = error.message;
+				// The email of the user's account used.
+				var email = error.email;
+				// The firebase.auth.AuthCredential type that was used.
+				var credential = error.credential;
+				// ...
+				console.log('facebook error: ', error)
+			});
+		  }
 	  }
 	}
 </script>
