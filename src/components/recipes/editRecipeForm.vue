@@ -134,6 +134,7 @@
             :key="index">
                 <div class="col q-pa-sm">
                     <q-input
+                        clearable
                         filled
                         v-model="recipeToSubmit.prep_steps[index].description"
                         label="Preparo"
