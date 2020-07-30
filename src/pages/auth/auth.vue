@@ -4,8 +4,8 @@
 			<div class="col-5">
 
 			</div>
-			<div v-if="!userLoggedIn" class="col text-white fixed-center" style="background-color: #3b5998">
-				<q-btn @click="facebookLogin" align="around" icon="img:icons/facebook.svg">Entrar com Facebook</q-btn>
+			<div v-if="!userLoggedIn" class="col q-pa-lg text-white fixed-center" style="background-color: #3b5998">
+				<q-btn flat @click="facebookLogin" align="around" icon="img:icons/facebook.svg">Entrar com Facebook</q-btn>
 			</div>
 		
 			<div class="col-5">
