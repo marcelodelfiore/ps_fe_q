@@ -180,13 +180,6 @@
                                         label="Quantidade (%)"
                                     />
                                     
-                                    <q-input
-                                        class="q-ma-lg"
-                                        filled
-                                        v-model="ingredientSequenceToInput"
-                                        label="Sequência"
-                                    />
-                                    
                                     <q-btn type="submit" icon="send" color="primary">
                                         <q-tooltip content-style="font-size: 16px">
                                             Salvar ingrediente
@@ -207,13 +200,6 @@
                                     @reset="onResetPrepSteps"
                                     class="q-gutter-lg">
                                     
-                                    <q-input
-                                        class="q-ma-lg"
-                                        filled
-                                        v-model="sequenceToInput"
-                                        label="Sequência"
-                                    />
-
                                     <q-input
                                         class="q-ma-lg"
                                         filled
@@ -238,16 +224,16 @@
 
                     <div class="col-3 q-pa-md text-center">
                         <h6><strong>Ingredientes adicionados</strong></h6>
-                        <div v-for="ingredient in recipeToSubmit.ingredients" :key="ingredient.sequence">
-                            {{ ingredient.sequence }} - {{ (rawMaterialByID(ingredient.id)).description }}; {{ ingredient.percent }}%;
+                        <div v-for="(ingredient, index) in recipeToSubmit.ingredients" :key="index">
+                            - {{ (rawMaterialByID(ingredient.id)).description }}; {{ ingredient.percent }}%;
                              {{ (textureByID(ingredient.texture)).description }}
                         </div>
                     </div>
 
                     <div class="col-3 q-pa-md text-center">
                         <h6><strong>Preparos adicionados</strong></h6>
-                        <div v-for="prepStep in recipeToSubmit.prep_steps" :key="prepStep.seq">
-                            {{ prepStep.seq }} - {{ prepStep.description }}
+                        <div v-for="(prepStep, index) in recipeToSubmit.prep_steps" :key="index">
+                            - {{ prepStep.description }}
                         </div>
                     </div>
 
@@ -300,8 +286,6 @@ export default {
             ingredientToInput: '',
             textureToInput: '',
             quantityToInput: 1.0,
-            ingredientSequenceToInput: 1,
-            sequenceToInput: 1,
             prepStepToInput: '',
             shareOptions: null,
             shareOptionsLabels: ['Sim', 'Não']
@@ -317,14 +301,8 @@ export default {
         ...mapActions('recipes', ['addNewRecipe']),
         onSubmit() {
             this.recipeToSubmit.author = firebaseAuth.currentUser.uid
-            
 
-            if(this.shareOptions == 'Sim'){
-                this.recipeToSubmit.private = true
-            }
-            else{
-                this.recipeToSubmit.private = false
-            }
+            this.recipeToSubmit.private = this.shareOptions
 
             this.submitNewRecipe()
         },
@@ -345,7 +323,6 @@ export default {
                 id: this.ingredientToInput,
                 percent: this.quantityToInput,
                 texture: this.textureToInput,
-                sequence: this.ingredientSequenceToInput
             }
             this.recipeToSubmit.ingredients.push(new_ingredient)
             this.onResetIngredients()
@@ -354,19 +331,16 @@ export default {
             this.ingredientToInput = null
             this.textureToInput = null
             this.quantityToInput = null
-            this.ingredientSequenceToInput = null
             
         },
         onSubmitPrepSteps() {
             const new_prepStep = {
-                seq: this.sequenceToInput,
                 description: this.prepStepToInput
             }
             this.recipeToSubmit.prep_steps.push(new_prepStep)
             this.onResetPrepSteps()
         },
         onResetPrepSteps() {
-            this.sequenceToInput = null
             this.prepStepToInput = null
             
         }
