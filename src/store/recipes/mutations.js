@@ -19,6 +19,5 @@ export function editRecipe(state, payload){
 }
 
 export function initialPopulateRecipesFromFirebase(state, payload){
-    console.log('Na mutation initialPopulateRecipesFromFirebase', payload)
     state.listOfRecipes.push(payload)
 }

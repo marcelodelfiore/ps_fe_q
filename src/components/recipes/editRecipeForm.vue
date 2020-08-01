@@ -179,12 +179,12 @@ export default {
                 id: this.recipeID,
                 recipe: this.recipeToSubmit
             }
+            console.log('payload: ', payload)
             this.editRecipe(payload)
         },
     }, 
     mounted() {
             this.recipeToSubmit = Object.assign({}, this.recipeToEdit)
-            console.log('Receita para editar: ', this.recipeToSubmit)
 		}
 }
 </script>

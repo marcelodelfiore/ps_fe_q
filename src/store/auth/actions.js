@@ -19,7 +19,6 @@ export function loginUser({}, payload) {
     Loading.show()
     firebaseAuth.signInWithEmailAndPassword(payload.email, payload.password)
         .then(response => {
-            console.log('response: ', response)
         })
         .catch(error => {
             showErrorMessage('Erro na autenticação')
