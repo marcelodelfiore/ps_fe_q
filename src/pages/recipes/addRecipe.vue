@@ -253,6 +253,17 @@
             </div>
         </q-dialog>
 
+        <q-dialog v-model="showAddRecipeDialog">
+            <q-card>
+                <q-card-section>
+                    <div class="text-h6">Sua receita foi salva !!!</div>
+                </q-card-section>
+
+                <q-card-actions align="right">
+                    <q-btn flat label="OK" color="primary" v-close-popup />
+                </q-card-actions>
+            </q-card>
+        </q-dialog>
 
     </div>
 </template>
@@ -288,7 +299,8 @@ export default {
             quantityToInput: 1.0,
             prepStepToInput: '',
             shareOptions: null,
-            shareOptionsLabels: ['Sim', 'Não']
+            shareOptionsLabels: ['Sim', 'Não'], 
+            showAddRecipeDialog: false
         }
     },
     computed: {
@@ -317,6 +329,7 @@ export default {
         },
         submitNewRecipe(){
             this.addNewRecipe(this.recipeToSubmit)
+            this.showAddRecipeDialog = true
         },
         onSubmitIngredients() {
             const new_ingredient= {
