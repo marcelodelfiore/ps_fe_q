@@ -123,6 +123,15 @@
                     />
                 </div>
 
+                <div class="col-1 q-pa-sm">
+                    <q-btn color="negative" class="q-ml-sm" @click="removeIngredientRow(index)">
+                        <q-tooltip content-style="font-size: 16px">
+                            Remover ingrediente
+                        </q-tooltip>
+                        <q-icon name="delete_forever"></q-icon>
+                    </q-btn>
+                </div>
+            
             </div>
 
             <div class="row">
@@ -134,12 +143,21 @@
             :key="index">
                 <div class="col q-pa-sm">
                     <q-input
-                        clearable
                         filled
-                        v-model="recipeToSubmit.prep_steps[index].description"
+                        v-model="recipeToSubmit.prep_steps[index]"
                         label="Preparo"
                     />
                 </div>
+            
+                <div class="col-1 q-pa-sm">
+                    <q-btn color="negative" class="q-ml-sm" @click="removePrepStepRow(index)">
+                        <q-tooltip content-style="font-size: 16px">
+                            Remover preparo
+                        </q-tooltip>
+                        <q-icon name="delete_forever"></q-icon>
+                    </q-btn>
+                </div>
+
             </div>
 
             <!-- submit changes -->
@@ -153,6 +171,18 @@
 
         </q-form>
 
+        <q-dialog v-model="showEditRecipeDialog">
+            <q-card>
+                <q-card-section>
+                    <div class="text-h6">Sua receita foi salva !!!</div>
+                </q-card-section>
+
+                <q-card-actions align="right">
+                    <q-btn flat label="OK" color="primary" v-close-popup />
+                </q-card-actions>
+            </q-card>
+        </q-dialog>
+
     </div>
 </template>
 
@@ -163,7 +193,8 @@ export default {
     data(){
         return{
             shareOptionsLabels: ['Sim', 'Não'],
-            recipeToSubmit: {}
+            recipeToSubmit: {}, 
+            showEditRecipeDialog: false
         }
     },
     props: ['recipeID', 'recipeToEdit'],
@@ -179,9 +210,15 @@ export default {
                 id: this.recipeID,
                 recipe: this.recipeToSubmit
             }
-            console.log('payload: ', payload)
             this.editRecipe(payload)
+            this.showEditRecipeDialog = true
         },
+        removeIngredientRow(row){
+            this.recipeToSubmit.ingredients.splice(row,1)
+        },
+        removePrepStepRow(row){
+            this.recipeToSubmit.prep_steps.splice(row,1)
+        }
     }, 
     mounted() {
             this.recipeToSubmit = Object.assign({}, this.recipeToEdit)
