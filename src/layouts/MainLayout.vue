@@ -136,59 +136,77 @@ export default {
           seq: 2
         },
         {
-          title: '',
-          icon: '',
-          link: '',
-          seq: 3
-        },
-        {
           title: 'Receitas Compartilhadas',
           icon: 'menu_book',
           link: '/recipesShared',
-          seq: 4
+          seq: 3
         },
         {
           title: 'Defumados',
           icon: 'img:icons/camping.svg',
           link: '/recipesSmoked',
-          seq: 5
+          seq: 4
         },
         {
           title: 'Maturados',
           icon: 'img:icons/prosciuto2.svg',
           link: '/recipesAged',
-          seq: 6
+          seq: 5
         },
         {
           title: 'Produtos Frescos',
           icon: 'img:icons/fresh.svg',
           link: '/recipesFresh',
-          seq: 7
+          seq: 6
         },
         {
           title: 'Emulsificados',
           icon: 'img:icons/sausages.svg',
           link: '/recipesEmulsified',
-          seq: 8
+          seq: 7
         },
         {
           title: 'Cozidos',
           icon: 'img:icons/ham.svg',
           link: '/recipesCooked',
-          seq: 9
+          seq: 8
         },
         {
           title: '',
           icon: '',
           link: '',
-          seq: 10
+          seq: 9
         },
         {
           title: 'Criar nova receita',
           icon: 'add_circle',
           link: '/addRecipe',
+          seq: 10
+        },
+        {
+          title: '',
+          icon: '',
+          link: '',
           seq: 11
         },
+        {
+          title: 'Custo de Receitas - BREVE',
+          icon: 'img:icons/cost.svg',
+          link: '',
+          seq: 12
+        },
+        {
+          title: '',
+          icon: '',
+          link: '',
+          seq: 13
+        },
+        {
+          title: 'Maturação das Peças - BREVE',
+          icon: 'img:icons/notepad.svg',
+          link: '',
+          seq: 14
+        }
       ],
       sampleLinks: [
         {
