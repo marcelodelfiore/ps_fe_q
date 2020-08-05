@@ -8,7 +8,6 @@ export function registerUser({}, payload) {
     Loading.show()
     firebaseAuth.createUserWithEmailAndPassword(payload.email, payload.password)
         .then(response => {
-            console.log('response: ', response)
         })
         .catch(error => {
             showErrorMessage(error.message)
