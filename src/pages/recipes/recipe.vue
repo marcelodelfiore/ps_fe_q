@@ -63,7 +63,7 @@
           :key="index">
           <div class="row">
             <div class="col">
-              {{ step.description }}
+              {{ step }}
             </div>
           </div>              
         </div>
