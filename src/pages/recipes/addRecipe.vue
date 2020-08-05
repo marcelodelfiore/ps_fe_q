@@ -233,7 +233,7 @@
                     <div class="col-3 q-pa-md text-center">
                         <h6><strong>Preparos adicionados</strong></h6>
                         <div v-for="(prepStep, index) in recipeToSubmit.prep_steps" :key="index">
-                            - {{ prepStep.description }}
+                            - {{ prepStep }}
                         </div>
                     </div>
 
@@ -347,10 +347,7 @@ export default {
             
         },
         onSubmitPrepSteps() {
-            const new_prepStep = {
-                description: this.prepStepToInput
-            }
-            this.recipeToSubmit.prep_steps.push(new_prepStep)
+            this.recipeToSubmit.prep_steps.push(this.prepStepToInput)
             this.onResetPrepSteps()
         },
         onResetPrepSteps() {
