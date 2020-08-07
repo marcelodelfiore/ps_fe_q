@@ -39,6 +39,7 @@ export function handleAuthStateChange({ commit, dispatch }) {
         }
         commit('setUserData', userData)
         dispatch('recipes/firebaseReadData', null, {root:true})
+        this.$router.replace('/')
     }
     else {
           commit('setLoggedIn', false)
