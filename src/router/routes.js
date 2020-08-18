@@ -64,6 +64,12 @@ const routes = [
       { path: '/categories/:id',
       component: () => import('pages/categories/category.vue')
       },
+      { path: '/privacy',
+      component: () => import('pages/privacy_policy.vue')
+      },
+      { path: '/terms',
+      component: () => import('pages/use_terms.vue')
+      },
       { 
         path: '/auth', 
         component: () => import('pages/auth/auth.vue') 

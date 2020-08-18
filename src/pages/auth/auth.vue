@@ -36,7 +36,6 @@ export default {
 	methods:{
 		facebookLogin: function(){
 		var provider = new firebase.auth.FacebookAuthProvider();
-		provider.addScope('user_birthday');
 		firebase.auth().signInWithRedirect(provider);
 		firebase.auth().getRedirectResult()
 		.then(function(result) {

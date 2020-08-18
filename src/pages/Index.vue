@@ -9,14 +9,10 @@
     <div class="row text-center q-ma-lg q-pa-lg">
       <div class="col text-h6">
         O Porksmith foi criado para que você possa dedicar-se à elaboração e aprimoramento de suas receitas,
-        deixando o trabalho repetitivo e mecânico por nossa conta. Estamos constantemente aperfeiçoando-o e
-        implementando novas funcionalidades, sob
-        a orientação e supervisão cuidadosa de praticantes da arte de charcutaria, dessa forma suas funcionalidades são
-        cuidadosamente implementados para facilitar nossa vida.
+        deixando o trabalho repetitivo e mecânico por nossa conta.
         <br>
         <br>
-        Esperamos que gostem e se tiverem sugestões, não hesitem em contatar-nos por algum dos meios mostrados 
-        no final da página.
+        Esperamos que gostem e se tiverem sugestões, não hesitem em contatar-nos usando nossas redes sociais.
         <br>
         <br>
         <br>
@@ -43,6 +39,11 @@
       <div class="col">
         <q-btn size="xl" @click="openExternalURL('https://www.instagram.com/porksmithApp')"
           icon="img:/icons/instagram.svg" flat
+        />
+      </div>
+      <div class="col">
+        <q-btn size="xl" @click="openExternalURL('https://www.youtube.com/channel/UCNw9nb_mmUYsSwsh0O6oXvw')"
+          icon="img:/icons/youtube.svg" flat
         />
       </div>
       <div class="col">
