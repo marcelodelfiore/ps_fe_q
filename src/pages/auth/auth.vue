@@ -1,14 +1,54 @@
 <template>
 	<q-page padding>
-		<div class="row">
-			<div class="col-5">
+		<div class="row q-pa-lg">
+			<div class="col-4">
 
 			</div>
-			<div v-if="!userLoggedIn" class="col q-pa-lg text-white fixed-center" style="background-color: #3b5998">
+			<div v-if="!userLoggedIn" class="col-4 text-center">
+				<q-card class="auth-tabs">
+					<q-tabs
+						v-model="tab"
+						dense
+						class="text-grey"
+						active-color="primary"
+						indicator-color="primary"
+						align="justify"
+						narrow-indicator
+					>
+						<q-tab name="login" label="Entrar" />
+						<q-tab name="register" label="Registrar" />
+					</q-tabs>
+
+
+					<q-separator />
+
+					<q-tab-panels v-model="tab" animated>
+						<q-tab-panel name="login">
+						<LoginRegister :tab="tab" />
+						</q-tab-panel>
+
+						<q-tab-panel name="register">
+						<LoginRegister :tab="tab" />
+						</q-tab-panel>
+
+					</q-tab-panels>
+				</q-card>
+			</div>
+
+			<div class="col-4">
+
+			</div>
+		</div>
+
+		<div class="row q-pa-lg">
+			<div class="col-4">
+
+			</div>
+			<div v-if="!userLoggedIn" class="col-4 text-white text-center" style="background-color: #3b5998">
 				<q-btn flat @click="facebookLogin" align="around" icon="img:icons/facebook.svg">Entrar com Facebook</q-btn>
 			</div>
 		
-			<div class="col-5">
+			<div class="col-4">
 
 			</div>
 		</div>
@@ -24,7 +64,12 @@ import * as firebase from "firebase"
 
 import "firebase/auth"
 
+import LoginRegister from 'components/auth/LoginRegister'
+
 export default {
+	components:{
+		LoginRegister
+	},
 	data () {
 		return {
 			tab: 'login'
